@@ -19,12 +19,15 @@
           <option value="360dialog">
             {{ $t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.360_DIALOG') }}
           </option>
+          <option value="360dialogAPI">
+            360DIALOGAPI
+          </option>
         </select>
       </label>
     </div>
 
     <twilio v-if="provider === 'twilio'" type="whatsapp" />
-    <three-sixty-dialog-whatsapp v-else-if="provider === '360dialog'" />
+    <three-sixty-dialog-whatsapp v-else-if="provider === '360dialog'" v-else-if="provider === '360dialogAPI'" />
     <cloud-whatsapp v-else />
   </div>
 </template>
