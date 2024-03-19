@@ -20,10 +20,10 @@
             {{ $t('INBOX_MGMT.ADD.WHATSAPP.PROVIDERS.360_DIALOG') }}
           </option>
           <option value="360dialogCloudAPI">
-            360DialogCloudAPI
+            360Dialog Cloud API
           </option>
           <option value="ChatclassCloudAPI">
-            ChatclassCloudAPI
+            Chatclass Cloud API
           </option>
         </select>
       </label>
