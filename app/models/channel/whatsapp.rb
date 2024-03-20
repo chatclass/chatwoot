@@ -44,8 +44,7 @@ class Channel::Whatsapp < ApplicationRecord
     when 'whatsapp_cloud'
       Whatsapp::Providers::WhatsappCloudService.new(whatsapp_channel: self)
     when '360dialogCloudAPI'
-      #Whatsapp::Providers::Whatsapp360DialogCloudApiService.new(whatsapp_channel: self)  
-      Whatsapp::Providers::WhatsappCloudService.new(whatsapp_channel: self)
+      Whatsapp::Providers::Whatsapp360DialogCloudApiService.new(whatsapp_channel: self)  
     else
       Whatsapp::Providers::Whatsapp360DialogService.new(whatsapp_channel: self)
     end
