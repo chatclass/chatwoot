@@ -9,6 +9,8 @@ class Whatsapp::IncomingMessageBaseService
   def perform
     processed_params
 
+    Rails.logger.info "Perform Testing"
+
     if processed_params.try(:[], :statuses).present?
       process_statuses
     elsif processed_params.try(:[], :messages).present?
@@ -21,6 +23,9 @@ class Whatsapp::IncomingMessageBaseService
   def process_messages
     # We don't support reactions & ephemeral message now, we need to skip processing the message
     # if the webhook event is a reaction or an ephermal message or an unsupported message.
+
+    Rails.logger.info "Process messages"
+
     return if unprocessable_message_type?(message_type)
 
     # Multiple webhook event can be received against the same message due to misconfigurations in the Meta

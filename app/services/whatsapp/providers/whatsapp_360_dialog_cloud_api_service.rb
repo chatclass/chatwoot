@@ -38,7 +38,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       "#{api_base_path}/waba_webhook",
       headers: { 'D360-API-KEY': whatsapp_channel.provider_config['api_key'], 'Content-Type': 'application/json' },
       body: {
-        url: "#{ENV.fetch('FRONTEND_URL', nil)}/webhook"
+        url: "#{ENV.fetch('FRONTEND_URL', nil)}/webhooks/whatsapp"
       }.to_json
     )
     response.success?
