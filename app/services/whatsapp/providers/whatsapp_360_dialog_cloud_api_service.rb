@@ -1,4 +1,4 @@
-class Whatsapp::Providers::Whatsapp360DialogCloudAPIService < Whatsapp::Providers::BaseService
+class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Providers::BaseService
   def send_message(phone_number, message)
     if message.attachments.present?
       send_attachment_message(phone_number, message)
