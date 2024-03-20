@@ -30,18 +30,15 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     whatsapp_channel.update(message_templates: response['waba_templates'], message_templates_last_updated: Time.now.utc) if response.success?
   end
 
-  def validate_provider_config?
-    Rails.logger.info "[APIKey] #{whatsapp_channel.provider_config['api_key']}"
-    #Rails.logger.error "[APIKey] #{whatsapp_channel.provider_config['api_key']}"
-    
+  def validate_provider_config?    
     response = HTTParty.post(
       "#{api_base_path}/waba_webhook",
       headers: { 'D360-API-KEY': whatsapp_channel.provider_config['api_key'], 'Content-Type': 'application/json' },
       body: {
-        url: "#{ENV.fetch('FRONTEND_URL', nil)}/webhooks/whatsapp"
+        url: "#{ENV.fetch('FRONTEND_URL', nil)}/webhooks/whatsapp/#{whatsapp_channel.phone_number}"
       }.to_json
     )
-    response.success?
+    !response.message.empty?
   end
 
   def api_headers
