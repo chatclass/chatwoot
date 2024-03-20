@@ -42,6 +42,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     #  }.to_json
     #)
     #response.success?
+    true
   end
 
   def api_headers
