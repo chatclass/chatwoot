@@ -31,8 +31,8 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
   end
 
   def validate_provider_config?
-    print whatsapp_channel.provider_config['api_key']
-    puts whatsapp_channel.provider_config['api_key']
+    Rails.logger.info "[APIKey] #{whatsapp_channel.provider_config['api_key']}"
+    
     response = HTTParty.post(
       "#{api_base_path}/waba_webhook",
       headers: { 'D360-API-KEY': whatsapp_channel.provider_config['api_key'], 'Content-Type': 'application/json' },
