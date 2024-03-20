@@ -32,7 +32,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def validate_provider_config?
     response = HTTParty.post(
-      "#{api_base_path}/configs/webhook",
+      "#{api_base_path}/waba_webhook",
       headers: { 'D360-API-KEY': whatsapp_channel.provider_config['api_key'], 'Content-Type': 'application/json' },
       body: {
         url: "#{ENV.fetch('FRONTEND_URL', nil)}/webhooks/whatsapp"
