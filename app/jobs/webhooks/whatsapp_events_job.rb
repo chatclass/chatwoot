@@ -30,6 +30,7 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   end
 
   def find_channel_by_url_param(params)
+    Rails.logger.info "FIND CHANNEL"
     return unless params[:phone_number]
 
     Channel::Whatsapp.find_by(phone_number: params[:phone_number])
@@ -45,6 +46,7 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   end
 
   def get_channel_from_wb_payload(wb_params)
+    Rails.logger.info "GET CHANNEL"
     phone_number = "+#{wb_params[:entry].first[:changes].first.dig(:value, :metadata, :display_phone_number)}"
     phone_number_id = wb_params[:entry].first[:changes].first.dig(:value, :metadata, :phone_number_id)
     channel = Channel::Whatsapp.find_by(phone_number: phone_number)
