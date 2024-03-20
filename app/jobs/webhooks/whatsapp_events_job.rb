@@ -2,6 +2,7 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   queue_as :low
 
   def perform(params = {})
+    Rails.logger.info "Perform PARAMS"
     channel = find_channel_from_whatsapp_business_payload(params)
     return if channel_is_inactive?(channel)
 
