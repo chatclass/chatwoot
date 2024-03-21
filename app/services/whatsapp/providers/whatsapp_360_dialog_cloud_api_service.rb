@@ -38,7 +38,13 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
         url: "#{ENV.fetch('FRONTEND_URL', nil)}/webhooks/whatsapp/#{whatsapp_channel.phone_number}"
       }.to_json
     )
-    response.success?
+
+    if response.success?
+      response.success?
+    else
+      Rails.logger.error response.body
+      nil
+    end
   end
 
   def api_headers
