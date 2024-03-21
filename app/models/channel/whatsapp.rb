@@ -28,7 +28,7 @@ class Channel::Whatsapp < ApplicationRecord
   PROVIDERS = %w[default whatsapp_cloud 360dialogCloudAPI].freeze
   before_validation :ensure_webhook_verify_token
 
-  validates :provider, inclusion: { in: PROVIDERS }
+  #validates :provider, inclusion: { in: PROVIDERS }
   validates :phone_number, presence: true, uniqueness: true
   validate :validate_provider_config
 
