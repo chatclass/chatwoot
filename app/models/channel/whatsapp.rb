@@ -29,10 +29,10 @@ class Channel::Whatsapp < ApplicationRecord
   before_validation :ensure_webhook_verify_token
 
   validates :provider, inclusion: { in: PROVIDERS }
-  validates :phone_number, presence: true, uniqueness: true
+  #validates :phone_number, presence: true, uniqueness: true
   #validate :validate_provider_config
 
-  after_create :sync_templates
+  #after_create :sync_templates
 
   def name
     'Whatsapp'
@@ -40,7 +40,6 @@ class Channel::Whatsapp < ApplicationRecord
 
   def provider_service
 
-    Rails.logger.info "PROVIDER SERVICE #{provider}"
     case provider
     when 'whatsapp_cloud'
       Whatsapp::Providers::WhatsappCloudService.new(whatsapp_channel: self)
