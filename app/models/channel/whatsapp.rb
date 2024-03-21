@@ -32,7 +32,7 @@ class Channel::Whatsapp < ApplicationRecord
   validates :phone_number, presence: true, uniqueness: true
   validate :validate_provider_config
 
-  after_create :sync_templates
+  #after_create :sync_templates
 
   def name
     'Whatsapp'
