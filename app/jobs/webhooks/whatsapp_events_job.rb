@@ -51,9 +51,9 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
     Rails.logger.info "GET CHANNEL phone_number #{phone_number} phone_number_id #{phone_number_id}" 
     channel = Channel::Whatsapp.find_by(phone_number: phone_number)
 
-    Rails.logger.info "CHANNEL #{channel}"
     Rails.logger.info "CHANNEL PHONE NUMBER ID #{channel.provider_config['phone_number_id']}"
     # validate to ensure the phone number id matches the whatsapp channel
-    return channel if channel && channel.provider_config['phone_number_id'] == phone_number_id
+    #return channel if channel && channel.provider_config['phone_number_id'] == phone_number_id
+    return channel
   end
 end
