@@ -22,6 +22,10 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   private
 
   def channel_is_inactive?(channel)
+    Rails.logger.info "CHANNEL channel_is_inactive blank #{channel.blank?}"
+    Rails.logger.info "CHANNEL channel_is_inactive reauthorization_required #{channel.reauthorization_required?}"
+    Rails.logger.info "CHANNEL channel_is_inactive account #{channel.account.active?}"
+
     return true if channel.blank?
     return true if channel.reauthorization_required?
     return true unless channel.account.active?
@@ -30,7 +34,6 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   end
 
   def find_channel_by_url_param(params)
-    Rails.logger.info "FIND CHANNEL"
     return unless params[:phone_number]
 
     Channel::Whatsapp.find_by(phone_number: params[:phone_number])
@@ -51,7 +54,7 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
     Rails.logger.info "GET CHANNEL phone_number #{phone_number} phone_number_id #{phone_number_id}" 
     channel = Channel::Whatsapp.find_by(phone_number: phone_number)
 
-    Rails.logger.info "CHANNEL PHONE NUMBER ID #{channel.provider_config['phone_number_id']}"
+    Rails.logger.info "CHANNEL PHONE NUMBER ID #{channel.phone_number}"
     # validate to ensure the phone number id matches the whatsapp channel
     #return channel if channel && channel.provider_config['phone_number_id'] == phone_number_id
     return channel
