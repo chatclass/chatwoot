@@ -1,10 +1,13 @@
 class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Providers::BaseService
   def send_message(phone_number, message)
     if message.attachments.present?
+      Rails.logger.info "Send Message Attachment"
       send_attachment_message(phone_number, message)
     elsif message.content_type == 'input_select'
+      Rails.logger.info "Send interactive text"
       send_interactive_text_message(phone_number, message)
     else
+      Rails.logger.info "Send text message"
       send_text_message(phone_number, message)
     end
   end
@@ -14,6 +17,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       "#{api_base_path}/messages",
       headers: api_headers,
       body: {
+        messaging_product: 'whatsapp',
         to: phone_number,
         template: template_body_parameters(template_info),
         type: 'template'
@@ -61,6 +65,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       "#{api_base_path}/messages",
       headers: api_headers,
       body: {
+        messaging_product: 'whatsapp',
         recipient_type: 'individual',
         to: phone_number,
         text: { body: message.content },
@@ -83,6 +88,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       "#{api_base_path}/messages",
       headers: api_headers,
       body: {
+        messaging_product: 'whatsapp',
         'to' => phone_number,
         'type' => type,
         type.to_s => type_content
@@ -123,6 +129,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       "#{api_base_path}/messages",
       headers: api_headers,
       body: {
+        messaging_product: 'whatsapp',
         to: phone_number,
         interactive: payload,
         type: 'interactive'

@@ -10,8 +10,10 @@ class Whatsapp::SendOnWhatsappService < Base::SendOnChannelService
     Rails.logger.info "PERFORM REPLY"
     should_send_template_message = template_params.present? || !message.conversation.can_reply?
     if should_send_template_message
+      Rails.logger.info "PERFORM send_template_message"
       send_template_message
     else
+      Rails.logger.info "PERFORM send_session_message"
       send_session_message
     end
   end
