@@ -23,10 +23,7 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   private
 
   def channel_is_inactive?(channel)
-    Rails.logger.info "CHANNEL channel_is_inactive blank #{channel.blank?}"
-    Rails.logger.info "CHANNEL channel_is_inactive reauthorization_required #{channel.reauthorization_required?}"
-    Rails.logger.info "CHANNEL channel_is_inactive account #{channel.account.active?}"
-
+    
     return true if channel.blank?
     return true if channel.reauthorization_required?
     return true unless channel.account.active?
