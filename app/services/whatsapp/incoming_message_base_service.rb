@@ -10,6 +10,7 @@ class Whatsapp::IncomingMessageBaseService
     processed_params
 
     Rails.logger.info "Perform Testing"
+    Rails.logger.info "Perform processed_params #{processed_params}"
 
     if processed_params.try(:[], :statuses).present?
       Rails.logger.info "Process Status"
