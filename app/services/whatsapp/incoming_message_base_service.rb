@@ -12,13 +12,13 @@ class Whatsapp::IncomingMessageBaseService
     Rails.logger.info "Perform Testing"
     Rails.logger.info "Perform processed_params #{processed_params}"
 
-    if processed_params.try(:[], :statuses).present?
-      Rails.logger.info "Process Status"
-      process_statuses
-    elsif processed_params.try(:[], :messages).present?
-      Rails.logger.info "Process Messages"
+    #if processed_params.try(:[], :statuses).present?
+    #  Rails.logger.info "Process Status"
+    #  process_statuses
+    #elsif processed_params.try(:[], :messages).present?
+    #  Rails.logger.info "Process Messages"
       process_messages
-    end
+    #end
   end
 
   private
