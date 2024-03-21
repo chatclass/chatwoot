@@ -30,7 +30,7 @@ class Channel::Whatsapp < ApplicationRecord
 
   validates :provider, inclusion: { in: PROVIDERS }
   validates :phone_number, presence: true, uniqueness: true
-  #validate :validate_provider_config
+  validate :validate_provider_config
 
   after_create :sync_templates
 
@@ -40,6 +40,7 @@ class Channel::Whatsapp < ApplicationRecord
 
   def provider_service
 
+    Rails.logger.info "PROVIDER SERVICE #{provider}"
     case provider
     when 'whatsapp_cloud'
       Whatsapp::Providers::WhatsappCloudService.new(whatsapp_channel: self)
