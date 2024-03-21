@@ -29,10 +29,10 @@ class Channel::Whatsapp < ApplicationRecord
   before_validation :ensure_webhook_verify_token
 
   validates :provider, inclusion: { in: PROVIDERS }
-  #validates :phone_number, presence: true, uniqueness: true
-  #validate :validate_provider_config
+  validates :phone_number, presence: true, uniqueness: true
+  validate :validate_provider_config
 
-  #after_create :sync_templates
+  after_create :sync_templates
 
   def name
     'Whatsapp'
@@ -43,10 +43,10 @@ class Channel::Whatsapp < ApplicationRecord
     case provider
     when 'whatsapp_cloud'
       Whatsapp::Providers::WhatsappCloudService.new(whatsapp_channel: self)
-    when '360dialogCloudAPI'
-      Whatsapp::Providers::Whatsapp360DialogCloudApiService.new(whatsapp_channel: self)  
+    #when '360dialogCloudAPI'
+    #  Whatsapp::Providers::Whatsapp360DialogCloudApiService.new(whatsapp_channel: self)  
     else
-      Whatsapp::Providers::Whatsapp360DialogService.new(whatsapp_channel: self)
+      Whatsapp::Providers::Whatsapp360DialogCloudApiService.new(whatsapp_channel: self)
     end
 
   end
