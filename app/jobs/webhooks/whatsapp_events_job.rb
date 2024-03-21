@@ -17,7 +17,7 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
     #else
     #  Rails.logger.info "Perform D360 PARAMS 3"
     #  Whatsapp::IncomingMessageService.new(inbox: channel.inbox, params: params).perform
-    end
+    #end
   end
 
   private
