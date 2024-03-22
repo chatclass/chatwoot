@@ -78,10 +78,7 @@ class Whatsapp::Providers::BaseService
   end
 
 
-  def valid_json?(json)
-    JSON.parse(json)
-    true
-  rescue JSON::ParserError, TypeError => e
-    false
+  def valid_json?(string)
+    !!(JSON.parse(string) || true) rescue false
   end
 end
