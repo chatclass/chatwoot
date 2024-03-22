@@ -9,7 +9,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     elsif message.content_type == 'input_select'
       Rails.logger.info "Send interactive text"
       send_interactive_text_message(phone_number, message)
-    elsif message.content_type == 'interactive'
+    elsif message.content.content_type == 'interactive'
       Rails.logger.info "Send interactive bot"
       send_interactive_custom_message(phone_number, message)     
     else
@@ -154,7 +154,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       body: {
         messaging_product: 'whatsapp',
         to: phone_number,
-        interactive: message.content,
+        interactive: message.content.content,
         type: 'interactive'
       }.to_json
     )
