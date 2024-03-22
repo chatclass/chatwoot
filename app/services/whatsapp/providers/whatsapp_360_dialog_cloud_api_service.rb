@@ -1,16 +1,22 @@
 class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Providers::BaseService
   def send_message(phone_number, message)
+
     Rails.logger.info "Send message #{message}"
+        
     if message.attachments.present?
       Rails.logger.info "Send Message Attachment"
       send_attachment_message(phone_number, message)
     elsif message.content_type == 'input_select'
       Rails.logger.info "Send interactive text"
       send_interactive_text_message(phone_number, message)
+    elsif valid_json(message.content)
+      Rails.logger.info "Send custom message"
+      send_custom_message(phone_number, JSON.parse(message))  
     else
       Rails.logger.info "Send text message"
       send_text_message(phone_number, message)
     end
+
   end
 
   def send_template(phone_number, template_info)
@@ -135,6 +141,16 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
         interactive: payload,
         type: 'interactive'
       }.to_json
+    )
+
+    process_response(response)
+  end
+
+  def send_custom_message(phone_number, payload)
+    response = HTTParty.post(
+      "#{api_base_path}/messages",
+      headers: api_headers,
+      body: payload.to_json
     )
 
     process_response(response)

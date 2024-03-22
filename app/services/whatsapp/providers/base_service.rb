@@ -76,4 +76,12 @@ class Whatsapp::Providers::BaseService
     json_hash = { :button => 'Choose an item', 'sections' => sections }
     create_payload('list', message.content, JSON.generate(json_hash))
   end
+
+
+  def valid_json?(json)
+    JSON.parse(json)
+    true
+  rescue JSON::ParserError, TypeError => e
+    false
+  end
 end
