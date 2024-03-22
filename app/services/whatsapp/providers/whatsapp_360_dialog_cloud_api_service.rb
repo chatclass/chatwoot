@@ -1,5 +1,6 @@
 class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Providers::BaseService
   def send_message(phone_number, message)
+    Rails.logger.info "Send message #{message}"
     if message.attachments.present?
       Rails.logger.info "Send Message Attachment"
       send_attachment_message(phone_number, message)
