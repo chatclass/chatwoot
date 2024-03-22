@@ -129,19 +129,6 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     #  )
     #end
 
-
-    response = HTTParty.post(
-      "#{api_base_path}/messages",
-      headers: api_headers,
-      body: {
-        messaging_product: 'whatsapp',
-        recipient_type: 'individual',
-        to: phone_number,
-        text: { body: message.content },
-        type: 'text'
-      }.to_json
-    )
-
     process_response(response)
   end
 
