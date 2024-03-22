@@ -69,7 +69,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def send_text_message(phone_number, message)
 
-    if message.content.start_with?("{")
+    #if message.content.start_with?("{")
 
       #json_content = JSON.parse(message.content)
       json_content = '{
@@ -115,19 +115,19 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
           type: 'interactive'
         }.to_json
       )
-    else
-      response = HTTParty.post(
-        "#{api_base_path}/messages",
-        headers: api_headers,
-        body: {
-          messaging_product: 'whatsapp',
-          recipient_type: 'individual',
-          to: phone_number,
-          text: { body: message.content },
-          type: 'text'
-        }.to_json
-      )
-    end
+    #else
+    #  response = HTTParty.post(
+    #    "#{api_base_path}/messages",
+    #    headers: api_headers,
+    #    body: {
+    #      messaging_product: 'whatsapp',
+    #      recipient_type: 'individual',
+    #      to: phone_number,
+    #      text: { body: message.content },
+    #      type: 'text'
+    #    }.to_json
+    #  )
+    #end
 
 
     response = HTTParty.post(
