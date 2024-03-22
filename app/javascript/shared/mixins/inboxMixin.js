@@ -128,7 +128,8 @@ export default {
   },
   methods: {
     inboxHasFeature(feature) {
-      return INBOX_FEATURE_MAP[feature]?.includes(this.channelType) ?? false;
+      return true;
+      //return INBOX_FEATURE_MAP[feature]?.includes(this.channelType) ?? false;
     },
   },
 };
