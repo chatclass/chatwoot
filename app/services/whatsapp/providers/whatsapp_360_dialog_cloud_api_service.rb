@@ -2,6 +2,8 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
   def send_message(phone_number, message)
 
     Rails.logger.info "Send message #{message}"
+
+    content = JSON.parse(message.content)
         
     if message.attachments.present?
       Rails.logger.info "Send Message Attachment"
@@ -9,9 +11,9 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     elsif message.content_type == 'input_select'
       Rails.logger.info "Send interactive text"
       send_interactive_text_message(phone_number, message)
-    elsif valid_json?(message.content)
-      Rails.logger.info "Send interactive bot"
-      send_interactive_custom_message(phone_number, message)     
+    #elsif message.contentontent_type == "interactive" 
+    #  Rails.logger.info "Send interactive bot"
+    #  send_interactive_custom_message(phone_number, message)     
     else
       Rails.logger.info "Send text message"
       send_text_message(phone_number, message)
@@ -68,6 +70,68 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
   end
 
   def send_text_message(phone_number, message)
+
+    if message.content.start_with("{")
+
+      #json_content = JSON.parse(message.content)
+      json_content = '{
+        "interactive": {
+            "type": "button",
+            "header": {
+                "type": "text",
+                "text": "Header"
+            },
+            "body": {
+                "text": "Detalhes da sua convocação"
+            },
+            "action": {
+                "buttons": [
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "idbutton",
+                            "title": ":x: Aceitar convocação"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "button id 2",
+                            "title": ":x: Recusar convocação"
+                        }
+                    }
+                ]
+            }
+        }
+      }'
+
+
+      response = HTTParty.post(
+        "#{api_base_path}/messages",
+        headers: api_headers,
+        body: {
+          messaging_product: 'whatsapp',
+          recipient_type: 'individual',
+          to: phone_number,
+          interactive: JSON.parse(json_content),
+          type: 'interactive'
+        }.to_json
+      )
+    else
+      response = HTTParty.post(
+        "#{api_base_path}/messages",
+        headers: api_headers,
+        body: {
+          messaging_product: 'whatsapp',
+          recipient_type: 'individual',
+          to: phone_number,
+          text: { body: message.content },
+          type: 'text'
+        }.to_json
+      )
+    end
+
+
     response = HTTParty.post(
       "#{api_base_path}/messages",
       headers: api_headers,
