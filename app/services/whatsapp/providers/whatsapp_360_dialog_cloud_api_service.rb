@@ -9,9 +9,9 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     elsif message.content_type == 'input_select'
       Rails.logger.info "Send interactive text"
       send_interactive_text_message(phone_number, message)
-    elsif valid_json?(message.content)
-      Rails.logger.info "Send custom message"
-      send_custom_message(phone_number, JSON.parse(message))  
+    elsif message.content_type == 'interactive'
+      Rails.logger.info "Send interactive bot"
+      send_interactive_custom_message(phone_number, message)     
     else
       Rails.logger.info "Send text message"
       send_text_message(phone_number, message)
@@ -146,13 +146,20 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     process_response(response)
   end
 
-  def send_custom_message(phone_number, payload)
+  def send_interactive_custom_message(phone_number, message)
+    
     response = HTTParty.post(
       "#{api_base_path}/messages",
       headers: api_headers,
-      body: payload.to_json
+      body: {
+        messaging_product: 'whatsapp',
+        to: phone_number,
+        interactive: message.content,
+        type: 'interactive'
+      }.to_json
     )
 
     process_response(response)
   end
+  
 end
