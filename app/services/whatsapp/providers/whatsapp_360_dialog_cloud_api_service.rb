@@ -69,7 +69,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def send_text_message(phone_number, message)
 
-    if message.content.start_with("{")
+    if message.content.start_with?("{")
 
       #json_content = JSON.parse(message.content)
       json_content = '{
