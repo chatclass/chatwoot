@@ -313,7 +313,7 @@ export default {
         copy: this.hasText,
         delete: this.hasText || this.hasAttachments,
         cannedResponse: this.isOutgoing && this.hasText,
-        replyTo: !this.data.private && true, //this.inboxSupportsReplyTo.outgoing,
+        replyTo: !this.data.private && this.inboxSupportsReplyTo.outgoing,
       };
     },
     contentAttributes() {

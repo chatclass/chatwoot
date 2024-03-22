@@ -306,8 +306,7 @@ export default {
     inboxSupportsReplyTo() {
       const incoming = this.inboxHasFeature(INBOX_FEATURES.REPLY_TO);
       const outgoing =
-        this.inboxHasFeature(INBOX_FEATURES.REPLY_TO_OUTGOING) &&
-        !this.is360DialogWhatsAppChannel;
+        this.inboxHasFeature(INBOX_FEATURES.REPLY_TO_OUTGOING);//&& !this.is360DialogWhatsAppChannel;
 
       return { incoming, outgoing };
     },
