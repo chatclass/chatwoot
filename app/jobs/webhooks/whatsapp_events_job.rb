@@ -10,7 +10,6 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
 
     #case channel.provider
     #when 'whatsapp_cloud'
-      Rails.logger.info "Perform Whatsapp Cloud PARAMS 3"
       Whatsapp::IncomingMessageWhatsappCloudService.new(inbox: channel.inbox, params: params).perform
     #when '360dialogCloudAPI'
     #  Whatsapp::IncomingMessageService.new(inbox: channel.inbox, params: params).perform
@@ -23,7 +22,7 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   private
 
   def channel_is_inactive?(channel)
-    
+
     return true if channel.blank?
     return true if channel.reauthorization_required?
     return true unless channel.account.active?
