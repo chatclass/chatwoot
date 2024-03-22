@@ -2,8 +2,6 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
   def send_message(phone_number, message)
 
     Rails.logger.info "Send message #{message}"
-
-    content = JSON.parse(message.content)
         
     if message.attachments.present?
       Rails.logger.info "Send Message Attachment"
