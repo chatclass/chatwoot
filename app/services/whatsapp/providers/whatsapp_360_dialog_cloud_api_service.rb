@@ -72,7 +72,6 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     if message.content.start_with?("{")
 
       json_content = '{
-        "interactive": {
             "type": "button",
             "header": {
                 "type": "text",
@@ -99,8 +98,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
                     }
                 ]
             }
-        }
-      }'
+        }'
 
 
       response = HTTParty.post(
