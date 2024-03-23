@@ -71,34 +71,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
     if message.content.start_with?("{")
 
-      json_content = '{
-            "type": "button",
-            "header": {
-                "type": "text",
-                "text": "Header"
-            },
-            "body": {
-                "text": "Detalhes da sua convocação"
-            },
-            "action": {
-                "buttons": [
-                    {
-                        "type": "reply",
-                        "reply": {
-                            "id": "idbutton",
-                            "title": ":x: Aceitar convocação"
-                        }
-                    },
-                    {
-                        "type": "reply",
-                        "reply": {
-                            "id": "button id 2",
-                            "title": ":x: Recusar convocação"
-                        }
-                    }
-                ]
-            }
-        }'
+      json_content = '{"type":"button", "body":{"text":":abanando: Oi, tudo bem? Boas-vindas ao *ChatBot Rehsult*. Para começarmos, aceite os nossos termos de uso: https://www.chatclass.ai/br/termos"}, "action":{"buttons":[{"type":"reply", "reply":{"id":"register", "title":"Continuar"}}, {"type":"reply", "reply":{"id":"optout", "title":"Não quero participar"}}]}, "header":{"type":"image", "image":{"link":"https://studio-staging.chatclass.org/assets/e0ac421f-8709-4c8e-adda-0fd0fd939b1f"}}}'
 
 
       response = HTTParty.post(
