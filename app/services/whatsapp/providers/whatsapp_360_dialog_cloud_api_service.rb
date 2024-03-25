@@ -154,7 +154,10 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     json_hash = JSON.parse(message.content.to_json)
     
     Rails.logger.info "send_interactive_custom_message #{json_hash.scan(/(?:'type':")(.*?)(?:")/).first}"    
-    Rails.logger.info "send_interactive_custom_message S #{json_hash.to_s}"    
+
+    json_parse = JSON.parse(json_hash.to_s)
+
+    Rails.logger.info "send_interactive_custom_message Parse #{json_parse["type"]}"    
 
     response = HTTParty.post(
       "#{api_base_path}/messages",
