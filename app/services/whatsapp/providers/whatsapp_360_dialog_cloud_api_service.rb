@@ -149,7 +149,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def send_interactive_custom_message(phone_number, message)
        
-    json_hash = JSON.parse(message.content.to_json)
+    json_hash = JSON.parse(message.content[1..-2].to_json)
 
     Rails.logger.info "send_interactive_custom_message #{json_hash.class}"
     Rails.logger.info "send_interactive_custom_message interactive #{message.content.class}"
