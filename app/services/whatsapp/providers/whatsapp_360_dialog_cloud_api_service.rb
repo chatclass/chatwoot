@@ -173,7 +173,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       body: {
         messaging_product: 'whatsapp',
         to: phone_number,
-        interactive: JSON.Parse(message.content),
+        interactive: JSON.parse(message.content),
         type: 'interactive'
       }.to_json
     )
