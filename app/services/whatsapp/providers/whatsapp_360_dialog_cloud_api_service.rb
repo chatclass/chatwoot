@@ -163,7 +163,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
         messaging_product: 'whatsapp',
         to: phone_number,
         type: "interactive",
-        interactive: message.content.to_json
+        interactive: message.content
       }.to_json
     )
 
