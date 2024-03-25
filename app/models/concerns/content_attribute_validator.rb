@@ -21,6 +21,9 @@ class ContentAttributeValidator < ActiveModel::Validator
       validate_items!(record)
       validate_item_attributes!(record, ALLOWED_ARTICLE_KEYS)
     end
+    when 'interactive'
+    validate_items!(record)
+    validate_item_attributes!(record, ALLOWED_SELECT_ITEM_KEYS)
   end
 
   private
