@@ -165,9 +165,8 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
         messaging_product: 'whatsapp',
         to: phone_number,
         recipient_type: 'individual',
-        #type: "interactive",
-        #interactive: JSON.parse(json_interactive)
-        JSON.parse(json_interactive)
+        type: "interactive",
+        interactive: JSON.parse(json_interactive)
       }.to_json
     )
 
