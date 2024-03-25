@@ -151,14 +151,15 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
        
     #json_interactive = message.content.to_json    
 
-    #json_interactive = '{"type":"button", "body":{"text":":abanando: Oi, tudo bem? Boas-vindas ao *ChatBot Rehsult*. Para começarmos, aceite os nossos termos de uso: https://www.chatclass.ai/br/termos"}, "action":{"buttons":[{"type":"reply", "reply":{"id":"register", "title":"Continuar"}}, {"type":"reply", "reply":{"id":"optout", "title":"Não quero participar"}}]}, "header":{"type":"image", "image":{"link":"https://studio-staging.chatclass.org/assets/e0ac421f-8709-4c8e-adda-0fd0fd939b1f"}}}'
+    json_interactive_accepted = '{"type":"button", "body":{"text":":abanando: Oi, tudo bem? Boas-vindas ao *ChatBot Rehsult*. Para começarmos, aceite os nossos termos de uso: https://www.chatclass.ai/br/termos"}, "action":{"buttons":[{"type":"reply", "reply":{"id":"register", "title":"Continuar"}}, {"type":"reply", "reply":{"id":"optout", "title":"Não quero participar"}}]}, "header":{"type":"image", "image":{"link":"https://studio-staging.chatclass.org/assets/e0ac421f-8709-4c8e-adda-0fd0fd939b1f"}}}'
 
     json_interactive = "{\"type\"=\u003e\"button\", \"body\"=\u003e{\"text\"=\u003e\":abanando: Oi, tudo bem? Boas-vindas ao *ChatBot Rehsult*. Para começarmos, aceite os nossos termos de uso: https://www.chatclass.ai/br/termos\"}, \"action\"=\u003e{\"buttons\"=\u003e[{\"type\"=\u003e\"reply\", \"reply\"=\u003e{\"id\"=\u003e\"register\", \"title\"=\u003e\"Continuar\"}}, {\"type\"=\u003e\"reply\", \"reply\"=\u003e{\"id\"=\u003e\"optout\", \"title\"=\u003e\"Não quero participar\"}}]}, \"header\"=\u003e{\"type\"=\u003e\"image\", \"image\"=\u003e{\"link\"=\u003e\"https://studio-staging.chatclass.org/assets/e0ac421f-8709-4c8e-adda-0fd0fd939b1f\"}}}"
 
 
     #json_parse = JSON.parse(json_hash.to_json)
 
-    Rails.logger.info "send_interactive_custom_message Class #{JSON.parse(json_interactive).class}" 
+    Rails.logger.info "send_interactive_custom_message Class #{JSON.parse(json_interactive.to_json).class}" 
+    Rails.logger.info "send_interactive_custom_message Class Correct #{JSON.parse(json_interactive_accepted).class}" 
 
     response = HTTParty.post(
       "#{api_base_path}/messages",
@@ -168,7 +169,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
         to: phone_number,
         recipient_type: 'individual',
         type: "interactive",
-        interactive: JSON.parse(json_interactive)
+        interactive: JSON.parse(json_interactive_accepted)
       }.to_json
     )
 
