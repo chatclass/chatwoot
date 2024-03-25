@@ -149,25 +149,22 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def send_interactive_custom_message(phone_number, message)
     
-    #message_content = {
-    #  messaging_product: 'whatsapp',
-    #  to: phone_number
-    #}    
+    message_content = {
+      messaging_product: 'whatsapp',
+      to: phone_number
+    }        
 
-    #body_content = JSON.dump(message_content.merge(JSON.parse(message.content.to_json)))
-
-    json_content = message.content.to_json
-
-    body_content = JSON.parse("{'messaging_product': 'whatsapp', 'to':#{phone_number}, #{json_content[1..-1]}")
-
-    #body_content.merge({
-    #  "messaging_product" => 'whatsapp', "to" => phone_number
-    #})
+    json_content = JSON.parse(message.content.to_json)
 
     response = HTTParty.post(
       "#{api_base_path}/messages",
       headers: api_headers,
-      body: body_content.to_json
+      body: {
+        messaging_product: 'whatsapp',
+        to: phone_number,
+        type: json_content.type,
+        interactive: type: json_content.interactive
+      }.to_json
     )
 
     process_response(response)
