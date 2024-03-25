@@ -2,8 +2,6 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
   def send_message(phone_number, message)
 
     Rails.logger.info "Send message #{message}"
-
-    Rails.logger.info "Send message content #{message.content.class}"
         
     if message.attachments.present?
       Rails.logger.info "Send Message Attachment"
@@ -168,7 +166,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
         to: phone_number,
         recipient_type: 'individual',
         type: "interactive",
-        interactive: JSON.parse(json_interactive)
+        interactive: json_interactive
       }.to_json
     )
 
