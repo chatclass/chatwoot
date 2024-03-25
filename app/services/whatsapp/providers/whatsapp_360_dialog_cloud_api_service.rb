@@ -68,36 +68,18 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
   end
 
   def send_text_message(phone_number, message)
-
-    if message.content.start_with?("{")
-
-      json_content = '{"type":"button", "body":{"text":":abanando: Oi, tudo bem? Boas-vindas ao *ChatBot Rehsult*. Para começarmos, aceite os nossos termos de uso: https://www.chatclass.ai/br/termos"}, "action":{"buttons":[{"type":"reply", "reply":{"id":"register", "title":"Continuar"}}, {"type":"reply", "reply":{"id":"optout", "title":"Não quero participar"}}]}, "header":{"type":"image", "image":{"link":"https://studio-staging.chatclass.org/assets/e0ac421f-8709-4c8e-adda-0fd0fd939b1f"}}}'
-
-
-      response = HTTParty.post(
-        "#{api_base_path}/messages",
-        headers: api_headers,
-        body: {
-          messaging_product: 'whatsapp',
-          recipient_type: 'individual',
-          to: phone_number,
-          interactive: JSON.parse(json_content),
-          type: 'interactive'
-        }.to_json
-      )
-    else
-      response = HTTParty.post(
-        "#{api_base_path}/messages",
-        headers: api_headers,
-        body: {
-          messaging_product: 'whatsapp',
-          recipient_type: 'individual',
-          to: phone_number,
-          text: { body: message.content },
-          type: 'text'
-        }.to_json
-      )
-    end
+   
+    response = HTTParty.post(
+      "#{api_base_path}/messages",
+      headers: api_headers,
+      body: {
+        messaging_product: 'whatsapp',
+        recipient_type: 'individual',
+        to: phone_number,
+        text: { body: message.content },
+        type: 'text'
+      }.to_json
+    )
 
     process_response(response)
   end
@@ -167,17 +149,19 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def send_interactive_custom_message(phone_number, message)
     
-    json_content = JSON.parse(message.content)
+    body_content = {
+      messaging_product: 'whatsapp',
+      to: phone_number
+    }    
+
+    body = JSON.dump(body_content.merge(JSON.parse(message.content)))
+    
+    JSON.parse(message.content)
 
     response = HTTParty.post(
       "#{api_base_path}/messages",
       headers: api_headers,
-      body: {
-        messaging_product: 'whatsapp',
-        to: phone_number,
-        interactive: json_content,
-        type: 'interactive'
-      }.to_json
+      body: body.to_json
     )
 
     process_response(response)
