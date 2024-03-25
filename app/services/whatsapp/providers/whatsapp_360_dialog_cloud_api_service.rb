@@ -151,7 +151,11 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def send_interactive_custom_message(phone_number, message)
        
-    json_interactive = JSON.parse(message.content.to_json)      
+    #json_interactive = message.content.to_json
+
+    json_interactive = '{"type":"button", "body":{"text":":abanando: Oi, tudo bem? Boas-vindas ao *ChatBot Rehsult*. Para começarmos, aceite os nossos termos de uso: https://www.chatclass.ai/br/termos"}, "action":{"buttons":[{"type":"reply", "reply":{"id":"register", "title":"Continuar"}}, {"type":"reply", "reply":{"id":"optout", "title":"Não quero participar"}}]}, "header":{"type":"image", "image":{"link":"https://studio-staging.chatclass.org/assets/e0ac421f-8709-4c8e-adda-0fd0fd939b1f"}}}'
+
+
     #json_parse = JSON.parse(json_hash.to_json)
 
     Rails.logger.info "send_interactive_custom_message Parse #{message.content_attributes['type']}"    
@@ -162,8 +166,9 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       body: {
         messaging_product: 'whatsapp',
         to: phone_number,
+        recipient_type: 'individual',
         type: "interactive",
-        interactive: json_interactive
+        interactive: JSON.parse(json_interactive)
       }.to_json
     )
 
