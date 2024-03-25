@@ -151,13 +151,15 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
        
     json_interactive = message.content.to_json
 
+    serialized = JSON.generate(message.content)
+
     #json_interactive = '{"type":"button", "body":{"text":":abanando: Oi, tudo bem? Boas-vindas ao *ChatBot Rehsult*. Para começarmos, aceite os nossos termos de uso: https://www.chatclass.ai/br/termos"}, "action":{"buttons":[{"type":"reply", "reply":{"id":"register", "title":"Continuar"}}, {"type":"reply", "reply":{"id":"optout", "title":"Não quero participar"}}]}, "header":{"type":"image", "image":{"link":"https://studio-staging.chatclass.org/assets/e0ac421f-8709-4c8e-adda-0fd0fd939b1f"}}}'
 
 
     #json_parse = JSON.parse(json_hash.to_json)
 
-    Rails.logger.info "send_interactive_custom_message Class #{json_interactive.class}"    
-    Rails.logger.info "send_interactive_custom_message Class 2 #{JSON.parse(json_interactive).class}"    
+    Rails.logger.info "send_interactive_custom_message Class #{serialized}"    
+    Rails.logger.info "send_interactive_custom_message Class 2 #{JSON.parse(serialized).class}"    
 
     response = HTTParty.post(
       "#{api_base_path}/messages",
