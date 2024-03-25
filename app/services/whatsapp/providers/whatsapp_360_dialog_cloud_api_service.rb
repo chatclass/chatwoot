@@ -156,7 +156,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
     #body_content = JSON.dump(message_content.merge(JSON.parse(message.content.to_json)))
 
-    body_content = JSON.parse("{'messaging_product': 'whatsapp', 'to':#{phone_number}}, " + message.content.to_json)    
+    body_content = JSON.parse("{'messaging_product': 'whatsapp', 'to':#{phone_number}, " + message.content[1..-1].to_json)    
 
     #body_content.merge({
     #  "messaging_product" => 'whatsapp', "to" => phone_number
