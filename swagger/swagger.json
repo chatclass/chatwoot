@@ -5767,7 +5767,8 @@
             "text",
             "input_select",
             "cards",
-            "form"
+            "form",
+            "interactive"
           ],
           "description": "The type of the template message"
         },
