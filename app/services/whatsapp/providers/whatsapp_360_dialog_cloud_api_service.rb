@@ -151,10 +151,10 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def send_interactive_custom_message(phone_number, message)
        
-    json_hash = JSON.parse(message.content.to_json)      
-    json_parse = JSON.parse(json_hash.to_json)
+    #json_hash = JSON.parse(message.content.to_json)      
+    #json_parse = JSON.parse(json_hash.to_json)
 
-    Rails.logger.info "send_interactive_custom_message Parse #{json_parse["type"]}"    
+    #Rails.logger.info "send_interactive_custom_message Parse #{json_parse["type"]}"    
 
     response = HTTParty.post(
       "#{api_base_path}/messages",
@@ -162,8 +162,8 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       body: {
         messaging_product: 'whatsapp',
         to: phone_number,
-        type: json_hash["type"],
-        interactive: json_hash["interactive"]
+        type: "interactive",
+        interactive: message.content.to_json
       }.to_json
     )
 
