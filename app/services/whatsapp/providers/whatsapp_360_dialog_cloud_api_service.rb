@@ -154,9 +154,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       to: phone_number
     }    
 
-    body = JSON.dump(body_content.merge(JSON.parse(message.content)))
-    
-    JSON.parse(message.content)
+    body = JSON.dump(body_content.merge(JSON.parse(message.content.to_json)))      
 
     response = HTTParty.post(
       "#{api_base_path}/messages",
