@@ -149,7 +149,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def send_interactive_custom_message(phone_number, message)
        
-    json_interactive = message.content_body.gsub("=\u003e", ":")   
+    json_interactive = message.content.gsub("=\u003e", ":")   
 
     #json_interactive_accepted = '{"type":"button", "body":{"text":":abanando: Oi, tudo bem? Boas-vindas ao *ChatBot Rehsult*. Para começarmos, aceite os nossos termos de uso: https://www.chatclass.ai/br/termos"}, "action":{"buttons":[{"type":"reply", "reply":{"id":"register", "title":"Continuar"}}, {"type":"reply", "reply":{"id":"optout", "title":"Não quero participar"}}]}, "header":{"type":"image", "image":{"link":"https://studio-staging.chatclass.org/assets/e0ac421f-8709-4c8e-adda-0fd0fd939b1f"}}}'
     #json_interactive = "{\"type\"=\u003e\"button\", \"body\"=\u003e{\"text\"=\u003e\":abanando: Oi, tudo bem? Boas-vindas ao *ChatBot Rehsult*. Para começarmos, aceite os nossos termos de uso: https://www.chatclass.ai/br/termos\"}, \"action\"=\u003e{\"buttons\"=\u003e[{\"type\"=\u003e\"reply\", \"reply\"=\u003e{\"id\"=\u003e\"register\", \"title\"=\u003e\"Continuar\"}}, {\"type\"=\u003e\"reply\", \"reply\"=\u003e{\"id\"=\u003e\"optout\", \"title\"=\u003e\"Não quero participar\"}}]}, \"header\"=\u003e{\"type\"=\u003e\"image\", \"image\"=\u003e{\"link\"=\u003e\"https://studio-staging.chatclass.org/assets/e0ac421f-8709-4c8e-adda-0fd0fd939b1f\"}}}"
