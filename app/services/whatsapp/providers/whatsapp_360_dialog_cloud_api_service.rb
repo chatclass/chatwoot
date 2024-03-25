@@ -158,7 +158,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
     #json_parse = JSON.parse(json_hash.to_json)
 
-    Rails.logger.info "send_interactive_custom_message Class #{JSON.parse(json_interactive.gsub("=\u003e", ":")).class}" 
+    Rails.logger.info "send_interactive_custom_message Class #{JSON.parse(json_interactive.gsub("=\u003e", ":")).type}" 
     Rails.logger.info "send_interactive_custom_message Class Correct #{JSON.parse(json_interactive_accepted).class}" 
     Rails.logger.info "send_interactive_custom_message Class Test #{json_interactive.to_json}" 
 
