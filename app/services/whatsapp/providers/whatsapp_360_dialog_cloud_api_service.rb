@@ -13,7 +13,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       send_interactive_text_message(phone_number, message)
     elsif message.content.start_with?("{")
       Rails.logger.info "Send interactive bot #{message.content.to_json}"
-      Rails.logger.info "Send interactive bot type #{message.content.scan(/(?:"type":")(.*?)(?:")/).first}"
+      Rails.logger.info "Send interactive bot type #{message.content.scan(/(?:"type":")(.*?)(?:")/).last}"
       send_interactive_custom_message(phone_number, message)     
     else
       Rails.logger.info "Send text message"
