@@ -78,7 +78,7 @@ class Whatsapp::IncomingMessageBaseService
   def create_regular_message(message)
     Rails.logger.info "Process create_regular_message"
     create_message(message)
-    Rails.logger.info "Process attach_filesSSS"
+    Rails.logger.info "Process attach_files"
     attach_files
     attach_location if message_type == 'location'
     @message.save!
@@ -116,8 +116,6 @@ class Whatsapp::IncomingMessageBaseService
   def attach_files
     return if %w[text button interactive location contacts].include?(message_type)
 
-    Rails.logger.info "Process attach_files"
-
     attachment_payload = @processed_params[:messages].first[message_type.to_sym]
     @message.content ||= attachment_payload[:caption]
 
@@ -128,6 +126,8 @@ class Whatsapp::IncomingMessageBaseService
     Rails.logger.info "Process attachment_file"
 
     return if attachment_file.blank?
+
+    Rails.logger.info "Process attachments.new #{attachment_file.original_filename}"
 
     @message.attachments.new(
       account_id: @message.account_id,
