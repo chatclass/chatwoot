@@ -119,8 +119,6 @@ class Whatsapp::IncomingMessageBaseService
     attachment_payload = @processed_params[:messages].first[message_type.to_sym]
     @message.content ||= attachment_payload[:caption]
 
-    Rails.logger.info "Process attachment_payload"
-
     attachment_file = download_attachment_file(attachment_payload)
 
     Rails.logger.info "Process attachment_file"
