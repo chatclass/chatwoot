@@ -1,10 +1,8 @@
 <template>
   <div class="message-text__wrap" :class="attachmentTypeClasses">
     <img
-      v-if="isImage && !isImageError"
       class="bg-woot-200 dark:bg-woot-900"
-      :alt="dataUrl"
-      src="blob:https://web.whatsapp.com/427d957e-99f5-49fb-a6b0-7ae964410e8a"
+      :src="dataUrl"
       :width="imageWidth"
       :height="imageHeight"
       @click="onClick"
