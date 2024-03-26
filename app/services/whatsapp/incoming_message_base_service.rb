@@ -76,7 +76,9 @@ class Whatsapp::IncomingMessageBaseService
   end
 
   def create_regular_message(message)
+    Rails.logger.info "Process create_regular_message"
     create_message(message)
+    Rails.logger.info "Process attach_filesSSS"
     attach_files
     attach_location if message_type == 'location'
     @message.save!
