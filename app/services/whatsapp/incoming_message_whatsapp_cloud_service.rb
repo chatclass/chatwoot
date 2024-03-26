@@ -9,6 +9,7 @@ class Whatsapp::IncomingMessageWhatsappCloudService < Whatsapp::IncomingMessageB
   end
 
   def download_attachment_file(attachment_payload)
+    Rails.logger.info('XXXXXXXXXXXXX download_attachment_file')
     url_response = HTTParty.get(inbox.channel.media_url(attachment_payload[:id]), headers: inbox.channel.api_headers)
     # This url response will be failure if the access token has expired.
     inbox.channel.authorization_error! if url_response.unauthorized?
