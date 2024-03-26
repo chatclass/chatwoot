@@ -10,9 +10,9 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
 
     #case channel.provider
     #when 'whatsapp_cloud'
-      Whatsapp::IncomingMessageWhatsappCloudService.new(inbox: channel.inbox, params: params).perform
+      #Whatsapp::IncomingMessageWhatsappCloudService.new(inbox: channel.inbox, params: params).perform
     #when '360dialogCloudAPI'
-    #  Whatsapp::IncomingMessageService.new(inbox: channel.inbox, params: params).perform
+      Whatsapp::IncomingMessageService.new(inbox: channel.inbox, params: params).perform
     #else
     #  Rails.logger.info "Perform D360 PARAMS 3"
     #  Whatsapp::IncomingMessageService.new(inbox: channel.inbox, params: params).perform
