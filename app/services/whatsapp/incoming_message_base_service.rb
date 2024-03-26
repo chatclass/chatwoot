@@ -114,10 +114,17 @@ class Whatsapp::IncomingMessageBaseService
   def attach_files
     return if %w[text button interactive location contacts].include?(message_type)
 
+    Rails.logger.info "Process attach_files"
+
     attachment_payload = @processed_params[:messages].first[message_type.to_sym]
     @message.content ||= attachment_payload[:caption]
 
+    Rails.logger.info "Process attachment_payload"
+
     attachment_file = download_attachment_file(attachment_payload)
+
+    Rails.logger.info "Process attachment_file"
+
     return if attachment_file.blank?
 
     @message.attachments.new(
