@@ -1,5 +1,7 @@
 module Whatsapp::IncomingMessageServiceHelpers
   def download_attachment_file(attachment_payload)
+    Rails.logger.info "Download Attachment #{inbox.channel.media_url(attachment_payload[:id])}"
+    Rails.logger.info "Download Attachment ID #{attachment_payload[:id]}"
     Down.download(inbox.channel.media_url(attachment_payload[:id]), headers: inbox.channel.api_headers)
   end
 
