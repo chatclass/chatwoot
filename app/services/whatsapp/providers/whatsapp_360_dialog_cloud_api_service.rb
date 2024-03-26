@@ -57,7 +57,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
   end
 
   def media_url(media_id)
-    "#{api_base_path}/media/#{media_id}"
+    "https://waba.360dialog.io/v1/media/#{media_id}"
   end
 
   private
