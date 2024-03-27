@@ -1,6 +1,8 @@
 <template>
   <div class="message-text__wrap" :class="attachmentTypeClasses">
+   <input type="button">button</input>
     <img
+      v-if="isImage && !isImageError"
       class="bg-woot-200 dark:bg-woot-900"
       :src="dataUrl"
       :width="imageWidth"
