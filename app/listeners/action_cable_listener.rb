@@ -2,7 +2,6 @@ class ActionCableListener < BaseListener
   include Events::Types
 
   def notification_created(event)
-    Rails.logger.info('notification_created Perform')
     notification, account, unread_count, count = extract_notification_and_account(event)
     tokens = [event.data[:notification].user.pubsub_token]
     broadcast(account, tokens, NOTIFICATION_CREATED, { notification: notification.push_event_data, unread_count: unread_count, count: count })
@@ -202,11 +201,8 @@ class ActionCableListener < BaseListener
   def broadcast(account, tokens, event_name, data)
     return if tokens.blank?
 
-    Rails.logger.info('Broadcast Perform')
-
     payload = data.merge(account_id: account.id)
 
-    Rails.logger.info('Payload merged')
     # So the frondend knows who performed the action.
     # Useful in cases like conversation assignment for generating a notification with assigner name.
     payload[:performer] = Current.user&.push_event_data if Current.user.present?
