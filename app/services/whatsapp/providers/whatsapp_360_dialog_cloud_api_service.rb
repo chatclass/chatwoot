@@ -58,7 +58,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
     "#{api_base_path}/#{media_id}"
   end
 
-  def api_url(media_id)
+  def api_url()
     "#{api_base_path}"
   end
 
