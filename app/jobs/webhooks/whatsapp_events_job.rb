@@ -5,14 +5,13 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
     Rails.logger.info "Perform PARAMS"
     channel = find_channel_from_whatsapp_business_payload(params)
     return if channel_is_inactive?(channel)
-
     Rails.logger.info "Perform PARAMS 2"
 
     #case channel.provider
     #when 'whatsapp_cloud'
-      Whatsapp::IncomingMessageWhatsappCloudService.new(inbox: channel.inbox, params: params).perform
+      #Whatsapp::IncomingMessageWhatsappCloudService.new(inbox: channel.inbox, params: params).perform
     #when '360dialogCloudAPI'
-      #Whatsapp::IncomingMessageService.new(inbox: channel.inbox, params: params).perform
+      Whatsapp::IncomingMessageService.new(inbox: channel.inbox, params: params).perform
     #else
     #  Rails.logger.info "Perform D360 PARAMS 3"
     #  Whatsapp::IncomingMessageService.new(inbox: channel.inbox, params: params).perform
@@ -47,11 +46,7 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
 
   def get_channel_from_wb_payload(wb_params)
     phone_number = "+#{wb_params[:entry].first[:changes].first.dig(:value, :metadata, :display_phone_number)}"
-    phone_number_id = wb_params[:entry].first[:changes].first.dig(:value, :metadata, :phone_number_id)
-    Rails.logger.info "GET CHANNEL phone_number #{phone_number} phone_number_id #{phone_number_id}" 
     channel = Channel::Whatsapp.find_by(phone_number: phone_number)
-
-    Rails.logger.info "CHANNEL PHONE NUMBER ID #{channel.phone_number}"
     # validate to ensure the phone number id matches the whatsapp channel
     #return channel if channel && channel.provider_config['phone_number_id'] == phone_number_id
     return channel

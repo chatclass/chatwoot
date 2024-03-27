@@ -13,8 +13,6 @@ class Whatsapp::IncomingMessageWhatsappCloudService < Whatsapp::IncomingMessageB
     # This url response will be failure if the access token has expired.
     inbox.channel.authorization_error! if url_response.unauthorized?
 
-    d360_media_url = url_response.parsed_response['url'].gsub("lookaside.fbsbx.com", "waba-v2.360dialog.io")
-
-    Down.download(d360_media_url, headers: inbox.channel.api_headers) if url_response.success?
+    Down.download(url_response.parsed_response['url'], headers: inbox.channel.api_headers) if url_response.success?
   end
 end

@@ -76,9 +76,9 @@ class Whatsapp::IncomingMessageBaseService
   end
 
   def create_regular_message(message)
-    Rails.logger.info "Process create_regular_message"
+
     create_message(message)
-    Rails.logger.info "Process attach_files"
+
     attach_files
     attach_location if message_type == 'location'
     @message.save!
@@ -121,11 +121,7 @@ class Whatsapp::IncomingMessageBaseService
 
     attachment_file = download_attachment_file(attachment_payload)
 
-    Rails.logger.info "Process attachment_file"
-
     return if attachment_file.blank?
-
-    Rails.logger.info "Process attachments.new #{attachment_file.original_filename}"
 
     @message.attachments.new(
       account_id: @message.account_id,
@@ -152,7 +148,6 @@ class Whatsapp::IncomingMessageBaseService
   end
 
   def create_message(message)
-    Rails.logger.info('create_message')
     @message = @conversation.messages.build(
       content: message_content(message),
       account_id: @inbox.account_id,

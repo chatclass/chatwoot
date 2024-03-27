@@ -2,7 +2,6 @@ class Webhooks::WhatsappController < ActionController::API
   include MetaTokenVerifyConcern
 
   def process_payload
-    Rails.logger.info('Whatsapp webhook received events')
     Webhooks::WhatsappEventsJob.perform_later(params.to_unsafe_hash)
     head :ok
   end
