@@ -1,7 +1,7 @@
 {
-  "name": "Agent Desk",
-  "description": "Agent desk is a customer support tool for instant messaging channels",
-  "website": "https://www.chatclass.ia/",
+  "name": "Chatshop Desk",
+  "description": "Chatshop desk is a customer support tool for instant messaging channels",
+  "website": "https://www.chatclass.ai/",
   "repository": "https://github.com/chatclass/chatwoot",
   "logo": "https://assets-global.website-files.com/645123229d84328b5ca8ccbc/6452633e46c3ab286dc6de62_Logo.svg",
   "keywords": [
@@ -27,7 +27,7 @@
     },
     "FRONTEND_URL": {
       "description": "Public root URL of the Chatwoot installation. This will be used in the emails.",
-      "value": "https://agentdesk.chatclass.org"
+      "value": "https://inbox.chatshop.ai"
     },
     "INSTALLATION_ENV": {
       "description": "Installation method used for Chatwoot.",
