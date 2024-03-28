@@ -31,6 +31,7 @@ class ActionCableListener < BaseListener
   end
 
   def message_created(event)
+    Rails.logger.info('message_created Perform')
     message, account = extract_message_and_account(event)
     conversation = message.conversation
     tokens = user_tokens(account, conversation.inbox.members) + contact_tokens(conversation.contact_inbox, message)
@@ -201,6 +202,7 @@ class ActionCableListener < BaseListener
     return if tokens.blank?
 
     payload = data.merge(account_id: account.id)
+
     # So the frondend knows who performed the action.
     # Useful in cases like conversation assignment for generating a notification with assigner name.
     payload[:performer] = Current.user&.push_event_data if Current.user.present?

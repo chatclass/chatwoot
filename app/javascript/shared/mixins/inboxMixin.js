@@ -81,8 +81,7 @@ export default {
     },
     isAWhatsAppCloudChannel() {
       return (
-        this.channelType === INBOX_TYPES.WHATSAPP &&
-        this.whatsAppAPIProvider === 'whatsapp_cloud'
+        this.channelType === INBOX_TYPES.WHATSAPP// &&        this.whatsAppAPIProvider === 'whatsapp_cloud'
       );
     },
     is360DialogWhatsAppChannel() {
@@ -129,7 +128,8 @@ export default {
   },
   methods: {
     inboxHasFeature(feature) {
-      return INBOX_FEATURE_MAP[feature]?.includes(this.channelType) ?? false;
+      return true;
+      //return INBOX_FEATURE_MAP[feature]?.includes(this.channelType) ?? false;
     },
   },
 };

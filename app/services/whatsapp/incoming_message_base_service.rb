@@ -9,9 +9,13 @@ class Whatsapp::IncomingMessageBaseService
   def perform
     processed_params
 
+    Rails.logger.info "Perform Processed_params #{processed_params}"
+
     if processed_params.try(:[], :statuses).present?
+      Rails.logger.info "Process Status"
       process_statuses
     elsif processed_params.try(:[], :messages).present?
+      Rails.logger.info "Process Messages"
       process_messages
     end
   end
@@ -72,7 +76,9 @@ class Whatsapp::IncomingMessageBaseService
   end
 
   def create_regular_message(message)
+
     create_message(message)
+
     attach_files
     attach_location if message_type == 'location'
     @message.save!
@@ -114,6 +120,7 @@ class Whatsapp::IncomingMessageBaseService
     @message.content ||= attachment_payload[:caption]
 
     attachment_file = download_attachment_file(attachment_payload)
+
     return if attachment_file.blank?
 
     @message.attachments.new(

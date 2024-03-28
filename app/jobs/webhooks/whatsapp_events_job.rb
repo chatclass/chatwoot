@@ -2,8 +2,10 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   queue_as :low
 
   def perform(params = {})
+    Rails.logger.info "Perform WhatsappEventsJob"
     channel = find_channel_from_whatsapp_business_payload(params)
     return if channel_is_inactive?(channel)
+    Rails.logger.info "Perform Channel #{channel.provider}"
 
     case channel.provider
     when 'whatsapp_cloud'
@@ -16,6 +18,7 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
   private
 
   def channel_is_inactive?(channel)
+
     return true if channel.blank?
     return true if channel.reauthorization_required?
     return true unless channel.account.active?
@@ -40,9 +43,9 @@ class Webhooks::WhatsappEventsJob < ApplicationJob
 
   def get_channel_from_wb_payload(wb_params)
     phone_number = "+#{wb_params[:entry].first[:changes].first.dig(:value, :metadata, :display_phone_number)}"
-    phone_number_id = wb_params[:entry].first[:changes].first.dig(:value, :metadata, :phone_number_id)
     channel = Channel::Whatsapp.find_by(phone_number: phone_number)
     # validate to ensure the phone number id matches the whatsapp channel
-    return channel if channel && channel.provider_config['phone_number_id'] == phone_number_id
+    #return channel if channel && channel.provider_config['phone_number_id'] == phone_number_id
+    return channel
   end
 end

@@ -112,8 +112,7 @@ export default {
     },
     isWhatsAppCloudInbox() {
       return (
-        this.currentInbox.channel_type === 'Channel::Whatsapp' &&
-        this.currentInbox.provider === 'whatsapp_cloud'
+        this.currentInbox.channel_type === 'Channel::Whatsapp'// && this.currentInbox.provider === 'whatsapp_cloud'
       );
     },
     message() {
