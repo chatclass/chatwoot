@@ -43,7 +43,7 @@ class Channel::Whatsapp < ApplicationRecord
     case provider
     when 'whatsapp_cloud'
       Whatsapp::Providers::WhatsappCloudService.new(whatsapp_channel: self)
-    else
+    else      
       Whatsapp::Providers::Whatsapp360DialogCloudApiService.new(whatsapp_channel: self)
     end
 

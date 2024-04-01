@@ -17,10 +17,8 @@ class SendReplyJob < ApplicationJob
 
     case channel_name
     when 'Channel::FacebookPage'
-      Rails.logger.info "FACEBOOK PAGE"
       send_on_facebook_page(message)
     else
-      Rails.logger.info "WHATSAPP channel #{channel_name}"
       services[channel_name].new(message: message).perform if services[channel_name].present?
     end
   end
