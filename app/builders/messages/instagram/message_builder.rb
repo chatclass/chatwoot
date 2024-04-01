@@ -131,7 +131,8 @@ class Messages::Instagram::MessageBuilder < Messages::Messenger::MessageBuilder
       sender: @outgoing_echo ? nil : contact,
       content_attributes: {
         in_reply_to_external_id: message_reply_attributes
-      }
+      },
+      raw_payload: message
     }
 
     params[:content_attributes][:is_unsupported] = true if message_is_unsupported?
