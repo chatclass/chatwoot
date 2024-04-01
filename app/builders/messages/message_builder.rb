@@ -151,7 +151,7 @@ class Messages::MessageBuilder
       in_reply_to: @in_reply_to,
       echo_id: @params[:echo_id],
       source_id: @params[:source_id],
-      raw_payload: @params[:raw_payload]
+      raw_payload: @params[:content]
     }.merge(external_created_at).merge(automation_rule_id).merge(campaign_id).merge(template_params)
   end
 end
