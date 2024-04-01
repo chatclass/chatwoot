@@ -21,6 +21,7 @@ class ConversationBuilder
     additional_attributes = params[:additional_attributes]&.permit! || {}
     custom_attributes = params[:custom_attributes]&.permit! || {}
     status = params[:status].present? ? { status: params[:status] } : {}
+    raw_payload = params[:raw_payload]&.permit! || {}
 
     # TODO: temporary fallback for the old bot status in conversation, we will remove after couple of releases
     # commenting this out to see if there are any errors, if not we can remove this in subsequent releases
@@ -31,6 +32,7 @@ class ConversationBuilder
       contact_id: @contact_inbox.contact_id,
       contact_inbox_id: @contact_inbox.id,
       additional_attributes: additional_attributes,
+      raw_payload: raw_payload,
       custom_attributes: custom_attributes,
       snoozed_until: params[:snoozed_until],
       assignee_id: params[:assignee_id],
