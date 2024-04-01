@@ -21,6 +21,7 @@
 #  inbox_id                  :integer          not null
 #  sender_id                 :bigint
 #  source_id                 :string
+#  raw_payload               :jsonb
 #
 # Indexes
 #
@@ -172,7 +173,7 @@ class Message < ApplicationRecord
   def webhook_data
     data = {
       account: account.webhook_data,
-      additional_attributes: additional_attributes,
+      raw_payload: raw_payload,
       content_attributes: content_attributes,
       content_type: content_type,
       content: content,
