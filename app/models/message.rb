@@ -173,7 +173,7 @@ class Message < ApplicationRecord
   def webhook_data
     data = {
       account: account.webhook_data,
-      raw_payload: message,      
+      #raw_payload: message,      
       content_attributes: content_attributes,
       content_type: content_type,
       content: content,
