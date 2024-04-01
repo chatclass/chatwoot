@@ -40,14 +40,14 @@ class Channel::Whatsapp < ApplicationRecord
 
   def provider_service
 
-    case provider
-    when 'whatsapp_cloud'
-      Rails.logger.info "Provider #{provider}"
-      Whatsapp::Providers::WhatsappCloudService.new(whatsapp_channel: self)
-    else
-      Rails.logger.info "Provider #{provider}"
+    #case provider
+    #when 'whatsapp_cloud'
+    #  Rails.logger.info "Provider #{provider}"
+    #  Whatsapp::Providers::WhatsappCloudService.new(whatsapp_channel: self)
+    #else
+    #  Rails.logger.info "Provider #{provider}"
       Whatsapp::Providers::Whatsapp360DialogCloudApiService.new(whatsapp_channel: self)
-    end
+    #end
 
   end
 
