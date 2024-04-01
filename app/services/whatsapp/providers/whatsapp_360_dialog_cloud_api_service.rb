@@ -70,8 +70,6 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
   end
 
   def send_text_message(phone_number, message)
-    Rails.logger.info "send_text_message"
-
     response = HTTParty.post(
       "#{api_base_path}/messages",
       headers: api_headers,
@@ -174,7 +172,6 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
 
   def whatsapp_reply_context(message)    
     reply_to = message.content_attributes[:in_reply_to_external_id]
-    Rails.logger.info "Reply to #{reply_to}"
     return nil if reply_to.blank?
 
     {
