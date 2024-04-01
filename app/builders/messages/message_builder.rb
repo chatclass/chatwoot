@@ -7,8 +7,7 @@ class Messages::MessageBuilder
     @private = params[:private] || false
     @conversation = conversation
     @user = user
-    @message_type = params[:message_type] || 'outgoing'
-    @raw_payload = params[:message]
+    @message_type = params[:message_type] || 'outgoing'   
     @attachments = params[:attachments]
     @automation_rule = content_attributes&.dig(:automation_rule_id)
     return unless params.instance_of?(ActionController::Parameters)
@@ -139,6 +138,10 @@ class Messages::MessageBuilder
     AgentBot.where(account_id: [nil, @conversation.account.id]).find_by(id: @params[:sender_id])
   end
 
+  def raw_payload
+    return @params[:message]
+  end
+
   def message_params
     {
       account_id: @conversation.account_id,
@@ -152,6 +155,6 @@ class Messages::MessageBuilder
       in_reply_to: @in_reply_to,
       echo_id: @params[:echo_id],
       source_id: @params[:source_id]
-    }.merge(external_created_at).merge(automation_rule_id).merge(campaign_id).merge(template_params)
+    }.merge(external_created_at).merge(automation_rule_id).merge(campaign_id).merge(template_params).merge(raw_payload)
   end
 end
