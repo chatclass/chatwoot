@@ -21,7 +21,6 @@
 #  inbox_id                  :integer          not null
 #  sender_id                 :bigint
 #  source_id                 :string
-#  raw_payload               :jsonb
 #
 # Indexes
 #
