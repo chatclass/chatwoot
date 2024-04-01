@@ -142,6 +142,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       headers: api_headers,
       body: {
         messaging_product: 'whatsapp',
+        context: whatsapp_reply_context(message),
         to: phone_number,
         interactive: payload,
         type: 'interactive'
@@ -159,6 +160,7 @@ class Whatsapp::Providers::Whatsapp360DialogCloudApiService < Whatsapp::Provider
       headers: api_headers,
       body: {
         messaging_product: 'whatsapp',
+        context: whatsapp_reply_context(message),
         to: phone_number,
         recipient_type: 'individual',
         type: "interactive",
