@@ -23,6 +23,9 @@ class Whatsapp::IncomingMessageBaseService
   private
 
   def process_messages
+
+    Rails.logger.info "Perform Message Type #{message_type}"
+
     # We don't support reactions & ephemeral message now, we need to skip processing the message
     # if the webhook event is a reaction or an ephermal message or an unsupported message.
     return if unprocessable_message_type?(message_type)
