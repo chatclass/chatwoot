@@ -118,7 +118,7 @@ class Whatsapp::IncomingMessageBaseService
   end
 
   def attach_files
-    return if %w[text button interactive location contacts].include?(message_type)
+    return if %w[reaction text button interactive location contacts].include?(message_type)
 
     attachment_payload = @processed_params[:messages].first[message_type.to_sym]
     @message.content ||= attachment_payload[:caption]
