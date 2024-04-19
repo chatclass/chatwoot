@@ -62,11 +62,9 @@ class Whatsapp::IncomingMessageBaseService
   def create_messages
     message = @processed_params[:messages].first
 
-    Rails.logger.info "Perform Message #{message}"
-
     log_error(message) && return if error_webhook_event?(message)
 
-    process_in_reply_to(message)
+    process_in_reply_to(message, message_type)
 
     message_type == 'contacts' ? create_contact_messages(message) : create_regular_message(message)
   end

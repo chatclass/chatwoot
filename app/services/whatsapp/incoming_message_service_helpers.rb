@@ -88,8 +88,8 @@ module Whatsapp::IncomingMessageServiceHelpers
     Rails.logger.warn "Whatsapp Error: #{message['errors'][0]['title']} - contact: #{message['from']}"
   end
 
-  def process_in_reply_to(message)
-    @in_reply_to_external_id = message['context']&.[]('id')
+  def process_in_reply_to(message, type)
+    @in_reply_to_external_id = type == "reaction" ? message.dig(:reaction, :message_id) : message['context']&.[]('id');
   end
 
   def find_message_by_source_id(source_id)
