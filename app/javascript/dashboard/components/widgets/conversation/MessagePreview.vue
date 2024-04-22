@@ -37,13 +37,13 @@
         size="16"
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         :icon="attachmentIcon"
-      />
-      {{ dataUrl }}        
+      />        
       <bubble-image-audio-video
         v-show="isAttachmentImageVideoAudio(lastMessageFileType)"
-        :attachment="this.message.attachments"
+        :attachment="attachment"
       />
       <text v-show="!isAttachmentImageVideoAudio(lastMessageFileType)">{{ $t(`${attachmentMessageContent}`) }}</text>
+      {{ dataUrl }}
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
@@ -99,12 +99,15 @@ export default {
       const [{ file_type: fileType } = {}] = this.message.attachments;
       return fileType;
     },
+    attachment() {
+      return this.message.attachments;
+    },
     attachmentIcon() {
       return ATTACHMENT_ICONS[this.lastMessageFileType];
     },
     attachmentMessageContent() {
       return `CHAT_LIST.ATTACHMENTS.${this.lastMessageFileType}.CONTENT`;
-    },
+    },    
     isMessageSticker() {
       return this.message && this.message.content_type === 'sticker';
     },
