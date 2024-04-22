@@ -38,11 +38,18 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         :icon="attachmentIcon"
       />
+      <img
+        class="bg-woot-200 dark:bg-woot-900"
+        :src="dataUrl"
+        :width="imageWidth"
+        :height="imageHeight"
+      />
       <bubble-image-audio-video
         v-show="isAttachmentImageVideoAudio(message.attachments.file_type)"
         :attachment="message.attachments"
         @error="onMediaLoadError"
       />
+      {{ isAttachmentImageVideoAudio(message.attachments.file_type) }}
       <text v-show="!isAttachmentImageVideoAudio(message.attachments.file_type)">{{ $t(`${attachmentMessageContent}`) }}</text>
     </span>
     <span v-else>
@@ -107,6 +114,15 @@ export default {
     },
     isMessageSticker() {
       return this.message && this.message.content_type === 'sticker';
+    },
+    dataUrl() {
+      return this.message.attachments.data_url;
+    },
+    imageWidth() {
+      return this.message.attachments.width ? `${this.message.attachments.width}px` : 'auto';
+    },
+    imageHeight() {
+      return this.message.attachments.height ? `${this.message.attachments.height}px` : 'auto';
     },
   },
   methods: {
