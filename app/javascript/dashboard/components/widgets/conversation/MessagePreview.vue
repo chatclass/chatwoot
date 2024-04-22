@@ -26,8 +26,9 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         icon="image"
       />
-      TESTE {{ $t('CHAT_LIST.ATTACHMENTS.image.CONTENT') }}
-    </span>
+      {{ $t('CHAT_LIST.ATTACHMENTS.image.CONTENT') }}
+      <img src="https://biodiversidadebrasil.com.br/wp-content/uploads/2024/01/Mudancas-Climaticas-e-Aquecimento-Global-Aquecimento-e-Clima-Um-Futuro-em-Mudanca.jpeg"></img>
+    </span>    
     <span v-else-if="message.content">
       {{ parsedLastMessage }}
     </span>
