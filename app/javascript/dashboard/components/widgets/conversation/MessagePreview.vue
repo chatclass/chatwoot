@@ -123,7 +123,9 @@ export default {
     },
     imageHeight() {
       return this.message.attachments.height ? `${this.message.attachments.height}px` : 'auto';
-    },
+    }    
+  },
+  methods: {
     isAttachmentImageVideoAudio(fileType) {
       return ['image', 'audio', 'video', 'story_mention'].includes(fileType);
     }
