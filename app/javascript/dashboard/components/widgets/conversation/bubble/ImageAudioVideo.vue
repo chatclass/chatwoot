@@ -89,7 +89,7 @@ export default {
       return attachments;
     },
     dataUrl() {
-      return this.preview && (this.isImage || this.isVideo) ? this.attachment.thumb_url : this.attachment.data_url;
+      return this.preview && this.isImage ? this.attachment.thumb_url : this.attachment.data_url;
     },
     imageWidth() {
       return this.attachment.width && !this.preview ? `${this.attachment.width}px` : 'auto';
