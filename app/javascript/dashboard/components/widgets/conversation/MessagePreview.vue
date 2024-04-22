@@ -38,12 +38,13 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         :icon="attachmentIcon"
       />        
-      <bubble-image-audio-video
+      <!-- <bubble-image-audio-video
         v-show="isAttachmentImageVideoAudio(lastMessageFileType)"
         :attachment="attachment"
-      />
+      />      
+       <text v-show="!isAttachmentImageVideoAudio(lastMessageFileType)">{{ $t(`${attachmentMessageContent}`) }}</text> -->
       {{ dataUrl }}
-      <text v-show="!isAttachmentImageVideoAudio(lastMessageFileType)">{{ $t(`${attachmentMessageContent}`) }}</text>      
+      {{ lastMessageFileType }}
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
