@@ -49,7 +49,7 @@
         :attachment="message.attachments"
         @error="onMediaLoadError"
       />
-      {{ isAttachmentImageVideoAudio(message.attachments.file_type) }}
+      {{ message.attachments.file_type }}
       <text v-show="!isAttachmentImageVideoAudio(message.attachments.file_type)">{{ $t(`${attachmentMessageContent}`) }}</text>
     </span>
     <span v-else>
@@ -124,11 +124,9 @@ export default {
     imageHeight() {
       return this.message.attachments.height ? `${this.message.attachments.height}px` : 'auto';
     },
-  },
-  methods: {
     isAttachmentImageVideoAudio(fileType) {
       return ['image', 'audio', 'video', 'story_mention'].includes(fileType);
     }
-  }
+  }  
 };
 </script>
