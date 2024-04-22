@@ -56,7 +56,7 @@
 import { MESSAGE_TYPE } from 'widget/helpers/constants';
 import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import { ATTACHMENT_ICONS } from 'shared/constants/messages';
-import BubbleImageAudioVideo from 'bubble/ImageAudioVideo.vue';
+import BubbleImageAudioVideo from './bubble/ImageAudioVideo.vue';
 
 export default {
   name: 'MessagePreview',
