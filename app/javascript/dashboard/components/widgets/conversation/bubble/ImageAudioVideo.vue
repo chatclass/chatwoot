@@ -51,6 +51,11 @@ export default {
       type: Object,
       required: true,
     },
+    preview:
+    {
+      type: Boolean,
+      required: false
+    }
   },
   data() {
     return {
@@ -84,13 +89,13 @@ export default {
       return attachments;
     },
     dataUrl() {
-      return this.attachment.data_url;
+      return this.preview && this.isImage ? this.attachment.thumb_url : this.attachment.data_url;
     },
     imageWidth() {
-      return this.attachment.width ? `${this.attachment.width}px` : 'auto';
+      return this.attachment.width && !this.preview ? `${this.attachment.width}px` : 'auto';
     },
     imageHeight() {
-      return this.attachment.height ? `${this.attachment.height}px` : 'auto';
+      return this.attachment.height && !this.preview ? `${this.attachment.height}px` : 'auto';
     },
   },
   watch: {

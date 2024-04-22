@@ -26,8 +26,8 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         icon="image"
       />
-      {{ $t('CHAT_LIST.ATTACHMENTS.image.CONTENT') }}
-    </span>
+      {{ $t('CHAT_LIST.ATTACHMENTS.image.CONTENT') }}      
+    </span>    
     <span v-else-if="message.content">
       {{ parsedLastMessage }}
     </span>
@@ -37,8 +37,13 @@
         size="16"
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         :icon="attachmentIcon"
-      />
-      {{ $t(`${attachmentMessageContent}`) }}
+      />      
+      <h4 v-show="!(isAttachmentImageVideoAudio(lastMessageFileType))">{{ $t(`${attachmentMessageContent}`) }}</h4>
+      <bubble-image-audio-video
+        v-show="isAttachmentImageVideoAudio(lastMessageFileType)"
+        :attachment="attachment"
+        :preview="true"
+      />      
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
@@ -50,9 +55,13 @@
 import { MESSAGE_TYPE } from 'widget/helpers/constants';
 import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import { ATTACHMENT_ICONS } from 'shared/constants/messages';
+import BubbleImageAudioVideo from './bubble/ImageAudioVideo.vue';
 
 export default {
   name: 'MessagePreview',
+  components: {   
+    BubbleImageAudioVideo    
+  },
   mixins: [messageFormatterMixin],
   props: {
     message: {
@@ -90,15 +99,27 @@ export default {
       const [{ file_type: fileType } = {}] = this.message.attachments;
       return fileType;
     },
+    attachment() {      
+      return this.message.attachments[0];
+    },
     attachmentIcon() {
       return ATTACHMENT_ICONS[this.lastMessageFileType];
     },
     attachmentMessageContent() {
       return `CHAT_LIST.ATTACHMENTS.${this.lastMessageFileType}.CONTENT`;
-    },
+    },    
     isMessageSticker() {
       return this.message && this.message.content_type === 'sticker';
     },
+    dataUrl() {
+      const [{ data_url: dataURL } = {}] = this.message.attachments;
+      return dataURL;
+    }   
   },
+  methods: {
+    isAttachmentImageVideoAudio(fileType) {
+      return ['image', 'audio', 'video', 'story_mention'].includes(fileType);
+    }
+  }  
 };
 </script>
