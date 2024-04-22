@@ -26,8 +26,7 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         icon="image"
       />
-      {{ $t('CHAT_LIST.ATTACHMENTS.image.CONTENT') }}
-      <img src="https://biodiversidadebrasil.com.br/wp-content/uploads/2024/01/Mudancas-Climaticas-e-Aquecimento-Global-Aquecimento-e-Clima-Um-Futuro-em-Mudanca.jpeg"></img>
+      {{ $t('CHAT_LIST.ATTACHMENTS.image.CONTENT') }}      
     </span>    
     <span v-else-if="message.content">
       {{ parsedLastMessage }}
@@ -39,7 +38,8 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         :icon="attachmentIcon"
       />
-      {{ $t(`${attachmentMessageContent}`) }}
+      TESTE {{ $t(`${attachmentMessageContent}`) }}
+      <img src="https://biodiversidadebrasil.com.br/wp-content/uploads/2024/01/Mudancas-Climaticas-e-Aquecimento-Global-Aquecimento-e-Clima-Um-Futuro-em-Mudanca.jpeg"></img>
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
