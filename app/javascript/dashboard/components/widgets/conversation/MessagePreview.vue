@@ -38,7 +38,7 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         :icon="attachmentIcon"
       />      
-      {{ $t(`${attachmentMessageContent}`) }}  
+      <h4 v-show="!(isAttachmentImageVideoAudio(lastMessageFileType))">{{ $t(`${attachmentMessageContent}`) }}</h4>
       <bubble-image-audio-video
         v-show="isAttachmentImageVideoAudio(lastMessageFileType)"
         :attachment="attachment"
