@@ -38,16 +38,10 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         :icon="attachmentIcon"
       />
-      <img
-        class="bg-woot-200 dark:bg-woot-900"
-        :src="dataUrl"
-        :width="imageWidth"
-        :height="imageHeight"
-      />
+      {{ dataUrl }}        
       <bubble-image-audio-video
         v-show="isAttachmentImageVideoAudio(lastMessageFileType)"
-        :attachment="message.attachments"
-        @error="onMediaLoadError"
+        :attachment="this.message.attachments"
       />
       <text v-show="!isAttachmentImageVideoAudio(lastMessageFileType)">{{ $t(`${attachmentMessageContent}`) }}</text>
     </span>
