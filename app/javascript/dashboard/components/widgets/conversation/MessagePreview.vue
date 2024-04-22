@@ -43,7 +43,7 @@
         :attachment="attachment"
         :preview="true"
       />      
-      <text v-show="!isAttachmentImageVideoAudio(lastMessageFileType)">{{ $t(`${attachmentMessageContent}`) }}</text>
+      {{ $t(`${attachmentMessageContent}`) }}
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
