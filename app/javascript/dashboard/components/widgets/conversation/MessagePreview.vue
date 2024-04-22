@@ -38,8 +38,13 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         :icon="attachmentIcon"
       />
-      TESTE {{ $t(`${attachmentMessageContent}`) }}
-      <img src="https://biodiversidadebrasil.com.br/wp-content/uploads/2024/01/Mudancas-Climaticas-e-Aquecimento-Global-Aquecimento-e-Clima-Um-Futuro-em-Mudanca.jpeg"></img>
+      <bubble-image-audio-video
+        v-else-if="isAttachmentImageVideoAudio(message.attachments.file_type)"
+        :attachment="message.attachments"
+        @error="onMediaLoadError"
+      />
+      {{ $t(`${attachmentMessageContent}`) }}      
+      {{ JSON.stringify(message) }} 
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
@@ -51,9 +56,13 @@
 import { MESSAGE_TYPE } from 'widget/helpers/constants';
 import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import { ATTACHMENT_ICONS } from 'shared/constants/messages';
+import BubbleImageAudioVideo from './bubble/ImageAudioVideo.vue';
 
 export default {
   name: 'MessagePreview',
+  components: {   
+    BubbleImageAudioVideo    
+  },
   mixins: [messageFormatterMixin],
   props: {
     message: {
@@ -101,5 +110,10 @@ export default {
       return this.message && this.message.content_type === 'sticker';
     },
   },
+  methods: {
+    isAttachmentImageVideoAudio(fileType) {
+      return ['image', 'audio', 'video', 'story_mention'].includes(fileType);
+    }
+  }
 };
 </script>
