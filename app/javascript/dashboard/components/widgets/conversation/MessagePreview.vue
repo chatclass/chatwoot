@@ -39,8 +39,8 @@
         :icon="attachmentIcon"
       />
       <bubble-image-audio-video
-        v-else-if="isAttachmentImageVideoAudio(attachments.file_type)"
-        :attachment="attachments"
+        v-else-if="isAttachmentImageVideoAudio(message.attachments.file_type)"
+        :attachment="message.attachments"
         @error="onMediaLoadError"
       />
       {{ $t(`${attachmentMessageContent}`) }}      
