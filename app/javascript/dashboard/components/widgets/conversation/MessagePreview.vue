@@ -42,8 +42,8 @@
         v-show="isAttachmentImageVideoAudio(lastMessageFileType)"
         :attachment="attachment"
       />
-      <text v-show="!isAttachmentImageVideoAudio(lastMessageFileType)">{{ $t(`${attachmentMessageContent}`) }}</text>
       {{ dataUrl }}
+      <text v-show="!isAttachmentImageVideoAudio(lastMessageFileType)">{{ $t(`${attachmentMessageContent}`) }}</text>      
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
@@ -55,7 +55,7 @@
 import { MESSAGE_TYPE } from 'widget/helpers/constants';
 import messageFormatterMixin from 'shared/mixins/messageFormatterMixin';
 import { ATTACHMENT_ICONS } from 'shared/constants/messages';
-import BubbleImageAudioVideo from './bubble/ImageAudioVideo.vue';
+import BubbleImageAudioVideo from 'bubble/ImageAudioVideo.vue';
 
 export default {
   name: 'MessagePreview',
@@ -99,8 +99,8 @@ export default {
       const [{ file_type: fileType } = {}] = this.message.attachments;
       return fileType;
     },
-    attachment() {
-      return this.message.attachments;
+    attachment() {      
+      return this.message.attachments[0];
     },
     attachmentIcon() {
       return ATTACHMENT_ICONS[this.lastMessageFileType];
@@ -112,14 +112,9 @@ export default {
       return this.message && this.message.content_type === 'sticker';
     },
     dataUrl() {
-      return this.message.attachments.data_url;
-    },
-    imageWidth() {
-      return this.message.attachments.width ? `${this.message.attachments.width}px` : 'auto';
-    },
-    imageHeight() {
-      return this.message.attachments.height ? `${this.message.attachments.height}px` : 'auto';
-    }    
+      const [{ data_url: dataURL } = {}] = this.message.attachments;
+      return dataURL;
+    }   
   },
   methods: {
     isAttachmentImageVideoAudio(fileType) {
