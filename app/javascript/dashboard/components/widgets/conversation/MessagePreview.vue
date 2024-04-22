@@ -39,12 +39,11 @@
         :icon="attachmentIcon"
       />
       <bubble-image-audio-video
-        v-else-if="isAttachmentImageVideoAudio(message.attachments.file_type)"
+        v-show="isAttachmentImageVideoAudio(message.attachments.file_type)"
         :attachment="message.attachments"
         @error="onMediaLoadError"
       />
-      {{ $t(`${attachmentMessageContent}`) }}      
-      {{ JSON.stringify(message) }} 
+      <text v-show="!isAttachmentImageVideoAudio(message.attachments.file_type)">{{ $t(`${attachmentMessageContent}`) }}</text>
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
