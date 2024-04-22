@@ -49,8 +49,8 @@
         :attachment="message.attachments"
         @error="onMediaLoadError"
       />
-      {{ message.attachments.file_type }}
-      <text v-show="!isAttachmentImageVideoAudio(message.attachments.file_type)">{{ $t(`${attachmentMessageContent}`) }}</text>
+      {{ this.message.attachments.file_type }}
+      <text v-show="!isAttachmentImageVideoAudio(this.message.attachments.file_type)">{{ $t(`${attachmentMessageContent}`) }}</text>
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
