@@ -45,12 +45,11 @@
         :height="imageHeight"
       />
       <bubble-image-audio-video
-        v-show="isAttachmentImageVideoAudio(message.attachments.file_type)"
+        v-show="isAttachmentImageVideoAudio(lastMessageFileType)"
         :attachment="message.attachments"
         @error="onMediaLoadError"
       />
-      {{ lastMessageFileType }}
-      <text v-show="!isAttachmentImageVideoAudio(this.message.attachments.file_type)">{{ $t(`${attachmentMessageContent}`) }}</text>
+      <text v-show="!isAttachmentImageVideoAudio(lastMessageFileType)">{{ $t(`${attachmentMessageContent}`) }}</text>
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
