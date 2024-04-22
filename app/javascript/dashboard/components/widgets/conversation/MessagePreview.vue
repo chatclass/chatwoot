@@ -26,7 +26,7 @@
         class="-mt-0.5 align-middle inline-block text-slate-600 dark:text-slate-300"
         icon="image"
       />
-      {{ $t('CHAT_LIST.ATTACHMENTS.image.CONTENT') }}
+      TESTE {{ $t('CHAT_LIST.ATTACHMENTS.image.CONTENT') }}
     </span>
     <span v-else-if="message.content">
       {{ parsedLastMessage }}
