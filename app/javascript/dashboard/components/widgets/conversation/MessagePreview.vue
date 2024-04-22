@@ -49,7 +49,7 @@
         :attachment="message.attachments"
         @error="onMediaLoadError"
       />
-      {{ this.message.attachments.file_type }}
+      {{ lastMessageFileType }}
       <text v-show="!isAttachmentImageVideoAudio(this.message.attachments.file_type)">{{ $t(`${attachmentMessageContent}`) }}</text>
     </span>
     <span v-else>
