@@ -41,10 +41,9 @@
       <bubble-image-audio-video
         v-show="isAttachmentImageVideoAudio(lastMessageFileType)"
         :attachment="attachment"
+        :preview="true"
       />      
       <text v-show="!isAttachmentImageVideoAudio(lastMessageFileType)">{{ $t(`${attachmentMessageContent}`) }}</text>
-      <!-- {{ dataUrl }}
-      {{ lastMessageFileType }} -->
     </span>
     <span v-else>
       {{ defaultEmptyMessage || $t('CHAT_LIST.NO_CONTENT') }}
