@@ -32,12 +32,10 @@
           :message-type="data.message_type"
           :parent-has-attachments="hasAttachments"
         />
-        <div v-if="isInteractiveMessage">
-          <template>
-            {{ isInteractiveMessage }}
-            {{ JSON.stringify(data) }}
-          </template>
-        </div>
+        <bubble-interactive
+          v-if="isInteractiveMessage"
+          :message="message"
+        />
         <div v-else-if="isUnsupported">
           <template v-if="isAFacebookInbox && isInstagram">
             {{ $t('CONVERSATION.UNSUPPORTED_MESSAGE_INSTAGRAM') }}
@@ -156,6 +154,7 @@ import BubbleLocation from './bubble/Location.vue';
 import BubbleMailHead from './bubble/MailHead.vue';
 import BubbleReplyTo from './bubble/ReplyTo.vue';
 import BubbleText from './bubble/Text.vue';
+import BubbleInteractive from './bubble/Interactive.vue';
 import ContextMenu from 'dashboard/modules/conversations/components/MessageContextMenu.vue';
 import InstagramStory from './bubble/InstagramStory.vue';
 import InstagramStoryReply from './bubble/InstagramStoryReply.vue';
@@ -181,6 +180,7 @@ export default {
     BubbleMailHead,
     BubbleReplyTo,
     BubbleText,
+    BubbleInteractive,
     ContextMenu,
     InstagramStory,
     InstagramStoryReply,
