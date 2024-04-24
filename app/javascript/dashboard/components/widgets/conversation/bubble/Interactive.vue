@@ -7,11 +7,11 @@
     <button v-for="item in items" :key="item.type">
       class="text-slate-300 dark:text-slate-300 cursor-pointer text-xs py-1"
     >
-      <span v-if="showQuotedContent" class="flex items-center gap-0.5">
+      <span class="flex items-center gap-0.5">
         <fluent-icon icon="chevron-up" size="16" />
         {{ $t('CHAT_LIST.HIDE_QUOTED_TEXT') }}
       </span>
-      <span v-else class="flex items-center gap-0.5">
+      <span class="flex items-center gap-0.5">
         <fluent-icon icon="chevron-down" size="16" />
         {{ $t('CHAT_LIST.SHOW_QUOTED_TEXT') }}
       </span>
