@@ -32,6 +32,12 @@
           :message-type="data.message_type"
           :parent-has-attachments="hasAttachments"
         />
+        <div>
+          <template>
+            {{ isInteractiveMessage }}
+            {{ data.content }}
+          </template>
+        </div>
         <div v-if="isUnsupported">
           <template v-if="isAFacebookInbox && isInstagram">
             {{ $t('CONVERSATION.UNSUPPORTED_MESSAGE_INSTAGRAM') }}
