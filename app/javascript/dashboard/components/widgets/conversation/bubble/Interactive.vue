@@ -37,7 +37,7 @@ export default {
   },
   methods: {
       loadItems() {
-        const { type } = JSON.parse(message);
+        const { type } = JSON.parse(this.message);
 
         this.items.push({
           type: type
