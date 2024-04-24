@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      items: [],
+      items: [{type:"abc"}],
     }   
   },
   methods: {
@@ -46,10 +46,10 @@ export default {
         this.items.push({
           type: "list"
         });
-      },
-      created() {
-        this.loadItems();
       }
+  },
+  mounted: function() {
+    this.loadItems();
   }
 };
 </script>
