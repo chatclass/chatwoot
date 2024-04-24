@@ -1,15 +1,11 @@
 <template>
   <div
     class="message-text__wrap">
-    <div>
-      <template>
-        {{ message }}
-      </template>
-    </div>
-    <!--<button
-      v-if="showQuoteToggle"
+    <template>
+      {{ message }}
+    </template>
+    <button v-for="item in items" :key="item.type">
       class="text-slate-300 dark:text-slate-300 cursor-pointer text-xs py-1"
-      @click="toggleQuotedContent"
     >
       <span v-if="showQuotedContent" class="flex items-center gap-0.5">
         <fluent-icon icon="chevron-up" size="16" />
@@ -19,7 +15,7 @@
         <fluent-icon icon="chevron-down" size="16" />
         {{ $t('CHAT_LIST.SHOW_QUOTED_TEXT') }}
       </span>
-    </button>-->
+    </button>
   </div>
 </template>
 
@@ -33,6 +29,27 @@ export default {
       type: String,
       default: '',
     }
+  },
+  data() {
+    return {
+      items: [],
+    }   
+  },
+  methods: {
+      loadItems() {
+        const { type } = JSON.parse(message);
+
+        this.items.push({
+          type: type
+        });
+
+        this.items.push({
+          type: "list"
+        });
+      },
+      created() {
+        this.loadItems();
+      }
   }
 };
 </script>
