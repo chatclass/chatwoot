@@ -35,7 +35,7 @@
         <div>
           <template>
             {{ isInteractiveMessage }}
-            {{ data.content }}
+            {{ JSON.stringify(data) }}
           </template>
         </div>
         <div v-if="isUnsupported">
@@ -480,7 +480,7 @@ export default {
       return '';
     },
     isInteractiveMessage() {
-      return this.data.content.startsWith("{{");
+      return this.data.content.startsWith('{"');
     },
   },
   watch: {
