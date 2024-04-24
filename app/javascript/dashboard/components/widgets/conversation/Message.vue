@@ -48,6 +48,7 @@
           :message="message"
           :is-email="isEmailContentType"
           :display-quoted-button="displayQuotedButton"
+          :is-interactive="isInteractiveMessage"
         />
         <bubble-integration
           :message-id="data.id"
@@ -471,6 +472,9 @@ export default {
         return name;
       }
       return '';
+    },
+    isInteractiveMessage() {
+      return this.data.content.startsWith("{{");
     },
   },
   watch: {
