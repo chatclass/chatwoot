@@ -37,8 +37,8 @@ export default {
   },
   methods: {
       loadItems() {
-        console.log(this.message);
-        const { type } = JSON.parse(this.message);
+        const content = this.message?.replace("=>", ":").replace("“","\"").replace("”","\"");
+        const { type } = JSON.parse(content);
 
         this.items.push({
           type: type
