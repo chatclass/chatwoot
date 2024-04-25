@@ -4,9 +4,7 @@
     <template>
       {{ message }}
     </template>
-    <button v-for="item in items" :key="item.type">
-      class="text-slate-300 dark:text-slate-300 cursor-pointer text-xs py-1"
-    >
+    <button v-for="item in items" :key="item.type" class="text-slate-300 dark:text-slate-300 cursor-pointer text-xs py-1">
       <span class="flex items-center gap-0.5">
         <fluent-icon icon="chevron-up" size="16" />
         {{ item.type }}
