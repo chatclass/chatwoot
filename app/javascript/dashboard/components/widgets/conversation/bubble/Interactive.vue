@@ -7,7 +7,7 @@
     <template>
       {{ text }}
     </template>
-    <button v-for="button in buttons" :key="item.type" class="button default resolve">
+    <button v-for="button in buttons" class="button default resolve">
       <span class="flex items-center gap-0.5">
         <fluent-icon icon="chevron-up" size="16" />
         {{ button.reply.title }}
