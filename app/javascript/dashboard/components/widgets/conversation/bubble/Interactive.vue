@@ -37,7 +37,7 @@ export default {
   },
   methods: {
       loadItems() {
-        const content = this.message?.replace("=>", ":").replace("“","\"").replace("”","\"");
+        const content = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
         const { type } = JSON.parse(content);
 
         this.items.push({
