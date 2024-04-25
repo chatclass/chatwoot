@@ -26,7 +26,7 @@ export default {
   components: { Letter },
   props: {
     message: {
-      type: String,
+      type: Object,
       default: '',
     }
   },

@@ -32,11 +32,7 @@
           :message-type="data.message_type"
           :parent-has-attachments="hasAttachments"
         />
-        <bubble-interactive
-          v-if="isInteractiveMessage"
-          :message="message"
-        />
-        <div v-else-if="isUnsupported">
+        <div v-if="isUnsupported">
           <template v-if="isAFacebookInbox && isInstagram">
             {{ $t('CONVERSATION.UNSUPPORTED_MESSAGE_INSTAGRAM') }}
           </template>
@@ -48,10 +44,14 @@
           </template>
         </div>
         <bubble-text
-          v-else-if="data.content"
+          v-else-if="data.content && !isInteractiveMessage"
           :message="message"
           :is-email="isEmailContentType"
           :display-quoted-button="displayQuotedButton"
+        />
+        <bubble-interactive
+          v-else-if="isInteractiveMessage"
+          :message="message"
         />
         <bubble-integration
           :message-id="data.id"
