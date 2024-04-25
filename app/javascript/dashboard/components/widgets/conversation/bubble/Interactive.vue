@@ -10,7 +10,7 @@
     <button v-for="button in buttons" class="button default resolve">
       <span class="flex items-center gap-0.5">
         <fluent-icon icon="chevron-up" size="16" />
-        {{ button.reply.title }}
+        {{ button[0].reply.title }}
       </span>
     </button>
   </div>
