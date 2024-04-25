@@ -1,15 +1,18 @@
 <template>
   <div
     class="message-text__wrap">
-    <template>
-      {{ message }}
-    </template>
+    <img
+      v-if="hasHeader && isHeaderImage"
+      class="bg-woot-200 dark:bg-woot-900"
+      :src="header.image.link"
+      width="auto"
+      height="auto"
+    />
     <template>
       {{ text }}
     </template>
-    <button v-for="button in buttons" class="button default resolve">
+    <button v-for="button in buttons" class="button default block">
       <span class="flex items-center gap-0.5">
-        <fluent-icon icon="chevron-up" size="16" />
         {{ button.reply.title }}
       </span>
     </button>
@@ -32,21 +35,21 @@ export default {
       text: '',
       buttons: [],
       list: [],
+      header: {}
     }   
   },
   methods: {
       loadItems() {
         const contentJson = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
         const content = JSON.parse(contentJson);
-        const { type, body: { text } } = content;
+        const { type, header, body: { text } } = content;
 
         this.text = text;
+        this.header = header;
 
         if (type == "button")
         {
-            console.log(content);
             const { action: { buttons } } = content;
-            console.log(buttons);
             this.buttons = buttons;
         }
         else
@@ -55,6 +58,14 @@ export default {
         }
       }
   },
+   computed: {
+    hasHeader() {
+      return this.header != null;
+    },
+    isHeaderImage() {
+      return this.header?.type === "image";
+    },
+  }
   mounted: function() {
     this.loadItems();
   }
@@ -63,25 +74,6 @@ export default {
 <style lang="scss">
 .text-content {
   overflow: auto;
-
-  ul,
-  ol {
-    padding-left: var(--space-two);
-  }
-
-  table {
-    margin: 0;
-    border: 0;
-
-    td {
-      margin: 0;
-      border: 0;
-    }
-
-    tr {
-      border-bottom: 0 !important;
-    }
-  }
 
   h1,
   h2,
