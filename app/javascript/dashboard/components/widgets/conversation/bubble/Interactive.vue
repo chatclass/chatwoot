@@ -26,8 +26,8 @@ export default {
   components: { Letter },
   props: {
     message: {
-      type: Object,
-      required: true
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -37,6 +37,7 @@ export default {
   },
   methods: {
       loadItems() {
+        console.log(this.message);
         const { type } = JSON.parse(this.message);
 
         this.items.push({
