@@ -4,10 +4,10 @@
     <template>
       {{ message }}
     </template>
-    <button v-for="item in items" :key="item.type" class="text-slate-300 dark:text-slate-300 cursor-pointer text-xs py-1">
+    <button v-for="button in buttons" :key="item.type" class="button default resolve">
       <span class="flex items-center gap-0.5">
         <fluent-icon icon="chevron-up" size="16" />
-        {{ item.type }}
+        {{ button.reply.title }}
       </span>
     </button>
   </div>
@@ -26,21 +26,26 @@ export default {
   },
   data() {
     return {
-      items: [{type:"abc"}],
+      buttons: [],
+      list: [],
     }   
   },
   methods: {
       loadItems() {
-        const content = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
-        const { type } = JSON.parse(content);
+        const contentJson = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
+        const content = JSON.parse(contentJson);
+        const { type } = content;
 
-        this.items.push({
-          type: type
-        });
+        if (type == "button")
+        {
+            const { actions: { buttons } } = content;
 
-        this.items.push({
-          type: "list"
-        });
+            buttons.push(buttons);
+        }
+        else
+        {
+
+        }
       }
   },
   mounted: function() {
