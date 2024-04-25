@@ -4,6 +4,9 @@
     <template>
       {{ message }}
     </template>
+    <template>
+      {{ text }}
+    </template>
     <button v-for="button in buttons" :key="item.type" class="button default resolve">
       <span class="flex items-center gap-0.5">
         <fluent-icon icon="chevron-up" size="16" />
@@ -26,6 +29,7 @@ export default {
   },
   data() {
     return {
+      text: '',
       buttons: [],
       list: [],
     }   
@@ -34,13 +38,14 @@ export default {
       loadItems() {
         const contentJson = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
         const content = JSON.parse(contentJson);
-        const { type } = content;
+        const { type, body: { text } } = content;
+
+        this.text = text;
 
         if (type == "button")
         {
             const { action: { buttons } } = content;
-
-            buttons.push(buttons);
+            this.buttons.push(buttons);
         }
         else
         {
