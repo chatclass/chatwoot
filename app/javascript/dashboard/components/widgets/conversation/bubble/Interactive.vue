@@ -47,7 +47,7 @@ export default {
             console.log(content);
             const { action: { buttons } } = content;
             console.log(buttons);
-            this.buttons.push(buttons);
+            this.buttons = buttons;
         }
         else
         {
