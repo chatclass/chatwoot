@@ -44,7 +44,9 @@ export default {
 
         if (type == "button")
         {
+            console.log(content);
             const { action: { buttons } } = content;
+            console.log(buttons);
             this.buttons.push(buttons);
         }
         else
