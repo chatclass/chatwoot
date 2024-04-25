@@ -9,11 +9,7 @@
     >
       <span class="flex items-center gap-0.5">
         <fluent-icon icon="chevron-up" size="16" />
-        {{ $t('CHAT_LIST.HIDE_QUOTED_TEXT') }}
-      </span>
-      <span class="flex items-center gap-0.5">
-        <fluent-icon icon="chevron-down" size="16" />
-        {{ $t('CHAT_LIST.SHOW_QUOTED_TEXT') }}
+        {{ item.type }}
       </span>
     </button>
   </div>
