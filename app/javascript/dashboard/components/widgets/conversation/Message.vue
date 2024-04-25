@@ -51,7 +51,7 @@
         />
         <bubble-interactive
           v-else-if="isInteractiveMessage"
-          :message="message"
+          :message="data.content"
         />
         <bubble-integration
           :message-id="data.id"

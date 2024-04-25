@@ -27,7 +27,7 @@ export default {
   props: {
     message: {
       type: Object,
-      default: '',
+      required: true
     }
   },
   data() {
