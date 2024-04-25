@@ -58,14 +58,14 @@ export default {
         }
       }
   },
-   computed: {
+  computed: {
     hasHeader() {
       return this.header != null;
     },
     isHeaderImage() {
       return this.header?.type === "image";
     },
-  }
+  },
   mounted: function() {
     this.loadItems();
   }
