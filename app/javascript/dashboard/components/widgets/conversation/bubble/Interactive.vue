@@ -18,8 +18,8 @@
       {{ listOption }}
     </div>
     <template v-if="isList" v-for="row in list">
-      <input type="radio" :value="row.id">
-      <label :for="row.id">{{ row.title }}</label><br>
+      <input type="radio" :value="row.id" class="interactive-row">
+      <label :for="row.id" class="interactive-label">{{ row.title }}</label><br>
     </div>
     <button v-for="button in buttons" class="button default block interactive-button">
       <span class="flex items-center gap-0.5 center">
@@ -104,6 +104,15 @@ export default {
 
   .interactive-text {
     font-weight: bold;
+  }
+
+  .interactive-row {
+    display: inline;
+  }
+
+  .interactive-label {
+    display: inline;
+    font-color: white;
   }
 
   img {
