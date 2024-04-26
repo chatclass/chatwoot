@@ -8,12 +8,12 @@
       width="auto"
       height="auto"
     />
-    <template v-else-if="hasHeader && !isHeaderImage" class="interactive-header">
+    <div v-else-if="hasHeader && !isHeaderImage" class="interactive-header">
       {{ header.text }}
-    </template>
-    <template class="interactive-text">
+    </div>
+    <div class="interactive-text">
       {{ text }}
-    </template>
+    </div>
     <button v-for="button in buttons" class="button default block interactive-button">
       <span class="flex items-center gap-0.5 center">
         {{ button.reply.title }}
@@ -50,13 +50,13 @@ export default {
         this.text = text;
         this.header = header;
 
-        if (type == "button")
+        if (type === "button")
         {
             const { action: { buttons } } = content;
             this.buttons = buttons;
         }
 
-        if (type == "list")
+        if (type === "list")
         {
             const { action: { button, sections } } = content;
             this.list = sections;
