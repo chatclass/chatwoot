@@ -83,5 +83,13 @@ export default {
   h6 {
     font-size: var(--font-size-normal);
   }
+},
+button {
+  background-color: #000;
+  border: 1px solid black;
+  margin-bottom:5px;
+},
+img {
+  margin-bottom:5px;
 }
 </style>
