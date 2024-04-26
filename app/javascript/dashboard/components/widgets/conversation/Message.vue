@@ -44,10 +44,14 @@
           </template>
         </div>
         <bubble-text
-          v-else-if="data.content"
+          v-else-if="data.content && !isInteractiveMessage"
           :message="message"
           :is-email="isEmailContentType"
           :display-quoted-button="displayQuotedButton"
+        />
+        <bubble-interactive
+          v-else-if="isInteractiveMessage"
+          :message="data.content"
         />
         <bubble-integration
           :message-id="data.id"
@@ -150,6 +154,7 @@ import BubbleLocation from './bubble/Location.vue';
 import BubbleMailHead from './bubble/MailHead.vue';
 import BubbleReplyTo from './bubble/ReplyTo.vue';
 import BubbleText from './bubble/Text.vue';
+import BubbleInteractive from './bubble/Interactive.vue';
 import ContextMenu from 'dashboard/modules/conversations/components/MessageContextMenu.vue';
 import InstagramStory from './bubble/InstagramStory.vue';
 import InstagramStoryReply from './bubble/InstagramStoryReply.vue';
@@ -175,6 +180,7 @@ export default {
     BubbleMailHead,
     BubbleReplyTo,
     BubbleText,
+    BubbleInteractive,
     ContextMenu,
     InstagramStory,
     InstagramStoryReply,
@@ -471,6 +477,9 @@ export default {
         return name;
       }
       return '';
+    },
+    isInteractiveMessage() {
+      return this.data.content?.startsWith('{“');
     },
   },
   watch: {

@@ -56,7 +56,7 @@ export default {
     displayQuotedButton: {
       type: Boolean,
       default: false,
-    },
+    }
   },
   data() {
     return {
