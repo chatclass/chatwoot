@@ -17,6 +17,9 @@
     <div v-if="isList">
       {{ listOption }}
     </div>
+    <select v-if="isList">
+      <option v-for="row in list">{{ row.title }}</option>
+    </select>
     <button v-for="button in buttons" class="button default block interactive-button">
       <span class="flex items-center gap-0.5 center">
         {{ button.reply.title }}
@@ -64,7 +67,7 @@ export default {
         {
             const { action: { button, sections } } = content;
             this.listOption = button;
-            this.list = sections;
+            this.list = sections[0].rows;
         }
 
       }
