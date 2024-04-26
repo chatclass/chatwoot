@@ -479,8 +479,7 @@ export default {
       return '';
     },
     isInteractiveMessage() {
-      console.log(this.data);
-      return this.data.content?.startsWith('{“');
+      return this.data.content?.startsWith('{');
     },
   },
   watch: {
