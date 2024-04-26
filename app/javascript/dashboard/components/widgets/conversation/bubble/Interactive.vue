@@ -8,6 +8,9 @@
       width="auto"
       height="auto"
     />
+    <template v-else-if="hasHeader && !isHeaderImage">
+      {{ header.text }}
+    </template>
     <template>
       {{ text }}
     </template>
@@ -52,10 +55,13 @@ export default {
             const { action: { buttons } } = content;
             this.buttons = buttons;
         }
-        else
-        {
 
+        if (type == "list")
+        {
+            const { action: { button, sections } } = content;
+            this.list = sections;
         }
+
       }
   },
   computed: {
@@ -72,24 +78,13 @@ export default {
 };
 </script>
 <style lang="scss">
-.text-content {
-  overflow: auto;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: var(--font-size-normal);
+  button {
+    background-color: #000;
+    border: 1px solid black;
+    margin-bottom:5px;
   }
-},
-button {
-  background-color: #000;
-  border: 1px solid black;
-  margin-bottom:5px;
-},
-img {
-  margin-bottom:5px;
-}
+
+  img {
+    margin-bottom:5px;
+  }
 </style>
