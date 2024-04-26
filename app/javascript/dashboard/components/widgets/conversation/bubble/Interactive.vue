@@ -8,14 +8,14 @@
       width="auto"
       height="auto"
     />
-    <template v-else-if="hasHeader && !isHeaderImage">
+    <template v-else-if="hasHeader && !isHeaderImage" class="interactive-header">
       {{ header.text }}
     </template>
-    <template>
+    <template class="interactive-text">
       {{ text }}
     </template>
     <button v-for="button in buttons" class="button default block interactive-button">
-      <span class="flex items-center gap-0.5 center" style="text-align:center;">
+      <span class="flex items-center gap-0.5 center">
         {{ button.reply.title }}
       </span>
     </button>
@@ -81,7 +81,17 @@ export default {
   .interactive-button {
     background-color: #4c5155 !important;
     margin-top:3px !important;
+    text-align: center;
     width: 100%;
+  }
+
+  .interactive-header {
+    display: block;
+    font-weight: bold;
+  }
+
+  .interactive-text {
+    font-weight: bold;
   }
 
   img {
