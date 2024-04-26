@@ -112,7 +112,7 @@ export default {
 
   .interactive-label {
     display: inline;
-    font-color: white;
+    color: white;
   }
 
   img {
