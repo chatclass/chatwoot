@@ -20,7 +20,7 @@
     <template v-if="isList" v-for="row in list">
       <input type="radio" :value="row.id" class="interactive-row">
       <label :for="row.id" class="interactive-label">{{ row.title }}</label><br>
-    </div>
+    </template>
     <button v-for="button in buttons" class="button default block interactive-button">
       <span class="flex items-center gap-0.5 center">
         {{ button.reply.title }}
