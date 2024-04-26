@@ -479,7 +479,7 @@ export default {
       return '';
     },
     isInteractiveMessage() {
-      return this.data.content?.startsWith('{“');
+      return this.data.content?.startsWith('{');
     },
   },
   watch: {
