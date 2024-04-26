@@ -14,8 +14,8 @@
     <template>
       {{ text }}
     </template>
-    <button v-for="button in buttons" class="button default block">
-      <span class="flex items-center gap-0.5">
+    <button v-for="button in buttons" class="button default block interactive-button">
+      <span class="flex items-center gap-0.5 center" style="text-align:center;">
         {{ button.reply.title }}
       </span>
     </button>
@@ -78,14 +78,13 @@ export default {
 };
 </script>
 <style lang="scss">
-  button {
-    background-color: #000 !important;
-    border: 1px solid black !important;
-    margin-bottom:5px !important;
+  .interactive-button {
+    background-color: #4c5155 !important;
+    margin-top:3px !important;
     width: 100%;
   }
 
   img {
-    margin-bottom:5px !important;
+    margin-bottom:7px !important;
   }
 </style>
