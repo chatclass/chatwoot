@@ -14,6 +14,9 @@
     <div class="interactive-text">
       {{ text }}
     </div>
+    <div v-if="isList">
+      {{ listOption }}
+    </div>
     <button v-for="button in buttons" class="button default block interactive-button">
       <span class="flex items-center gap-0.5 center">
         {{ button.reply.title }}
@@ -38,6 +41,7 @@ export default {
       text: '',
       buttons: [],
       list: [],
+      listOption: '',
       header: {}
     }   
   },
@@ -59,6 +63,7 @@ export default {
         if (type === "list")
         {
             const { action: { button, sections } } = content;
+            this.listOption = button;
             this.list = sections;
         }
 
@@ -70,6 +75,9 @@ export default {
     },
     isHeaderImage() {
       return this.header?.type === "image";
+    },
+    isList() {
+      return this.list?.length > 0;
     },
   },
   mounted: function() {
