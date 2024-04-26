@@ -79,12 +79,13 @@ export default {
 </script>
 <style lang="scss">
   button {
-    background-color: #000;
-    border: 1px solid black;
-    margin-bottom:5px;
+    background-color: #000 !important;
+    border: 1px solid black !important;
+    margin-bottom:5px !important;
+    width: 100%;
   }
 
   img {
-    margin-bottom:5px;
+    margin-bottom:5px !important;
   }
 </style>
