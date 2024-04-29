@@ -42,7 +42,7 @@ const primaryMenuItems = accountId => [
     key: 'campaigns',
     label: 'CAMPAIGNS',
     featureFlag: FEATURE_FLAGS.CAMPAIGNS,
-    toState: frontendURL(`accounts/${accountId}/campaigns`),
+    toState: 'https://app.chatclass.org/campaigns',
     toStateName: 'ongoing_campaigns',
     roles: ['administrator'],
   },
