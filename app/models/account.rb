@@ -14,9 +14,6 @@
 #  support_email         :string(100)
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  reports_url           :string           null
-#  campaign_url          :string           null
-#  templates_url         :string           null
 #
 # Indexes
 #

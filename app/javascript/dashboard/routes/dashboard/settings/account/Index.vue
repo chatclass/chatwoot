@@ -65,43 +65,7 @@
                 $t('GENERAL_SETTINGS.FORM.SUPPORT_EMAIL.PLACEHOLDER')
               "
             />
-          </label>
-          <label>
-            Reports URL
-            <input
-              v-model="reports_url"
-              type="text"
-              :placeholder="$t('GENERAL_SETTINGS.FORM.NAME.PLACEHOLDER')"
-              @blur="$v.reports_url.$touch"
-            />
-            <span v-if="$v.reports_url.$error" class="message">
-              Reports URL Error
-            </span>
-          </label>
-          <label>
-            Campaign URL
-            <input
-              v-model="campaign_url"
-              type="text"
-              :placeholder="$t('GENERAL_SETTINGS.FORM.NAME.PLACEHOLDER')"
-              @blur="$v.campaign_url.$touch"
-            />
-            <span v-if="$v.campaign_url.$error" class="message">
-              Campaign URL Error
-            </span>
-          </label>
-          <label>
-            Templates URL
-            <input
-              v-model="templates_url"
-              type="text"
-              :placeholder="$t('GENERAL_SETTINGS.FORM.NAME.PLACEHOLDER')"
-              @blur="$v.templates_url.$touch"
-            />
-            <span v-if="$v.templates_url.$error" class="message">
-              Templates URL Error
-            </span>
-          </label>
+          </label>          
           <label
             v-if="showAutoResolutionConfig"
             :class="{ error: $v.autoResolveDuration.$error }"
