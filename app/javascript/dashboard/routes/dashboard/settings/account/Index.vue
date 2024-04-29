@@ -67,7 +67,7 @@
             />
           </label>
           <label :class="{ error: $v.reports_url.$error }">
-            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            Reports URL
             <input
               v-model="reports_url"
               type="text"
@@ -75,11 +75,11 @@
               @blur="$v.reports_url.$touch"
             />
             <span v-if="$v.reports_url.$error" class="message">
-              {{ $t('GENERAL_SETTINGS.FORM.NAME.ERROR') }}
+              Reports URL Error
             </span>
           </label>
           <label :class="{ error: $v.campaign_url.$error }">
-            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            Campaign URL
             <input
               v-model="campaign_url"
               type="text"
@@ -87,11 +87,11 @@
               @blur="$v.campaign_url.$touch"
             />
             <span v-if="$v.campaign_url.$error" class="message">
-              {{ $t('GENERAL_SETTINGS.FORM.NAME.ERROR') }}
+              Campaign URL Error
             </span>
           </label>
           <label :class="{ error: $v.templates_url.$error }">
-            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            Templates URL
             <input
               v-model="templates_url"
               type="text"
@@ -99,7 +99,7 @@
               @blur="$v.templates_url.$touch"
             />
             <span v-if="$v.templates_url.$error" class="message">
-              {{ $t('GENERAL_SETTINGS.FORM.NAME.ERROR') }}
+              Templates URL Error
             </span>
           </label>
           <label

@@ -28,6 +28,9 @@ class Api::V1::AccountsController < Api::BaseController
       email: account_params[:email],
       user_password: account_params[:password],
       locale: account_params[:locale],      
+      reports_url: account_params[:reports_url], 
+      campaign_url: account_params[:campaign_url], 
+      templates_url: account_params[:templates_url], 
       user: current_user
     ).perform
     if @user
@@ -44,7 +47,7 @@ class Api::V1::AccountsController < Api::BaseController
   end
 
   def update
-    @account.assign_attributes(account_params.slice(:name, :locale, :domain, :support_email, :auto_resolve_duration))
+    @account.assign_attributes(account_params.slice(:name, :locale, :domain, :support_email,:reports_url,:campaign_url,:templates_url,:auto_resolve_duration))
     @account.custom_attributes.merge!(custom_attributes_params)
     @account.custom_attributes['onboarding_step'] = 'invite_team' if @account.custom_attributes['onboarding_step'] == 'account_update'
     @account.save!
