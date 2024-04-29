@@ -127,7 +127,7 @@
       :toggle-audio-recorder-play-pause="toggleAudioRecorderPlayPause"
       :toggle-audio-recorder="toggleAudioRecorder"
       :toggle-emoji-picker="toggleEmojiPicker"
-      :message="message"
+      :message="message"openWhatsappTemplateModal
       :portal-slug="connectedPortalSlug"
       :new-conversation-modal-active="newConversationModalActive"
       @selectWhatsappTemplate="openWhatsappTemplateModal"
@@ -752,7 +752,8 @@ export default {
       this.showVariablesMenu = value;
     },
     openWhatsappTemplateModal() {
-      this.showWhatsAppTemplatesModal = true;
+      //this.showWhatsAppTemplatesModal = true;
+      window.open('https://app.chatclass.org/templates', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
     },
     hideWhatsappTemplatesModal() {
       this.showWhatsAppTemplatesModal = false;

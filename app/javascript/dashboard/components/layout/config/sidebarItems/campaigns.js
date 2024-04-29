@@ -9,7 +9,7 @@ const campaigns = accountId => ({
       label: 'ONGOING',
       key: 'ongoingCampaigns',
       hasSubMenu: false,
-      toState: frontendURL(`accounts/${accountId}/campaigns/ongoing`),
+      toState: 'https://app.chatclass.org/campaigns',      
       toStateName: 'ongoing_campaigns',
     },
     {
