@@ -9,7 +9,7 @@ const campaigns = accountId => ({
       label: 'ONGOING',
       key: 'ongoingCampaigns',
       hasSubMenu: false,
-      toState: 'https://app.chatclass.org/campaigns',      
+      toState: 'https://app.chatshop.ai/campaigns',      
       toStateName: 'ongoing_campaigns',
     },
     {
