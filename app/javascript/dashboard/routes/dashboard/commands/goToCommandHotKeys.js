@@ -43,7 +43,7 @@ const GO_TO_COMMANDS = [
     title: 'COMMAND_BAR.COMMANDS.GO_TO_REPORTS_OVERVIEW',
     featureFlag: FEATURE_FLAGS.REPORTS,
     icon: ICON_REPORTS_OVERVIEW,
-    path: 'https://app.chatclass.org/dashboards/338',
+    path: '//app.chatshop.ai/dashboards/338',
     role: ['administrator'],
   },
   {
