@@ -48,9 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_06_201954) do
     t.datetime "updated_at", precision: nil, null: false
     t.integer "locale", default: 0
     t.string "domain", limit: 100
-    t.string "reports_url", default: '//app.chatshop.ai/dashboards/338'
-    t.string "campaign_url", default: '//app.chatshop.ai/campaigns'
-    t.string "templates_url", default: 'https://app.chatclass.org/templates'
     t.string "support_email", limit: 100
     t.bigint "feature_flags", default: 0, null: false
     t.integer "auto_resolve_duration"
