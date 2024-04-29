@@ -15,6 +15,7 @@
         :icon="menuItem.icon"
         :name="menuItem.label"
         :to="menuItem.toState"
+        :open-in-new-page="menuItem.externalUrl"
         :is-child-menu-active="menuItem.key === activeMenuItem"
       />
     </div>
