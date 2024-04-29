@@ -66,6 +66,42 @@
               "
             />
           </label>
+          <label :class="{ error: $v.reports_url.$error }">
+            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            <input
+              v-model="reports_url"
+              type="text"
+              :placeholder="$t('GENERAL_SETTINGS.FORM.NAME.PLACEHOLDER')"
+              @blur="$v.reports_url.$touch"
+            />
+            <span v-if="$v.reports_url.$error" class="message">
+              {{ $t('GENERAL_SETTINGS.FORM.NAME.ERROR') }}
+            </span>
+          </label>
+          <label :class="{ error: $v.campaign_url.$error }">
+            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            <input
+              v-model="campaign_url"
+              type="text"
+              :placeholder="$t('GENERAL_SETTINGS.FORM.NAME.PLACEHOLDER')"
+              @blur="$v.campaign_url.$touch"
+            />
+            <span v-if="$v.campaign_url.$error" class="message">
+              {{ $t('GENERAL_SETTINGS.FORM.NAME.ERROR') }}
+            </span>
+          </label>
+          <label :class="{ error: $v.templates_url.$error }">
+            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            <input
+              v-model="templates_url"
+              type="text"
+              :placeholder="$t('GENERAL_SETTINGS.FORM.NAME.PLACEHOLDER')"
+              @blur="$v.templates_url.$touch"
+            />
+            <span v-if="$v.templates_url.$error" class="message">
+              {{ $t('GENERAL_SETTINGS.FORM.NAME.ERROR') }}
+            </span>
+          </label>
           <label
             v-if="showAutoResolutionConfig"
             :class="{ error: $v.autoResolveDuration.$error }"
@@ -245,6 +281,9 @@ export default {
         this.features = features;
         this.autoResolveDuration = auto_resolve_duration;
         this.latestChatwootVersion = latestChatwootVersion;
+        this.reports_url = this.reports_url;
+        this.campaign_url = this.campaign_url;
+        this.templates_url = this.templates_url;
       } catch (error) {
         // Ignore error
       }
@@ -262,6 +301,9 @@ export default {
           name: this.name,
           domain: this.domain,
           support_email: this.supportEmail,
+          reports_url: this.reports_url,
+          campaign_url: this.campaign_url,
+          templates_url: this.templates_url,
           auto_resolve_duration: this.autoResolveDuration,
         });
         this.$root.$i18n.locale = this.locale;
