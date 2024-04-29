@@ -66,7 +66,7 @@
               "
             />
           </label>
-          <label :class="{ error: $v.reports_url.$error }">
+          <label>
             Reports URL
             <input
               v-model="reports_url"
@@ -78,7 +78,7 @@
               Reports URL Error
             </span>
           </label>
-          <label :class="{ error: $v.campaign_url.$error }">
+          <label>
             Campaign URL
             <input
               v-model="campaign_url"
@@ -90,7 +90,7 @@
               Campaign URL Error
             </span>
           </label>
-          <label :class="{ error: $v.templates_url.$error }">
+          <label>
             Templates URL
             <input
               v-model="templates_url"

@@ -27,10 +27,7 @@ class Api::V1::AccountsController < Api::BaseController
       user_full_name: account_params[:user_full_name],
       email: account_params[:email],
       user_password: account_params[:password],
-      locale: account_params[:locale],      
-      reports_url: account_params[:reports_url], 
-      campaign_url: account_params[:campaign_url], 
-      templates_url: account_params[:templates_url], 
+      locale: account_params[:locale],
       user: current_user
     ).perform
     if @user
