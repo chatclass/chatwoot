@@ -17,7 +17,10 @@
         @resetTemplate="onResetTemplate"
         @sendMessage="onSendMessage"
       />
-    </div>
+      <div class="right">
+        <input type="button" @click="newTemplate" class="button information">Novo template</button>
+      </div>
+    <div>    
   </woot-modal>
 </template>
 
@@ -66,6 +69,9 @@ export default {
     onClose() {
       this.$emit('cancel');
     },
+    newTemplate(){
+      window.open('https://app.chatclass.org/templates', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+    }
   },
 };
 </script>

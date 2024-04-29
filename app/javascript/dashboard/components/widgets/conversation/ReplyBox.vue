@@ -752,8 +752,7 @@ export default {
       this.showVariablesMenu = value;
     },
     openWhatsappTemplateModal() {
-      //this.showWhatsAppTemplatesModal = true;
-      window.open('https://app.chatclass.org/templates', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+      this.showWhatsAppTemplatesModal = true;      
     },
     hideWhatsappTemplatesModal() {
       this.showWhatsAppTemplatesModal = false;
