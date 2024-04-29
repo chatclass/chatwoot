@@ -65,7 +65,43 @@
                 $t('GENERAL_SETTINGS.FORM.SUPPORT_EMAIL.PLACEHOLDER')
               "
             />
-          </label>          
+          </label>
+          <label :class="{ error: $v.reports_url.$error }">
+            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            <input
+              v-model="reports_url"
+              type="text"
+              :placeholder="$t('GENERAL_SETTINGS.FORM.NAME.PLACEHOLDER')"
+              @blur="$v.reports_url.$touch"
+            />
+            <span v-if="$v.reports_url.$error" class="message">
+              {{ $t('GENERAL_SETTINGS.FORM.NAME.ERROR') }}
+            </span>
+          </label>
+          <label :class="{ error: $v.campaign_url.$error }">
+            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            <input
+              v-model="campaign_url"
+              type="text"
+              :placeholder="$t('GENERAL_SETTINGS.FORM.NAME.PLACEHOLDER')"
+              @blur="$v.campaign_url.$touch"
+            />
+            <span v-if="$v.campaign_url.$error" class="message">
+              {{ $t('GENERAL_SETTINGS.FORM.NAME.ERROR') }}
+            </span>
+          </label>
+          <label :class="{ error: $v.templates_url.$error }">
+            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            <input
+              v-model="templates_url"
+              type="text"
+              :placeholder="$t('GENERAL_SETTINGS.FORM.NAME.PLACEHOLDER')"
+              @blur="$v.templates_url.$touch"
+            />
+            <span v-if="$v.templates_url.$error" class="message">
+              {{ $t('GENERAL_SETTINGS.FORM.NAME.ERROR') }}
+            </span>
+          </label>
           <label
             v-if="showAutoResolutionConfig"
             :class="{ error: $v.autoResolveDuration.$error }"
