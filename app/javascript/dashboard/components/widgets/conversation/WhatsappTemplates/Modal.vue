@@ -18,7 +18,7 @@
         @sendMessage="onSendMessage"
       />
       <div class="right">
-        <input type="button" @click="newTemplate" class="button information">Novo template</button>
+        <input type="button" @click="newTemplate" class="button warning">Novo template</input>
       </div>
     <div>    
   </woot-modal>
