@@ -185,6 +185,9 @@ export default {
       domain: '',
       supportEmail: '',
       features: {},
+      reports_url: '',
+      campaign_url: '',
+      templates_url: '',
       autoResolveDuration: null,
       latestChatwootVersion: null,
     };
@@ -269,6 +272,9 @@ export default {
           support_email,
           features,
           auto_resolve_duration,
+          reports_url,
+          campaign_url,
+          templates_url,
           latest_chatwoot_version: latestChatwootVersion,
         } = this.getAccount(this.accountId);
 
