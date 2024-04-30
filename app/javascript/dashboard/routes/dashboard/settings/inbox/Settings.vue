@@ -267,7 +267,7 @@
         </div>
         <label v-if="canLocktoSingleConversation" class="w-3/4 pb-4">
           {{ $t('INBOX_MGMT.SETTINGS_POPUP.LOCK_TO_SINGLE_CONVERSATION') }}
-          <select v-model="locktoSingleConversation" readonly="readonly">
+          <select v-model="locktoSingleConversation" disabled="disabled">
             <option :value="true" selected>
               {{ $t('INBOX_MGMT.EDIT.LOCK_TO_SINGLE_CONVERSATION.ENABLED') }}
             </option>
@@ -465,7 +465,7 @@ export default {
       csatSurveyEnabled: false,
       senderNameType: 'friendly',
       businessName: '',
-      locktoSingleConversation: false,
+      locktoSingleConversation: true,
       allowMessagesAfterResolved: true,
       continuityViaEmail: true,
       selectedInboxName: '',
