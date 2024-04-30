@@ -13,7 +13,7 @@
         v-for="menuItem in menuItems"
         :key="menuItem.toState"
         :icon="menuItem.icon"
-        :name="teste"
+        :name="menuItem.label"
         :to="menuItem.toState"
         :open-in-new-page="menuItem.externalUrl"     
         :is-child-menu-active="menuItem.key === activeMenuItem"   
