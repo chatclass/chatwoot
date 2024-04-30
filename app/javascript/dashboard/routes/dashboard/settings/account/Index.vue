@@ -14,7 +14,7 @@
         </div>
         <div class="p-4 flex-grow-0 flex-shrink-0 flex-[50%]">
           <label :class="{ error: $v.name.$error }">
-            TESTE - {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
             <input
               v-model="name"
               type="text"
