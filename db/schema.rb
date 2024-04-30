@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_06_201954) do
     t.integer "auto_resolve_duration"
     t.jsonb "limits", default: {}
     t.jsonb "custom_attributes", default: {}
-    t.integer "status", default: 0    
+    t.integer "status", default: 0
     t.index ["status"], name: "index_accounts_on_status"
   end
 

@@ -14,7 +14,7 @@
         </div>
         <div class="p-4 flex-grow-0 flex-shrink-0 flex-[50%]">
           <label :class="{ error: $v.name.$error }">
-            NAME - {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
+            TESTE - {{ $t('GENERAL_SETTINGS.FORM.NAME.LABEL') }}
             <input
               v-model="name"
               type="text"
@@ -65,7 +65,7 @@
                 $t('GENERAL_SETTINGS.FORM.SUPPORT_EMAIL.PLACEHOLDER')
               "
             />
-          </label>          
+          </label>
           <label
             v-if="showAutoResolutionConfig"
             :class="{ error: $v.autoResolveDuration.$error }"
@@ -149,9 +149,6 @@ export default {
       domain: '',
       supportEmail: '',
       features: {},
-      reports_url: '',
-      campaign_url: '',
-      templates_url: '',
       autoResolveDuration: null,
       latestChatwootVersion: null,
     };
@@ -236,9 +233,6 @@ export default {
           support_email,
           features,
           auto_resolve_duration,
-          reports_url,
-          campaign_url,
-          templates_url,
           latest_chatwoot_version: latestChatwootVersion,
         } = this.getAccount(this.accountId);
 
@@ -251,9 +245,6 @@ export default {
         this.features = features;
         this.autoResolveDuration = auto_resolve_duration;
         this.latestChatwootVersion = latestChatwootVersion;
-        this.reports_url = this.reports_url;
-        this.campaign_url = this.campaign_url;
-        this.templates_url = this.templates_url;
       } catch (error) {
         // Ignore error
       }
@@ -271,9 +262,6 @@ export default {
           name: this.name,
           domain: this.domain,
           support_email: this.supportEmail,
-          reports_url: this.reports_url,
-          campaign_url: this.campaign_url,
-          templates_url: this.templates_url,
           auto_resolve_duration: this.autoResolveDuration,
         });
         this.$root.$i18n.locale = this.locale;
