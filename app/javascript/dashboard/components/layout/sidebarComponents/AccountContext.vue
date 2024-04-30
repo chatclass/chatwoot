@@ -23,7 +23,7 @@
             icon="arrow-swap"
             @click="$emit('toggle-accounts')"
           >
-            {{ $t('SIDEBAR.SWITCH') }}
+            {{ $t('SIDEBAR.SWITCH') }} - TESTE
           </woot-button>
         </div>
       </div>
