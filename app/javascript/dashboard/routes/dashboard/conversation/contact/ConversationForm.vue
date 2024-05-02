@@ -545,6 +545,7 @@ export default {
       }
     },
     async openLastConversation() {
+        console.log(this.conversations);
         const lastInboxConversation = this.conversations.filter(
           conversation => conversation.inbox_id == this.targetInbox.id
         )[0];
