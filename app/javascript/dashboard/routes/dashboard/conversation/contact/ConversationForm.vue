@@ -431,8 +431,7 @@ export default {
       );
     },
     hasConversations() {
-      console.log(this.targetInbox);
-      return this.conversations.length > 0;
+      return this.conversations.length > 0 && Object.keys(this.targetInbox).length > 0;
     }
   },
   watch: {
