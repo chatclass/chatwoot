@@ -215,7 +215,7 @@
       v-if="!hasWhatsappTemplates"
       class="flex flex-row justify-end gap-2 py-2 px-0 w-full"
     >
-      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating" v-show="conversations.length > 0">
+      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating" v-show="hasConversations">
         Abrir ultima conversa
       </woot-button>
       <button class="button clear" @click.prevent="onCancel">
@@ -226,7 +226,7 @@
       </woot-button>
     </div>
     <div v-else-if="hasWhatsappTemplates" class="flex flex-row justify-end gap-2 py-2 px-0 w-full">
-      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating" v-show="conversations.length > 0">
+      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating" v-show="hasConversations">
         Abrir ultima conversa
       </woot-button>
     </div>
@@ -423,12 +423,15 @@ export default {
     allowedFileTypes() {
       return ALLOWED_FILE_TYPES;
     },
-  },
-  conversations() {
+    conversations() {
       return this.$store.getters['contactConversations/getContactConversation'](
         this.contactId
       );
     },
+    hasConversations() {
+      return this.conversations.length > 0;
+    }
+  },
   watch: {
     message(value) {
       this.hasSlashCommand = value[0] === '/' && !this.isEmailOrWebWidgetInbox;
