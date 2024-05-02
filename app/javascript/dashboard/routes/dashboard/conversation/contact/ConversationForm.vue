@@ -425,7 +425,7 @@ export default {
     },
     conversations() {
       return this.$store.getters['contactConversations/getContactConversation'](
-        this.contactId
+        this.contact.id
       );
     },
     hasConversations() {
@@ -451,8 +451,10 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('contactConversations/get', this.contactId);
+    console.log(this.contact.id);
+    this.$store.dispatch('contactConversations/get', this.contact.id);
     this.setSignature();
+    console.log(this.conversations);
   },
   methods: {
     setSignature() {
