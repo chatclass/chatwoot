@@ -215,7 +215,7 @@
       v-if="!hasWhatsappTemplates"
       class="flex flex-row justify-end gap-2 py-2 px-0 w-full"
     >
-      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating" v-show="hasConversations">
+      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating">
         Abrir ultima conversa
       </woot-button>
       <button class="button clear" @click.prevent="onCancel">
@@ -226,7 +226,7 @@
       </woot-button>
     </div>
     <div v-else-if="hasWhatsappTemplates" class="flex flex-row justify-end gap-2 py-2 px-0 w-full">
-      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating" v-show="hasConversations">
+      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating">
         Abrir ultima conversa
       </woot-button>
     </div>
