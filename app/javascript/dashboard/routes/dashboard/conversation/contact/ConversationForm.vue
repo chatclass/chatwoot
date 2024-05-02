@@ -211,18 +211,23 @@
       </div>
     </div>
 
-    <woot-button type="button" @click="openConversation" :is-loading="conversationsUiFlags.isCreating">
-        Abrir ultima conversa
-      </woot-button>
     <div
       v-if="!hasWhatsappTemplates"
       class="flex flex-row justify-end gap-2 py-2 px-0 w-full"
     >
+      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating">
+        Abrir ultima conversa
+      </woot-button>
       <button class="button clear" @click.prevent="onCancel">
         {{ $t('NEW_CONVERSATION.FORM.CANCEL') }}
       </button>
       <woot-button type="submit" :is-loading="conversationsUiFlags.isCreating">
         {{ $t('NEW_CONVERSATION.FORM.SUBMIT') }}
+      </woot-button>
+    </div>
+    <div v-else-if="hasWhatsappTemplates" class="flex flex-row justify-end gap-2 py-2 px-0 w-full">
+      <woot-button type="button" @click="openLastConversation" :is-loading="conversationsUiFlags.isCreating">
+        Abrir ultima conversa
       </woot-button>
     </div>
 
@@ -419,6 +424,11 @@ export default {
       return ALLOWED_FILE_TYPES;
     },
   },
+  conversations() {
+      return this.$store.getters['contactConversations/getContactConversation'](
+        this.contactId
+      );
+    },
   watch: {
     message(value) {
       this.hasSlashCommand = value[0] === '/' && !this.isEmailOrWebWidgetInbox;
@@ -530,10 +540,14 @@ export default {
         }
       }
     },
-    async openConversation() {
-        console.log(this.targetInbox);
-        console.log(this.contact);
-        window.open(`/app/accounts/${this.contact.account_id}/conversations/39`);
+    async openLastConversation() {
+        const lastInboxConversation = this.conversations.filter(
+          conversation => conversation.inbox_id == this.targetInbox.id
+        )[0];
+
+        if (lastInboxConversation){
+          window.location.href = `/app/accounts/${lastInboxConversation.account_id}/conversations/${lastInboxConversation.id}`;
+        }
     },
     toggleWaTemplate(val) {
       this.whatsappTemplateSelected = val;
