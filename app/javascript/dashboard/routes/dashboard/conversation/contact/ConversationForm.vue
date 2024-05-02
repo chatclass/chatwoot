@@ -531,7 +531,7 @@ export default {
       }
     },
     async openConversation() {
-        window.location.href = `/app/accounts/${data.account_id}/conversations/39`;
+        window.open(`/app/accounts/${data.account_id}/conversations/39`);
     },
     toggleWaTemplate(val) {
       this.whatsappTemplateSelected = val;

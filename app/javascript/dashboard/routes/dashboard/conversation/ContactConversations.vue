@@ -48,6 +48,7 @@ export default {
       );
     },
     previousConversations() {
+      console.log(this.conversations);
       return this.conversations.filter(
         conversation => conversation.id !== Number(this.conversationId)
       );
