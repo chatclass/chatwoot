@@ -531,7 +531,9 @@ export default {
       }
     },
     async openConversation() {
-        window.open(`/app/accounts/${data.account_id}/conversations/39`);
+        console.log(this.targetInbox);
+        console.log(this.contact);
+        window.open(`/app/accounts/${this.contact.account_id}/conversations/39`);
     },
     toggleWaTemplate(val) {
       this.whatsappTemplateSelected = val;
