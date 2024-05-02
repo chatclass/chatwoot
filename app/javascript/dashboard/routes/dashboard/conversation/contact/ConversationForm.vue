@@ -146,13 +146,13 @@
               </span>
             </div>
           </div>
-          <whatsapp-templates
+          <whatsapp-templates v-show="!hasConversations"
             v-else-if="hasWhatsappTemplates"
             :inbox-id="selectedInbox.inbox.id"
             @on-select-template="toggleWaTemplate"
             @on-send="onSendWhatsAppReply"
           />
-          <label v-else :class="{ error: $v.message.$error }">
+          <label v-else :class="{ error: $v.message.$error }" v-show="!hasConversations">
             {{ $t('NEW_CONVERSATION.FORM.MESSAGE.LABEL') }}
             <textarea
               v-model="message"
@@ -215,10 +215,10 @@
       v-if="!hasWhatsappTemplates"
       class="flex flex-row justify-end gap-2 py-2 px-0 w-full"
     >
-      <button class="button clear" @click.prevent="onCancel">
+      <button class="button clear" @click.prevent="onCancel" v-show="!hasConversations">
         {{ $t('NEW_CONVERSATION.FORM.CANCEL') }}
       </button>
-      <woot-button type="submit" :is-loading="conversationsUiFlags.isCreating">
+      <woot-button type="submit" :is-loading="conversationsUiFlags.isCreating" v-show="!hasConversations">
         {{ $t('NEW_CONVERSATION.FORM.SUBMIT') }}
       </woot-button>
       <woot-button type="button" @click="openLastConversation" color-scheme="warning" :is-loading="conversationsUiFlags.isCreating" title="Abrir ultima conversa" v-show="hasConversations">
@@ -431,7 +431,9 @@ export default {
       );
     },
     hasConversations() {
-      return this.conversations.length > 0 && Object.keys(this.targetInbox).length > 0;
+      return this.conversations.filter(
+          conversation => conversation.inbox_id == this.targetInbox?.id
+        ).length > 0 && Object.keys(this.targetInbox).length > 0;
     }
   },
   watch: {
