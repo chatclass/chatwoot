@@ -451,6 +451,7 @@ export default {
     },
   },
   mounted() {
+    this.$store.dispatch('contactConversations/get', this.contactId);
     this.setSignature();
   },
   methods: {
