@@ -429,6 +429,7 @@ export default {
       );
     },
     hasConversations() {
+      console.log(this.conversations.length);
       return this.conversations.length > 0;
     }
   },
