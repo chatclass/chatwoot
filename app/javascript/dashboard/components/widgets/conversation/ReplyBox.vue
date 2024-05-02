@@ -3,7 +3,7 @@
     <banner
       v-if="showSelfAssignBanner"
       action-button-variant="clear"
-      color-scheme="secondary"
+      color-scheme="warning"
       class="banner--self-assign"
       :banner-message="$t('CONVERSATION.NOT_ASSIGNED_TO_YOU')"
       :has-action-button="true"
