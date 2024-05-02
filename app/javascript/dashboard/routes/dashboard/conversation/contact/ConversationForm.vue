@@ -445,7 +445,7 @@ export default {
         this.showCannedResponseMenu = false;
       }
     },
-    targetInbox() {p
+    targetInbox() {
       this.setSignature();
     },
   },
