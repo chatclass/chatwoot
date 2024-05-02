@@ -211,6 +211,9 @@
       </div>
     </div>
 
+    <woot-button type="button" @click="openConversation" :is-loading="conversationsUiFlags.isCreating">
+        Abrir ultima conversa
+      </woot-button>
     <div
       v-if="!hasWhatsappTemplates"
       class="flex flex-row justify-end gap-2 py-2 px-0 w-full"
@@ -527,7 +530,9 @@ export default {
         }
       }
     },
-
+    async openConversation() {
+        window.location.href = '/app/accounts/${data.account_id}/conversations/39';
+    },
     toggleWaTemplate(val) {
       this.whatsappTemplateSelected = val;
     },
