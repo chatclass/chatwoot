@@ -669,7 +669,7 @@ export default {
         this.channelWelcomeTagline = this.inbox.welcome_tagline;
         this.selectedFeatureFlags = this.inbox.selected_feature_flags || [];
         this.replyTime = this.inbox.reply_time;
-        this.locktoSingleConversation = this.inbox.lock_to_single_conversation;
+        this.locktoSingleConversation = true;
         this.selectedPortalSlug = this.inbox.help_center
           ? this.inbox.help_center.slug
           : '';
