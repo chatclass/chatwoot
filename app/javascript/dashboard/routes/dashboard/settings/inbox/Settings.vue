@@ -268,7 +268,7 @@
         <label v-if="canLocktoSingleConversation" class="w-3/4 pb-4">
           {{ $t('INBOX_MGMT.SETTINGS_POPUP.LOCK_TO_SINGLE_CONVERSATION') }}
           <select v-model="locktoSingleConversation" disabled="disabled">
-            <option :value="true" selected>
+            <option selected :value="true">
               {{ $t('INBOX_MGMT.EDIT.LOCK_TO_SINGLE_CONVERSATION.ENABLED') }}
             </option>
             <!--<option :value="false">
@@ -623,6 +623,7 @@ export default {
   mounted() {
     this.fetchInboxSettings();
     this.fetchPortals();
+    this.locktoSingleConversation = true;
   },
   methods: {
     fetchPortals() {
