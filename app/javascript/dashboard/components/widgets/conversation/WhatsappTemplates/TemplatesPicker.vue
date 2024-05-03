@@ -82,9 +82,12 @@ export default {
         });
     },
     filteredTemplateMessages() {
-      return this.whatsAppTemplateMessages.filter(template =>
+      const filtered = this.whatsAppTemplateMessages.filter(template =>
         template.name.toLowerCase().includes(this.query.toLowerCase())
       );
+
+      console.log(filtered);
+      return filtered;
     },
   },
   methods: {
