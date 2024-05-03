@@ -271,9 +271,9 @@
             <option :value="true" selected>
               {{ $t('INBOX_MGMT.EDIT.LOCK_TO_SINGLE_CONVERSATION.ENABLED') }}
             </option>
-            <option :value="false">
+            <!--<option :value="false">
               {{ $t('INBOX_MGMT.EDIT.LOCK_TO_SINGLE_CONVERSATION.DISABLED') }}
-            </option>
+            </option>-->
           </select>
           <p class="pb-1 text-sm not-italic text-slate-600 dark:text-slate-400">
             {{
