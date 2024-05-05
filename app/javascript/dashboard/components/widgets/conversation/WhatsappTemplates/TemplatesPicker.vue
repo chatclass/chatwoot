@@ -150,7 +150,7 @@ export default {
 .delete-template{
   width: 100% !important;  
   text-align: right;
-  margin-top: -30px;
+  margin-top: -70px;
 }
 
 hr {
