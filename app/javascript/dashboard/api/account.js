@@ -9,6 +9,10 @@ class AccountAPI extends ApiClient {
   createAccount(data) {
     return axios.post(`${this.apiVersion}/accounts`, data);
   }
+
+  /*hideTemplate(id) {
+    return axios.post(`${this.apiVersion}/accounts`, id);
+  }*/
 }
 
 export default new AccountAPI();

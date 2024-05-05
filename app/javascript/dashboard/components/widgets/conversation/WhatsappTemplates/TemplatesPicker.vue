@@ -26,6 +26,7 @@
               >
                 {{ $t('WHATSAPP_TEMPLATES.PICKER.LABELS.LANGUAGE') }} :
                 {{ template.language }}
+                <button type="submit" class="button smooth button--only-icon small alert has-tooltip"><svg data-v-fcc3e4a2="" width="14" height="14" fill="none" viewBox="0 0 24 24" class="icon icon--font delete"></svg></button>
               </span>
             </div>
             <div>
