@@ -101,14 +101,9 @@ export default {
     },
     deleteTemplate(template) {
       //alert(template.id);
-      await this.$store.dispatch('account/deleteTemplate', { accountId: 1, templateId: template.id });
+      //await this.$store.dispatch('account/deleteTemplate', { accountId: 1, templateId: template.id });
     },
   },
-  mounted: {
-    const templatesIds = this.$store.dispatch('account/getHideTemplates', 1);
-
-    alert(templateIds);
-  }
 };
 </script>
 

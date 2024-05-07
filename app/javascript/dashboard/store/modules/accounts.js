@@ -114,25 +114,6 @@ export const actions = {
     }
   },
 
-  hideTemplate: async ({ commit }, data) => {    
-    try {
-      const response = await AccountAPI.hideTemplate(data);
-      const account_id = response.data.data.account_id;      
-      return account_id;
-    } catch (error) {      
-      throw error;
-    }
-  },
-
-  getHideTemplates: async ({ commit }, accountId) => {    
-    try {
-      const response = await AccountAPI.getHideTemplate(accountId);
-      const templatesIds = response.data.data;      
-      return templatesIds;
-    } catch (error) {      
-      throw error;
-    }
-  },
 };
 
 export const mutations = {
