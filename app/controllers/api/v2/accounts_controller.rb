@@ -32,6 +32,11 @@ class Api::V2::AccountsController < Api::BaseController
     end
   end
 
+  def hideTemplate
+    @accountId = params[:accountId]
+    @templateId = params[:templateId]
+  end
+
   private
 
   def account_attributes

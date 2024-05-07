@@ -113,6 +113,16 @@ export const actions = {
       // silent error
     }
   },
+
+  hideTemplate: async ({ commit }, data) => {    
+    try {
+      const response = await AccountAPI.hideTemplate(data);
+      const account_id = response.data.data.account_id;      
+      return account_id;
+    } catch (error) {      
+      throw error;
+    }
+  },
 };
 
 export const mutations = {
