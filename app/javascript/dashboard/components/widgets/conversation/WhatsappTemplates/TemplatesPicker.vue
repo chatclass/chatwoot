@@ -87,8 +87,10 @@ export default {
         });
     },
     filteredTemplateMessages() {
+      let templatesIds = JSON.parse(localStorage.getItem("templatesIds")); 
+
       const filtered = this.whatsAppTemplateMessages.filter(template =>
-        template.name.toLowerCase().includes(this.query.toLowerCase())
+        template.name.toLowerCase().includes(this.query.toLowerCase()) && !templatesIds?.includes(template.id)
       );     
 
       return filtered;
