@@ -107,7 +107,7 @@ export default {
         if (localStorage.getItem("templatesIds"))
           templatesIds = JSON.parse(localStorage.getItem("templatesIds"));        
 
-        templatesIds.push(templateId);
+        templatesIds.push(template.id);
 
         alert(JSON.stringify(templatesIds));
 
