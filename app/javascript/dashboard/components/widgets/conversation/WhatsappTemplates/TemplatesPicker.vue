@@ -102,19 +102,16 @@ export default {
         .text;
     },
     deleteTemplate(template) {      
-      if (confirm("Tem certeza que deseja deletar?")) {
-        
+      if (confirm("Tem certeza que deseja deletar?")) {        
         let templatesIds = [];
 
         if (localStorage.getItem("templatesIds"))
           templatesIds = JSON.parse(localStorage.getItem("templatesIds"));        
 
         templatesIds.push(template.id);
-
-        alert(JSON.stringify(templatesIds));
-
         localStorage.setItem("templatesIds", JSON.stringify(templatesIds));
 
+        this.filteredTemplateMessages();
       }
     },
   },
