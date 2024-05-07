@@ -111,8 +111,9 @@ export default {
         templatesIds.push(template.id);
         localStorage.setItem("templatesIds", JSON.stringify(templatesIds));
 
-        this.filteredTemplateMessages.filter(template => !templatesIds?.includes(template.id));   
-        this.query = '';  
+        // force refresh
+        this.query = 'a';
+        this.query = '';
       }
     },
   },
