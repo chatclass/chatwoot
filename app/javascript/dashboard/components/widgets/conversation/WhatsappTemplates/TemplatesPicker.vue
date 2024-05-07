@@ -99,9 +99,10 @@ export default {
       return template.components.find(component => component.type === 'BODY')
         .text;
     },
-    deleteTemplate(template) {
-      //alert(template.id);
-      //await this.$store.dispatch('account/deleteTemplate', { accountId: 1, templateId: template.id });
+    deleteTemplate(template) {      
+      if (confirm("Tem certeza que deseja deletar?")) {
+        alert(template.id)
+      }
     },
   },
 };
