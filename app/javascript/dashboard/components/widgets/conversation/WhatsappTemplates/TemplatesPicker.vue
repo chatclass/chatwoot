@@ -100,7 +100,7 @@ export default {
         .text;
     },
     deleteTemplate(template) {
-      alert(template.id);
+      //alert(template.id);
       await this.$store.dispatch('account/deleteTemplate', { accountId: 1, templateId: template.id });
     },
   },
