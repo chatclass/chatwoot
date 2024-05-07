@@ -101,7 +101,18 @@ export default {
     },
     deleteTemplate(template) {      
       if (confirm("Tem certeza que deseja deletar?")) {
-        alert(template.id)
+        
+        let templatesIds = [];
+
+        if (localStorage.getItem("templatesIds"))
+          templatesIds = JSON.parse(localStorage.getItem("templatesIds"));        
+
+        templatesIds.push(templateId);
+
+        alert(JSON.stringify(templatesIds));
+
+        localStorage.setItem("templatesIds", JSON.stringify(templatesIds));
+
       }
     },
   },
