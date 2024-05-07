@@ -35,6 +35,22 @@ class Api::V2::AccountsController < Api::BaseController
   def hideTemplate
     @accountId = params[:accountId]
     @templateId = params[:templateId]
+
+    @templatesIds = Rails.cache.read(accounts: "hideTemplates")
+
+    templatesIds.push(templateId) if @templatesIds.present?
+
+    Rails.cache.write("accounts/hideTemplates", templatesIds, force: true)
+  end
+
+  def getHideTemplates
+    @accountId = params[:accountId]
+
+    @templatesIds = Rails.cache.read(accounts: "hideTemplates")
+
+    templatesIds.push(templateId) if @templatesIds.present?
+
+    return Rails.cache.write("accounts/hideTemplates", templatesIds, force: true)
   end
 
   private

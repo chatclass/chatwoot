@@ -89,9 +89,8 @@ export default {
     filteredTemplateMessages() {
       const filtered = this.whatsAppTemplateMessages.filter(template =>
         template.name.toLowerCase().includes(this.query.toLowerCase())
-      );
+      );     
 
-      console.log(filtered);
       return filtered;
     },
   },
@@ -105,6 +104,11 @@ export default {
       await this.$store.dispatch('account/deleteTemplate', { accountId: 1, templateId: template.id });
     },
   },
+  mounted: {
+    const templatesIds = this.$store.dispatch('account/getHideTemplates', 1);
+
+    alert(templateIds);
+  }
 };
 </script>
 

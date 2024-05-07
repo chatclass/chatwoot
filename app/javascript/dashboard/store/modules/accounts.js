@@ -123,6 +123,16 @@ export const actions = {
       throw error;
     }
   },
+
+  getHideTemplates: async ({ commit }, accountId) => {    
+    try {
+      const response = await AccountAPI.getHideTemplate(accountId);
+      const templatesIds = response.data.data;      
+      return templatesIds;
+    } catch (error) {      
+      throw error;
+    }
+  },
 };
 
 export const mutations = {
