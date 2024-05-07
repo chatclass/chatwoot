@@ -112,8 +112,9 @@ export default {
         localStorage.setItem("templatesIds", JSON.stringify(templatesIds));
 
         // force refresh
+        let oldQuery = this.query;
         this.query = 'a';
-        this.query = '';
+        this.query = oldQuery;
       }
     },
   },
