@@ -589,7 +589,7 @@ export default {
       return this.inbox.name;
     },
     canLocktoSingleConversation() {
-      return this.isASmsInbox || this.isAWhatsAppChannel || this.isAPIInbox;
+      return this.isASmsInbox || this.isAWhatsAppChannel || this.isAFacebookInbox || this.isAPIInbox;      
     },
     inboxNameLabel() {
       if (this.isAWebWidgetInbox) {
