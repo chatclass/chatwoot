@@ -267,8 +267,8 @@
         </div>
         <label v-if="canLocktoSingleConversation" class="w-3/4 pb-4">
           {{ $t('INBOX_MGMT.SETTINGS_POPUP.LOCK_TO_SINGLE_CONVERSATION') }}
-          <select v-model="locktoSingleConversation">
-            <option :value="true">
+          <select v-model="locktoSingleConversation" disabled="disabled">
+            <option selected :value="true">
               {{ $t('INBOX_MGMT.EDIT.LOCK_TO_SINGLE_CONVERSATION.ENABLED') }}
             </option>
             <option :value="false">
@@ -465,7 +465,7 @@ export default {
       csatSurveyEnabled: false,
       senderNameType: 'friendly',
       businessName: '',
-      locktoSingleConversation: false,
+      locktoSingleConversation: true,
       allowMessagesAfterResolved: true,
       continuityViaEmail: true,
       selectedInboxName: '',
@@ -589,9 +589,7 @@ export default {
       return this.inbox.name;
     },
     canLocktoSingleConversation() {
-      return (
-        this.isASmsInbox || this.isAWhatsAppChannel || this.isAFacebookInbox
-      );
+      return this.isASmsInbox || this.isAWhatsAppChannel || this.isAFacebookInbox || this.isAPIInbox;      
     },
     inboxNameLabel() {
       if (this.isAWebWidgetInbox) {
@@ -625,6 +623,7 @@ export default {
   mounted() {
     this.fetchInboxSettings();
     this.fetchPortals();
+    this.locktoSingleConversation = true;
   },
   methods: {
     fetchPortals() {
@@ -670,7 +669,7 @@ export default {
         this.channelWelcomeTagline = this.inbox.welcome_tagline;
         this.selectedFeatureFlags = this.inbox.selected_feature_flags || [];
         this.replyTime = this.inbox.reply_time;
-        this.locktoSingleConversation = this.inbox.lock_to_single_conversation;
+        this.locktoSingleConversation = true;
         this.selectedPortalSlug = this.inbox.help_center
           ? this.inbox.help_center.slug
           : '';

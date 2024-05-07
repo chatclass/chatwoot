@@ -19,7 +19,7 @@ const reports = accountId => ({
       icon: 'arrow-trending-lines',
       label: 'REPORTS_OVERVIEW',
       hasSubMenu: false,
-      toState: frontendURL(`accounts/${accountId}/reports/overview`),
+      toState: 'https://app.chatclass.org/dashboards/338',
       toStateName: 'account_overview_reports',
     },
     {

@@ -109,6 +109,7 @@ export const actions = {
       // silent error
     }
   },
+
 };
 
 export const mutations = {

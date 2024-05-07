@@ -9,7 +9,7 @@ const campaigns = accountId => ({
       label: 'ONGOING',
       key: 'ongoingCampaigns',
       hasSubMenu: false,
-      toState: frontendURL(`accounts/${accountId}/campaigns/ongoing`),
+      toState: 'https://app.chatshop.ai/campaigns',      
       toStateName: 'ongoing_campaigns',
     },
     {

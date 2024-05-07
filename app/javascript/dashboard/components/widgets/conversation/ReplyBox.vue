@@ -3,7 +3,7 @@
     <banner
       v-if="showSelfAssignBanner"
       action-button-variant="clear"
-      color-scheme="secondary"
+      color-scheme="alert"
       class="banner--self-assign"
       :banner-message="$t('CONVERSATION.NOT_ASSIGNED_TO_YOU')"
       :has-action-button="true"
@@ -127,7 +127,7 @@
       :toggle-audio-recorder-play-pause="toggleAudioRecorderPlayPause"
       :toggle-audio-recorder="toggleAudioRecorder"
       :toggle-emoji-picker="toggleEmojiPicker"
-      :message="message"
+      :message="message"openWhatsappTemplateModal
       :portal-slug="connectedPortalSlug"
       :new-conversation-modal-active="newConversationModalActive"
       @selectWhatsappTemplate="openWhatsappTemplateModal"
@@ -752,7 +752,7 @@ export default {
       this.showVariablesMenu = value;
     },
     openWhatsappTemplateModal() {
-      this.showWhatsAppTemplatesModal = true;
+      this.showWhatsAppTemplatesModal = true;      
     },
     hideWhatsappTemplatesModal() {
       this.showWhatsAppTemplatesModal = false;
