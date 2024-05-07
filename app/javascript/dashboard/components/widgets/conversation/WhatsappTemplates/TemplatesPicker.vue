@@ -111,9 +111,8 @@ export default {
         templatesIds.push(template.id);
         localStorage.setItem("templatesIds", JSON.stringify(templatesIds));
 
-        this.filteredTemplateMessages = this.whatsAppTemplateMessages.filter(template =>
-          template.name.toLowerCase().includes(this.query.toLowerCase()) && !templatesIds?.includes(template.id)
-        );     
+        this.filteredTemplateMessages.filter(template => !templatesIds?.includes(template.id));   
+        this.query = '';  
       }
     },
   },
