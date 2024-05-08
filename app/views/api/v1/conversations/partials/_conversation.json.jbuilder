@@ -3,9 +3,9 @@
 # Everywhere else we use conversation builder in partials folder
 
 json.meta do
-  json.sender do
-    json.partial! 'api/v1/models/contact', formats: [:json], resource: conversation.contact
-  end
+  #json.sender do
+  #  json.partial! 'api/v1/models/contact', formats: [:json], resource: conversation.contact
+  #end
   json.channel conversation.inbox.try(:channel_type)
   if conversation.assignee&.account
     json.assignee do
