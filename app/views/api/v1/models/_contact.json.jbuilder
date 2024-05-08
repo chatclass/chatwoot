@@ -1,9 +1,9 @@
 #json.additional_attributes resource.additional_attributes
 #json.availability_status resource.availability_status
-json.email resource.email
-json.id resource.id
-json.name resource.name
-json.phone_number resource.phone_number
+#json.email resource.email
+#json.id resource.id
+#json.name resource.name
+#json.phone_number resource.phone_number
 json.identifier resource.identifier
 json.thumbnail resource.avatar_url
 json.custom_attributes resource.custom_attributes
