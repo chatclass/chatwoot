@@ -1,9 +1,6 @@
 require 'json'
 
 class FilterService
-  include FilterHelper
-  include CustomExceptions::CustomFilter
-
   ATTRIBUTE_MODEL = 'conversation_attribute'.freeze
   ATTRIBUTE_TYPES = {
     date: 'date', text: 'text', number: 'numeric', link: 'text', list: 'text', checkbox: 'boolean'
@@ -109,9 +106,7 @@ class FilterService
     ]
   end
 
-  def tag_filter_query(query_hash, current_index)
-    model_name = filter_config[:entity]
-    table_name = filter_config[:table_name]
+  def tag_filter_query(model_name, table_name, query_hash, current_index)
     query_operator = query_hash[:query_operator]
     @filter_values["value_#{current_index}"] = filter_values(query_hash)
 
@@ -135,8 +130,10 @@ class FilterService
   def custom_attribute_query(query_hash, custom_attribute_type, current_index)
     @attribute_key = query_hash[:attribute_key]
     @custom_attribute_type = custom_attribute_type
+
     attribute_data_type
-    return '' if @custom_attribute.blank?
+
+    return ' ' if @custom_attribute.blank?
 
     build_custom_attr_query(query_hash, current_index)
   end
@@ -158,9 +155,9 @@ class FilterService
     table_name = attribute_model == 'conversation_attribute' ? 'conversations' : 'contacts'
 
     query = if attribute_data_type == 'text'
-              "LOWER(#{table_name}.custom_attributes ->> '#{@attribute_key}')::#{attribute_data_type} #{filter_operator_value} #{query_operator} "
+              "  LOWER(#{table_name}.custom_attributes ->> '#{@attribute_key}')::#{attribute_data_type} #{filter_operator_value} #{query_operator} "
             else
-              "(#{table_name}.custom_attributes ->> '#{@attribute_key}')::#{attribute_data_type} #{filter_operator_value} #{query_operator} "
+              "  (#{table_name}.custom_attributes ->> '#{@attribute_key}')::#{attribute_data_type} #{filter_operator_value} #{query_operator} "
             end
 
     query + not_in_custom_attr_query(table_name, query_hash, attribute_data_type)
@@ -196,12 +193,5 @@ class FilterService
     return "LIKE :value_#{current_index}" if %w[contains starts_with].include?(filter_operator)
 
     "NOT LIKE :value_#{current_index}"
-  end
-
-  def query_builder(model_filters)
-    @params[:payload].each_with_index do |query_hash, current_index|
-      @query_string += " #{build_condition_query(model_filters, query_hash, current_index).strip}"
-    end
-    base_relation.where(@query_string, @filter_values.with_indifferent_access)
   end
 end
