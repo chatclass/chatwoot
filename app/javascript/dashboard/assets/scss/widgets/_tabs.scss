@@ -59,7 +59,7 @@
 
   &.is-active {
     a {
-      @apply border-b border-woot-500 bg-[#32a852] dark:text-[#32a852];
+      @apply border-b border-woot-500 text-[#32a852] dark:text-woot-500;
     }
 
     .badge {
