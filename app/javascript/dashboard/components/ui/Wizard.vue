@@ -76,22 +76,22 @@ export default {
       }
 
       .step {
-        @apply bg-woot-500 dark:bg-woot-500;
+        @apply bg-[#32a852] dark:bg-woot-500;
       }
     }
 
     &.over {
       &::after {
-        @apply bg-woot-500 dark:bg-woot-500;
+        @apply bg-[#32a852]dark:bg-woot-500;
       }
 
       .step {
-        @apply bg-woot-500 dark:bg-woot-500;
+        @apply bg-[#32a852] dark:bg-woot-500;
       }
 
       & + .item {
         &::before {
-          @apply bg-woot-500 dark:bg-woot-500;
+          @apply bg-[#32a852] dark:bg-woot-500;
         }
       }
     }

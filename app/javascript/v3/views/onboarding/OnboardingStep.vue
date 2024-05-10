@@ -4,7 +4,7 @@
     :class="{
       'text-[#32a852] ': isActive,
       'text-slate-400': !isActive || isComplete,
-      'before:bg-woot-500': !isActive && isComplete,
+      'before:bg-[#32a852]': !isActive && isComplete,
     }"
   >
     <div
