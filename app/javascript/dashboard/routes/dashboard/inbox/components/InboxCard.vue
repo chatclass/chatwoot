@@ -13,7 +13,7 @@
     <div class="flex relative items-center justify-between w-full">
       <div
         v-if="isUnread"
-        class="absolute ltr:-left-3.5 rtl:-right-3.5 flex w-2 h-2 rounded bg-woot-500 dark:bg-woot-500"
+        class="absolute ltr:-left-3.5 rtl:-right-3.5 flex w-2 h-2 rounded bg-[#32a852] dark:bg-woot-500"
       />
       <InboxNameAndId :inbox="inbox" :conversation-id="primaryActor.id" />
 

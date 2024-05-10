@@ -58,7 +58,7 @@ export default {
   }
 
   &:hover {
-    @apply bg-woot-500 dark:bg-woot-500 text-white dark:text-slate-50;
+    @apply bg-[#32a852] dark:bg-woot-500 text-white dark:text-slate-50;
   }
 }
 
