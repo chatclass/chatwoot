@@ -4,7 +4,7 @@
 - name: LOGO_THUMBNAIL
   value: '/brand-assets/logo_thumbnail_chatshop.svg'
 - name: LOGO
-  value: '/brand-assets/logo_chatshop.svg'
+  value: '/brand-assets/logo_chatshop.png'
 - name: LOGO_DARK
   value: '/brand-assets/logo_dark.svg'
 - name: BRAND_URL
