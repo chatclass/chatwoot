@@ -63,7 +63,7 @@
     }
 
     .badge {
-      @apply bg-[#23db55] dark:bg-woot-500 bg-[#32a852] dark:text-woot-50 dark:bg-opacity-40;
+      @apply bg-woot-50 dark:bg-woot-500 text-woot-500 dark:text-woot-50 dark:bg-opacity-40;
     }
   }
 }
