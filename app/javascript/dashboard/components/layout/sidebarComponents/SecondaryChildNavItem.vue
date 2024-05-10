@@ -25,7 +25,7 @@
           <fluent-icon
             class="text-xxs text-slate-700 dark:text-slate-200"
             :class="{
-              'text-woot-500 dark:text-woot-500': isActive,
+              'text-[#32a852] dark:text-[#32a852]': isActive,
             }"
             :icon="icon"
             size="12"
@@ -44,7 +44,7 @@
             :title="menuTitle"
             class="text-sm text-slate-700 dark:text-slate-100"
             :class="{
-              'text-woot-500 dark:text-woot-500': isActive,
+              'text-[#32a852] dark:text-[#32a852]': isActive,
               'text-ellipsis overflow-hidden whitespace-nowrap max-w-full':
                 shouldTruncate,
             }"

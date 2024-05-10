@@ -5,7 +5,7 @@
       :href="href"
       class="text-slate-700 dark:text-slate-100 w-10 h-10 my-2 flex items-center justify-center rounded-lg hover:bg-slate-25 dark:hover:bg-slate-700 dark:hover:text-slate-100 hover:text-slate-600 relative"
       :class="{
-        'bg-woot-50 dark:bg-slate-800 text-woot-500 hover:bg-woot-50':
+        'bg-woot-50 dark:bg-slate-800 text-[#32a852] hover:bg-woot-50':
           isActive || isChildMenuActive,
       }"
       :rel="openInNewPage ? 'noopener noreferrer nofollow' : undefined"
@@ -15,7 +15,7 @@
       <fluent-icon
         :icon="icon"
         :class="{
-          'text-woot-500': isActive || isChildMenuActive,
+          'text-[#32a852]': isActive || isChildMenuActive,
         }"
       />
       <span class="sr-only">{{ name }}</span>

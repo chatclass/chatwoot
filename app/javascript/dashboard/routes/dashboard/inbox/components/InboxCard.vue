@@ -43,7 +43,7 @@
       </span>
     </div>
     <div v-if="snoozedUntilTime" class="flex items-center">
-      <span class="text-woot-500 dark:text-woot-500 text-xs font-medium">
+      <span class="text-[#32a852] dark:text-[#32a852] text-xs font-medium">
         {{ snoozedDisplayText }}
       </span>
     </div>

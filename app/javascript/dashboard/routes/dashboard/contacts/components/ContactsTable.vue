@@ -161,7 +161,7 @@ export default {
           renderBodyCell: ({ row }) => {
             if (row.email)
               return (
-                <div class="overflow-hidden whitespace-nowrap text-ellipsis text-woot-500 dark:text-woot-500">
+                <div class="overflow-hidden whitespace-nowrap text-ellipsis text-[#32a852] dark:text-[#32a852]">
                   <a
                     target="_blank"
                     rel="noopener noreferrer nofollow"

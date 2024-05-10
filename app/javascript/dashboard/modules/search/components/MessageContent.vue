@@ -99,6 +99,6 @@ export default {
 }
 
 .message-content::v-deep .searchkey--highlight {
-  @apply text-woot-600 dark:text-woot-500 text-sm font-semibold;
+  @apply text-woot-600 dark:text-[#32a852] text-sm font-semibold;
 }
 </style>

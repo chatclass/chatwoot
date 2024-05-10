@@ -105,7 +105,7 @@ export default {
   @apply flex items-center justify-between mb-1;
 }
 .icon-wrap {
-  @apply w-6 h-6 flex-shrink-0  bg-woot-75 dark:bg-woot-600/50 flex items-center justify-center rounded text-woot-600 dark:text-woot-500;
+  @apply w-6 h-6 flex-shrink-0  bg-woot-75 dark:bg-woot-600/50 flex items-center justify-center rounded text-woot-600 dark:text-[#32a852];
 }
 
 .inbox-name-wrap {

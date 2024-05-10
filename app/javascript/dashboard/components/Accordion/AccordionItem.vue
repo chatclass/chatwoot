@@ -14,7 +14,7 @@
       </div>
       <div class="flex flex-row">
         <slot name="button" />
-        <div class="flex justify-end w-3 text-woot-500">
+        <div class="flex justify-end w-3 text-[#32a852]">
           <fluent-icon v-if="isOpen" size="24" icon="subtract" type="solid" />
           <fluent-icon v-else size="24" icon="add" type="solid" />
         </div>

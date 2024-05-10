@@ -216,7 +216,7 @@ export default {
         this.isUnattended ||
         this.isCurrentRoute
       ) {
-        return 'bg-woot-25 dark:bg-slate-800 text-woot-500 dark:text-woot-500 hover:text-woot-500 dark:hover:text-woot-500 active-view';
+        return 'bg-woot-25 dark:bg-slate-800 text-[#32a852] dark:text-[#32a852] hover:text-[#32a852] dark:hover:text-[#32a852] active-view';
       }
       if (this.hasSubMenu) {
         if (
@@ -225,7 +225,7 @@ export default {
           this.isIntegrationsSettings ||
           this.isApplicationsSettings
         ) {
-          return 'bg-woot-25 dark:bg-slate-800 text-woot-500 dark:text-woot-500 hover:text-woot-500 dark:hover:text-woot-500 active-view';
+          return 'bg-woot-25 dark:bg-slate-800 text-[#32a852] dark:text-[#32a852] hover:text-[#32a852] dark:hover:text-[#32a852] active-view';
         }
         return 'hover:text-slate-700 dark:hover:text-slate-100';
       }

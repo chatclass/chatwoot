@@ -27,7 +27,7 @@ const i18nKey = props.isOnChatwootCloud ? 'PAYWALL' : 'ENTERPRISE_PAYWALL';
         >
           <fluent-icon
             size="14"
-            class="flex-shrink-0 text-woot-500 dark:text-woot-500"
+            class="flex-shrink-0 text-[#32a852] dark:text-[#32a852]"
             icon="lock-closed"
           />
         </span>

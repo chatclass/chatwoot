@@ -19,7 +19,7 @@
         icon="checkmark-circle"
         type="solid"
         size="24"
-        class="text-woot-500 dark:text-woot-500"
+        class="text-[#32a852] dark:text-[#32a852]"
       />
     </div>
     <div

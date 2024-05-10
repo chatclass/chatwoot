@@ -28,7 +28,7 @@
             v-if="macroVisibility === 'global'"
             icon="checkmark-circle"
             type="solid"
-            class="absolute text-woot-500 dark:text-woot-500 top-2 right-2"
+            class="absolute text-[#32a852] dark:text-[#32a852] top-2 right-2"
           />
           <p
             class="block m-0 text-sm font-medium leading-[1.8] text-slate-700 dark:text-slate-100"
@@ -48,7 +48,7 @@
             v-if="macroVisibility === 'personal'"
             icon="checkmark-circle"
             type="solid"
-            class="absolute text-woot-500 dark:text-woot-500 top-2 right-2"
+            class="absolute text-[#32a852] dark:text-[#32a852] top-2 right-2"
           />
           <p
             class="block m-0 text-sm font-medium leading-[1.8] text-slate-700 dark:text-slate-100"

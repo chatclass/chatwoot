@@ -85,7 +85,7 @@ export default {
 
     .icon {
       color: var(--w-400);
-      @apply text-woot-400 dark:text-woot-500;
+      @apply text-woot-400 dark:text-[#32a852];
     }
   }
 }

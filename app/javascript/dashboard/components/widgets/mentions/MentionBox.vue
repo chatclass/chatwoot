@@ -19,17 +19,17 @@
           @click="onListItemSelection(index)"
         >
           <p
-            class="text-slate-900 dark:text-slate-100 group-hover:text-woot-500 dark:group-hover:text-woot-500 font-medium mb-0 text-sm overflow-hidden text-ellipsis whitespace-nowrap min-w-0 max-w-full"
+            class="text-slate-900 dark:text-slate-100 group-hover:text-[#32a852] dark:group-hover:text-[#32a852] font-medium mb-0 text-sm overflow-hidden text-ellipsis whitespace-nowrap min-w-0 max-w-full"
             :class="{
-              'text-woot-500 dark:text-woot-500': index === selectedIndex,
+              'text-[#32a852] dark:text-[#32a852]': index === selectedIndex,
             }"
           >
             {{ item.description }}
           </p>
           <p
-            class="text-slate-500 dark:text-slate-300 group-hover:text-woot-500 dark:group-hover:text-woot-500 mb-0 text-xs overflow-hidden text-ellipsis whitespace-nowrap min-w-0 max-w-full"
+            class="text-slate-500 dark:text-slate-300 group-hover:text-[#32a852] dark:group-hover:text-[#32a852] mb-0 text-xs overflow-hidden text-ellipsis whitespace-nowrap min-w-0 max-w-full"
             :class="{
-              'text-woot-500 dark:text-woot-500': index === selectedIndex,
+              'text-[#32a852] dark:text-[#32a852]': index === selectedIndex,
             }"
           >
             {{ variableKey(item) }}

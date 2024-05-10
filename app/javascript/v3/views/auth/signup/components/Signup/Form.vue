@@ -72,7 +72,7 @@
       {{ $t('REGISTER.OAUTH.GOOGLE_SIGNUP') }}
     </GoogleOAuthButton>
     <p
-      class="text-sm mb-1 mt-5 text-slate-800 dark:text-woot-50 [&>a]:text-woot-500 [&>a]:font-medium [&>a]:hover:text-woot-600"
+      class="text-sm mb-1 mt-5 text-slate-800 dark:text-woot-50 [&>a]:text-[#32a852] [&>a]:font-medium [&>a]:hover:text-woot-600"
       v-html="termsLink"
     />
   </div>

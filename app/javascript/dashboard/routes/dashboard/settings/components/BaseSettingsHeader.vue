@@ -44,7 +44,7 @@ const openInNewTab = url => {
               size="14"
               :icon="iconName"
               type="outline"
-              class="flex-shrink-0 text-woot-500 dark:text-woot-500"
+              class="flex-shrink-0 text-[#32a852] dark:text-[#32a852]"
             />
           </div>
         </div>
@@ -74,14 +74,14 @@ const openInNewTab = url => {
         :href="href"
         target="_blank"
         rel="noopener noreferrer"
-        class="sm:inline-flex hidden tracking-[-0.6%] gap-1 w-fit items-center text-woot-500 dark:text-woot-500 text-sm font-medium tracking=[-0.6%] hover:underline"
+        class="sm:inline-flex hidden tracking-[-0.6%] gap-1 w-fit items-center text-[#32a852] dark:text-[#32a852] text-sm font-medium tracking=[-0.6%] hover:underline"
       >
         {{ linkText }}
         <fluent-icon
           size="16"
           icon="chevron-right"
           type="outline"
-          class="flex-shrink-0 text-woot-500 dark:text-woot-500"
+          class="flex-shrink-0 text-[#32a852] dark:text-[#32a852]"
         />
       </a>
     </div>

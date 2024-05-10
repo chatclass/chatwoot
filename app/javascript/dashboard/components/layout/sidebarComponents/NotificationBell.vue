@@ -3,7 +3,7 @@
     <button
       class="text-slate-600 dark:text-slate-100 w-10 h-10 my-2 p-0 flex items-center justify-center rounded-lg hover:bg-slate-25 dark:hover:bg-slate-700 dark:hover:text-slate-100 hover:text-slate-600 relative"
       :class="{
-        'bg-woot-50 dark:bg-slate-800 text-woot-500 hover:bg-woot-50':
+        'bg-woot-50 dark:bg-slate-800 text-[#32a852] hover:bg-woot-50':
           isNotificationPanelActive,
       }"
       @click="openNotificationPanel"
@@ -11,7 +11,7 @@
       <fluent-icon
         icon="alert"
         :class="{
-          'text-woot-500': isNotificationPanelActive,
+          'text-[#32a852]': isNotificationPanelActive,
         }"
       />
       <span

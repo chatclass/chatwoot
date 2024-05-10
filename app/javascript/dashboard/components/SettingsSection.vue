@@ -9,7 +9,7 @@
     <div class="w-full xl:w-1/4 min-w-0 xl:max-w-[30%] pr-12">
       <p
         v-if="title"
-        class="text-base text-woot-500 dark:text-woot-500 mb-0 font-medium"
+        class="text-base text-[#32a852] dark:text-[#32a852] mb-0 font-medium"
       >
         {{ title }}
       </p>

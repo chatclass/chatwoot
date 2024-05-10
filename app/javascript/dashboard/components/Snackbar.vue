@@ -10,7 +10,7 @@
         <router-link
           v-if="action.type == 'link'"
           :to="action.to"
-          class="text-woot-500 dark:text-woot-500 cursor-pointer font-medium hover:text-woot-600 dark:hover:text-woot-600 select-none"
+          class="text-[#32a852] dark:text-[#32a852] cursor-pointer font-medium hover:text-woot-600 dark:hover:text-woot-600 select-none"
         >
           {{ action.message }}
         </router-link>

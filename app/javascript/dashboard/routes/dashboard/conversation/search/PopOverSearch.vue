@@ -72,7 +72,7 @@ export default {
   &:hover {
     .search--icon,
     .search--label {
-      @apply hover:text-woot-500 dark:hover:text-woot-500;
+      @apply hover:text-[#32a852] dark:hover:text-[#32a852];
     }
   }
 }
