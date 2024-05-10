@@ -106,7 +106,7 @@ export default {
   &.primary {
     @apply bg-[#32a852] dark:bg-woot-500;
     .banner-action__button {
-      @apply bg-woot-600 dark:bg-woot-600 border-none text-white;
+      @apply bg-[#28b04d] dark:bg-woot-600 border-none text-white;
 
       &:hover {
         @apply bg-woot-700 dark:bg-woot-700;

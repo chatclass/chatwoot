@@ -137,7 +137,7 @@ export default {
       @apply text-woot-900 dark:text-woot-900;
     }
     .label-color-dot {
-      @apply bg-woot-600 dark:bg-woot-600;
+      @apply bg-[#28b04d] dark:bg-woot-600;
     }
   }
   &.secondary {

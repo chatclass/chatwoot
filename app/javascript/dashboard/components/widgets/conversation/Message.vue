@@ -746,7 +746,7 @@ li.right {
 
 .right .bubble .text-content {
   p code {
-    @apply bg-woot-600 dark:bg-woot-600 text-white dark:text-white;
+    @apply bg-[#28b04d] dark:bg-woot-600 text-white dark:text-white;
   }
 
   pre {
