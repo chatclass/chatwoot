@@ -2,9 +2,9 @@
 - name: INSTALLATION_NAME
   value: 'Chatwoot'
 - name: LOGO_THUMBNAIL
-  value: '/brand-assets/logo_thumbnail.svg'
+  value: '/brand-assets/logo_thumbnail_chatshop.svg'
 - name: LOGO
-  value: '/brand-assets/logo.svg'
+  value: '/brand-assets/logo_chatshop.svg'
 - name: LOGO_DARK
   value: '/brand-assets/logo_dark.svg'
 - name: BRAND_URL
