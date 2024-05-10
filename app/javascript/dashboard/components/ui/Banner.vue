@@ -104,7 +104,7 @@ export default {
 <style lang="scss" scoped>
 .banner {
   &.primary {
-    @apply bg-woot-500 dark:bg-woot-500;
+    @apply bg-[#32a852] dark:bg-woot-500;
     .banner-action__button {
       @apply bg-woot-600 dark:bg-woot-600 border-none text-white;
 

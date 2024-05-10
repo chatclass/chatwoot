@@ -131,7 +131,7 @@ export default {
 
   /* Color Schemes */
   &.primary {
-    @apply bg-woot-100 dark:bg-woot-100 text-woot-900 dark:text-woot-900 border border-solid border-woot-200;
+    @apply bg-[#32a852] dark:bg-woot-100 text-woot-900 dark:text-woot-900 border border-solid border-woot-200;
 
     a {
       @apply text-woot-900 dark:text-woot-900;
