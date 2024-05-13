@@ -45,7 +45,7 @@
         </div>
         <bubble-text
           v-else-if="data.content && !isInteractiveMessage"
-          :message="message"
+          message="SDSDSDSDSDSDSdasdasd"
           :is-email="isEmailContentType"
           :display-quoted-button="displayQuotedButton"
         />
