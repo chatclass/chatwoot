@@ -458,10 +458,10 @@ export default {
     isFailed() {
       return this.data.status === MESSAGE_STATUS.FAILED;
     },
-    isSentByBot() {
-      console.log(this.sender.type);
-      if (this.isPending || this.isFailed) return false;      
-      return !this.sender.type || this.sender.type === 'agent_bot';
+    isSentByBot() {      
+      //if (this.isPending || this.isFailed) return false;      
+      //return !this.sender.type || this.sender.type === 'agent_bot'; sender.name == Bot this.private == true sender.type == "user"
+      return true;
     },
     shouldShowContextMenu() {
       return !(this.isFailed || this.isPending || this.isUnsupported);
