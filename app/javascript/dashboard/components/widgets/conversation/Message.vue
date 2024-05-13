@@ -460,6 +460,7 @@ export default {
     },
     isSentByBot() {
       if (this.isPending || this.isFailed) return false;
+      console.log(this.sender.type);
       return !this.sender.type || this.sender.type === 'agent_bot';
     },
     shouldShowContextMenu() {
