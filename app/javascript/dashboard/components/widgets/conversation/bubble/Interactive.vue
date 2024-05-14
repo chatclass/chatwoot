@@ -84,7 +84,7 @@ export default {
       return this.list?.length > 0;
     },
   },
-  mounted: {
+  mounted: function(){
     this.loadItems();
   },
 };
