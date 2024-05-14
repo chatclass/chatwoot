@@ -1,4 +1,11 @@
 <template>
+  <div>
+  FDFSDFDF
+  getDayDifferenceFromNow
+
+  sendMessageWithData
+  sddfssdfsdf
+  </div>
   <li v-if="shouldRenderMessage" :id="`message${data.id}`" :class="alignBubble">
     <div :class="wrapClass">
       <div
@@ -439,7 +446,7 @@ export default {
     bubbleClass() {
       return {
         bubble: this.isBubble,
-        'is-private': this.data.private,
+        'is-private': true,
         'is-unsupported': this.isUnsupported,
         'is-image': this.hasMediaAttachment('image'),
         'is-video': this.hasMediaAttachment('video'),
