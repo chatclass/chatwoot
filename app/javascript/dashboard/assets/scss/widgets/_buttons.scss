@@ -115,7 +115,7 @@ button {
   }
 
   &.hollow {
-    @apply border border-woot-500 bg-transparent dark:bg-transparent dark:border-woot-500 text-woot-500 dark:text-woot-500 hover:bg-woot-50 dark:hover:bg-woot-900;
+    @apply border border-woot-500 bg-transparent dark:bg-transparent dark:border-woot-500 text-[#32a852] dark:text-[#32a852] hover:bg-woot-50 dark:hover:bg-woot-900;
 
     &.secondary {
       @apply text-slate-700 border-slate-100 dark:border-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700;
@@ -195,7 +195,7 @@ button {
     }
 
     &:hover {
-      @apply hover:bg-woot-50 dark:hover:bg-woot-900/50 hover:text-woot-500 dark:hover:text-woot-100;
+      @apply hover:bg-woot-50 dark:hover:bg-woot-900/50 hover:text-[#32a852] dark:hover:text-woot-100;
 
       &.secondary {
         @apply hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-800 dark:hover:text-slate-100;

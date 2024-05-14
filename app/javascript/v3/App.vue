@@ -75,7 +75,7 @@ body {
 }
 
 .text-link {
-  @apply text-woot-500 font-medium hover:text-woot-600;
+  @apply text-[#32a852] font-medium hover:text-woot-600;
 }
 
 .tooltip {

@@ -49,7 +49,7 @@ export default {
   computed: {
     computedClass() {
       return `
-        ${this.disabled ? 'opacity-40 hover:bg-woot-500' : ''}
+        ${this.disabled ? 'opacity-40 hover:bg-[#32a852]' : ''}
         ${this.buttonClass || ' '}
       `;
     },
