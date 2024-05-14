@@ -439,7 +439,7 @@ export default {
     bubbleClass() {
       return {
         bubble: this.isBubble,
-        'is-private': false, //this.data.private
+        'is-private': this.data.private,
         'is-unsupported': this.isUnsupported,
         'is-image': this.hasMediaAttachment('image'),
         'is-video': this.hasMediaAttachment('video'),

@@ -59,11 +59,11 @@
 
   &.is-active {
     a {
-      @apply border-b border-woot-500 text-woot-500 dark:text-woot-500;
+      @apply border-b border-woot-500 text-[#32a852] dark:text-woot-500;
     }
 
     .badge {
-      @apply bg-woot-50 dark:bg-woot-500 text-woot-500 dark:text-woot-50 dark:bg-opacity-40;
+      @apply bg-woot-50 dark:bg-woot-500 text-[#32a852] dark:text-woot-50 dark:bg-opacity-40;
     }
   }
 }
