@@ -102,7 +102,7 @@ export default {
         .text;
     },
     deleteTemplate(template) {      
-      if (confirm("Tem certeza que deseja deletar?")) {        
+      if (confirm("Tem certeza que deseja deletarrrrrrr?")) {        
         let templatesIds = [];
 
         if (localStorage.getItem("templatesIds"))
