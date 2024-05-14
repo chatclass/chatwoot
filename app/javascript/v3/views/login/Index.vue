@@ -13,14 +13,7 @@
         :src="globalConfig.logoDark"
         :alt="globalConfig.installationName"
         class="mx-auto h-8 w-auto hidden dark:block"
-      />
-      <h2
-        class="mt-6 text-center text-3xl font-medium text-slate-900 dark:text-woot-50"
-      >
-        {{
-          useInstallationName($t('LOGIN.TITLE'), globalConfig.installationName)
-        }}
-      </h2>
+      />      
       <p
         v-if="showSignupLink"
         class="mt-3 text-center text-sm text-slate-600 dark:text-slate-400"
