@@ -459,8 +459,9 @@ export default {
       return this.data.status === MESSAGE_STATUS.FAILED;
     },
     isSentByBot() {
-      if (this.isPending || this.isFailed) return false;
-      return !this.sender.type || this.sender.type === 'agent_bot';
+      return true;
+      //if (this.isPending || this.isFailed) return false;
+      //return !this.sender.type || this.sender.type === 'agent_bot';
     },
     shouldShowContextMenu() {
       return !(this.isFailed || this.isPending || this.isUnsupported);
