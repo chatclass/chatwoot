@@ -45,7 +45,7 @@
         </div>
         <bubble-text
           v-else-if="data.content && !isInteractiveMessage"
-          message="SDSDSDSDSDSDSdasdasd"
+          :message="message"
           :is-email="isEmailContentType"
           :display-quoted-button="displayQuotedButton"
         />
@@ -444,7 +444,7 @@ export default {
         'is-image': this.hasMediaAttachment('image'),
         'is-video': this.hasMediaAttachment('video'),
         'is-text': this.hasText,
-        'is-from-bot': this.isSentByBot,
+        'is-from-bot': true,//this.isSentByBot,
         'is-failed': this.isFailed,
         'is-email': this.isEmailContentType,
       };
@@ -459,9 +459,8 @@ export default {
       return this.data.status === MESSAGE_STATUS.FAILED;
     },
     isSentByBot() {      
-      //if (this.isPending || this.isFailed) return false;      
-      //return !this.sender.type || this.sender.type === 'agent_bot'; sender.name == Bot this.private == true sender.type == "user"
-      return true;
+      if (this.isPending || this.isFailed) return false;      
+      return !this.sender.type || this.sender.type === 'agent_bot';// sender.name == Bot this.private == true sender.type == "user"      
     },
     shouldShowContextMenu() {
       return !(this.isFailed || this.isPending || this.isUnsupported);
