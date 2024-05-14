@@ -86,7 +86,7 @@ export default {
   },
   mounted: function() {
     this.loadItems();
-  }
+  },
 };
 </script>
 <style lang="scss">

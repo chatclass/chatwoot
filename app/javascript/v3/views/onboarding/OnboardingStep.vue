@@ -2,9 +2,9 @@
   <div
     class="flex items-center gap-2 p-2 text-lg font-bold mb-6 relative before:absolute before:h-10 before:w-[1px] before:bg-slate-200 before:-bottom-8 before:left-[24px] hide-before-of-last"
     :class="{
-      'text-[#32a852] ': isActive,
+      'text-woot-500 ': isActive,
       'text-slate-400': !isActive || isComplete,
-      'before:bg-[#32a852]': !isActive && isComplete,
+      'before:bg-woot-500': !isActive && isComplete,
     }"
   >
     <div
@@ -12,7 +12,7 @@
       :class="{
         'border-woot-500': !isActive || isComplete,
         'border-slate-200 dark:border-slate-600': !isActive && !isComplete,
-        'text-[#32a852]': isComplete,
+        'text-woot-500': isComplete,
       }"
     >
       <fluent-icon v-if="isComplete" size="20" icon="checkmark" />
