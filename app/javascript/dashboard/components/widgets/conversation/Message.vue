@@ -1,11 +1,4 @@
 <template>
-  <div>
-  FDFSDFDF
-  getDayDifferenceFromNow
-
-  sendMessageWithData
-  sddfssdfsdf
-  </div>
   <li v-if="shouldRenderMessage" :id="`message${data.id}`" :class="alignBubble">
     <div :class="wrapClass">
       <div
