@@ -45,7 +45,7 @@
         </div>
         <bubble-text
           v-else-if="data.content && !isInteractiveMessage"
-          :message="message"
+          message="SDSDSDSDSDSDSdasdasd"
           :is-email="isEmailContentType"
           :display-quoted-button="displayQuotedButton"
         />
@@ -439,12 +439,12 @@ export default {
     bubbleClass() {
       return {
         bubble: this.isBubble,
-        'is-private': true,
+        'is-private': this.data.private,
         'is-unsupported': this.isUnsupported,
         'is-image': this.hasMediaAttachment('image'),
         'is-video': this.hasMediaAttachment('video'),
         'is-text': this.hasText,
-        'is-from-bot': true,//this.isSentByBot,
+        'is-from-bot': this.isSentByBot,
         'is-failed': this.isFailed,
         'is-email': this.isEmailContentType,
       };
