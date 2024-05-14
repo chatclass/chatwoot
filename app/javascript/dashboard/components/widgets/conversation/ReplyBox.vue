@@ -327,8 +327,9 @@ export default {
       return false;
     },
     hasWhatsappTemplates() {
-      return !!this.$store.getters['inboxes/getWhatsAppTemplates'](this.inboxId)
-        .length;
+      return true;
+      //return !!this.$store.getters['inboxes/getWhatsAppTemplates'](this.inboxId)
+      //  .length;
     },
     isPrivate() {
       if (this.currentChat.can_reply || this.isAWhatsAppChannel) {
