@@ -492,7 +492,7 @@ export default {
     bus.$on(BUS_EVENTS.ON_MESSAGE_LIST_SCROLL, this.closeContextMenu);
     this.setupHighlightTimer();
     if (this.data.content?.includes("Reação:"))
-      this.data.content.replace("Reação:", "");
+      this.data.content = this.data.content.replace("Reação:", "");
   },
   beforeDestroy() {
     bus.$off(BUS_EVENTS.ON_MESSAGE_LIST_SCROLL, this.closeContextMenu);
