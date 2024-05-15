@@ -78,12 +78,18 @@ export default {
         }
         else
         {
-          this.text = this.message?.split("Buttons block titled")[1];
-          this.buttons = [{
-            reply: {
-              title: "Action"
-            }
-          }];
+          let buttons = [];
+          
+          this.text = this.message?.split("Buttons block titled")[1].split("with ")[0];
+          this.message?.split("Buttons:")[1].split(",").forEach(function (title) {
+            buttons.push({
+              reply: {
+                  title: title
+              }
+            });            
+          });
+         
+          this.buttons = buttons;
         }             
       }
   },
