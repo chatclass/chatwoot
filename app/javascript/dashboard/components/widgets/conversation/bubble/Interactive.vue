@@ -54,7 +54,7 @@ export default {
         
         console.log(this.message);
 
-        if (this.data.content?.startsWith('{'))
+        if (this.message?.startsWith('{'))
         {
           const contentJson = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
           const content = JSON.parse(contentJson);
