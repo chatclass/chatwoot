@@ -51,9 +51,7 @@ export default {
   },
   methods: {
       loadItems() {
-        
-        console.log(this.message);
-
+                
         if (this.message?.startsWith('{'))
         {
           const contentJson = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
