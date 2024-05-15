@@ -79,9 +79,7 @@ export default {
           let buttons = [];
 
           this.text = this.message?.split("Buttons block titled")[1].split("with ")[0];
-          this.header = {
-            text: this.text
-          }
+          
           this.message?.split("Buttons:")[1].split(",").forEach(function (title) {
             buttons.push({
               reply: {
