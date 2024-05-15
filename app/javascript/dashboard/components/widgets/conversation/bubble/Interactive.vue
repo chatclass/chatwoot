@@ -51,6 +51,7 @@ export default {
   },
   methods: {
       loadItems() {
+        console.log(this.message);
         const contentJson = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
         const content = JSON.parse(contentJson);
         const { type, header, body: { text } } = content;
