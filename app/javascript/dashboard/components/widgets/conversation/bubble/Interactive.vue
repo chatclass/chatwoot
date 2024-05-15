@@ -51,27 +51,40 @@ export default {
   },
   methods: {
       loadItems() {
+        
         console.log(this.message);
-        const contentJson = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
-        const content = JSON.parse(contentJson);
-        const { type, header, body: { text } } = content;
 
-        this.text = text;
-        this.header = header;
-
-        if (type === "button")
+        if (this.data.content?.startsWith('{'))
         {
-            const { action: { buttons } } = content;
-            this.buttons = buttons;
-        }
+          const contentJson = this.message?.replaceAll("=>", ":").replaceAll("“","\"").replaceAll("”","\"");
+          const content = JSON.parse(contentJson);
+          const { type, header, body: { text } } = content;
 
-        if (type === "list")
+          this.text = text;
+          this.header = header;
+
+          if (type === "button")
+          {
+              const { action: { buttons } } = content;
+              this.buttons = buttons;
+          }
+
+          if (type === "list")
+          {
+              const { action: { button, sections } } = content;
+              this.listOption = button;
+              this.list = sections[0].rows;
+          }
+        }
+        else
         {
-            const { action: { button, sections } } = content;
-            this.listOption = button;
-            this.list = sections[0].rows;
-        }
-
+          this.text = this.message?.split("Buttons block titled")[1];
+          this.buttons = [{
+            reply: {
+              title: "Action"
+            }
+          }];
+        }             
       }
   },
   computed: {
