@@ -51,6 +51,8 @@ export default {
   },
   methods: {
       loadItems() {
+
+        console.log(this.message);
                 
         if (this.message?.startsWith('{'))
         {
