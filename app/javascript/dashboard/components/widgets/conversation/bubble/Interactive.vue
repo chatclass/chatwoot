@@ -122,7 +122,7 @@ export default {
   }
 
   .interactive-text {    
-    white-space: pre !important;
+    white-space: pre-wrap !important;
   }  
 
   .interactive-row {

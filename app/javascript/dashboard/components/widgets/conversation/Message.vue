@@ -354,8 +354,7 @@ export default {
       const { screen_name: screenName } = additionalAttributes;
       return `https://twitter.com/${screenName}`;
     },
-    alignBubble() {
-      console.log(this.isSentByBot);
+    alignBubble() {      
       const { message_type: messageType } = this.data;
       const isCentered = messageType === MESSAGE_TYPE.ACTIVITY;
       const isLeftAligned = messageType === MESSAGE_TYPE.INCOMING && !this.isSentByBot;
@@ -364,7 +363,7 @@ export default {
         messageType === MESSAGE_TYPE.TEMPLATE || this.isSentByBot;
       return {
         center: isCentered,
-        left: isLeftAligned,
+        //left: isLeftAligned,
         right: isRightAligned,
         'has-context-menu': this.showContextMenu,
         // this handles the offset required to align the context menu button
@@ -440,7 +439,7 @@ export default {
     bubbleClass() {
       return {
         bubble: this.isBubble,
-        'is-private': this.data.private && !this.sender.name.toLowerCase().includes("bot"),
+        'is-private': this.data.private && !this.isSentByBot,
         'is-unsupported': this.isUnsupported,
         'is-image': this.hasMediaAttachment('image'),
         'is-video': this.hasMediaAttachment('video'),
