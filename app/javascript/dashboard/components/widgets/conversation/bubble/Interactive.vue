@@ -1,6 +1,6 @@
 <template>
   <div
-    class="message-text__wrap">
+    class="message-text__wrap interactive-message">
     <img
       v-if="hasHeader && isHeaderImage"
       class="bg-woot-200 dark:bg-woot-900"
@@ -50,9 +50,7 @@ export default {
     }   
   },
   methods: {
-      loadItems() {
-        
-        console.log(this.message);
+      loadItems() {                
                 
         if (this.message?.startsWith('{'))
         {
@@ -134,6 +132,10 @@ export default {
   .interactive-label {
     display: inline;
     color: white;
+  }
+
+  .interactive-message{
+    white-space: pre !important;
   }
 
   img {
