@@ -357,7 +357,7 @@ export default {
     alignBubble() {
       const { message_type: messageType } = this.data;
       const isCentered = messageType === MESSAGE_TYPE.ACTIVITY;
-      const isLeftAligned = messageType === MESSAGE_TYPE.INCOMING;
+      const isLeftAligned = messageType === MESSAGE_TYPE.INCOMING && !this.isSentByBot;
       const isRightAligned =
         messageType === MESSAGE_TYPE.OUTGOING ||
         messageType === MESSAGE_TYPE.TEMPLATE || this.isSentByBot;

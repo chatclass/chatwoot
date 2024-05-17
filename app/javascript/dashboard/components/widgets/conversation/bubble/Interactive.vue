@@ -51,7 +51,7 @@ export default {
   },
   methods: {
       loadItems() {
-
+        
         console.log(this.message);
                 
         if (this.message?.startsWith('{'))
@@ -80,7 +80,7 @@ export default {
         {
           let buttons = [];
 
-          this.text = this.message?.split("Buttons block titled")[1].split("with ")[0];
+          this.text = this.message?.split("Buttons block titled")[1].split("with ")[0].replaceAll("/n", "<br>");
           
           this.message?.split("Buttons:")[1].split(",").forEach(function (title) {
             buttons.push({
