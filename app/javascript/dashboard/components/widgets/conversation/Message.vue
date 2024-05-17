@@ -358,9 +358,9 @@ export default {
       const { message_type: messageType } = this.data;
       const isCentered = messageType === MESSAGE_TYPE.ACTIVITY;
       const isLeftAligned = messageType === MESSAGE_TYPE.INCOMING && !this.isSentByBot;
-      const isRightAligned =
+      const isRightAligned = this.isSentByBot ||
         messageType === MESSAGE_TYPE.OUTGOING ||
-        messageType === MESSAGE_TYPE.TEMPLATE || !this.isSentByBot;
+        messageType === MESSAGE_TYPE.TEMPLATE;
       return {
         center: isCentered,
         left: isLeftAligned,
