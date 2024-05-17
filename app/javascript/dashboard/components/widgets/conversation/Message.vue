@@ -355,6 +355,7 @@ export default {
       return `https://twitter.com/${screenName}`;
     },
     alignBubble() {
+      console.log(this.isSentByBot);
       const { message_type: messageType } = this.data;
       const isCentered = messageType === MESSAGE_TYPE.ACTIVITY;
       const isLeftAligned = messageType === MESSAGE_TYPE.INCOMING && !this.isSentByBot;

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="message-text__wrap interactive-message">
+    class="message-text__wrap">
     <img
       v-if="hasHeader && isHeaderImage"
       class="bg-woot-200 dark:bg-woot-900"
@@ -78,7 +78,7 @@ export default {
         {
           let buttons = [];
 
-          this.text = this.message?.split("Buttons block titled")[1].split("with ")[0].replaceAll("/n", "<br>");
+          this.text = this.message?.split("Buttons block titled")[1].split("with ")[0];
           
           this.message?.split("Buttons:")[1].split(",").forEach(function (title) {
             buttons.push({
@@ -121,9 +121,9 @@ export default {
     font-weight: bold;
   }
 
-  .interactive-text {
-    font-weight: bold;
-  }
+  .interactive-text {    
+    white-space: pre !important;
+  }  
 
   .interactive-row {
     display: inline;
@@ -132,11 +132,7 @@ export default {
   .interactive-label {
     display: inline;
     color: white;
-  }
-
-  .interactive-message{
-    white-space: pre !important;
-  }
+  }  
 
   img {
     margin-bottom:7px !important;
