@@ -360,10 +360,10 @@ export default {
       const isLeftAligned = messageType === MESSAGE_TYPE.INCOMING && !this.isSentByBot;
       const isRightAligned =
         messageType === MESSAGE_TYPE.OUTGOING ||
-        messageType === MESSAGE_TYPE.TEMPLATE || this.isSentByBot;
+        messageType === MESSAGE_TYPE.TEMPLATE || !this.isSentByBot;
       return {
         center: isCentered,
-        //left: isLeftAligned,
+        left: isLeftAligned,
         right: isRightAligned,
         'has-context-menu': this.showContextMenu,
         // this handles the offset required to align the context menu button
