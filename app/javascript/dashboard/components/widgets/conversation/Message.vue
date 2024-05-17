@@ -360,7 +360,7 @@ export default {
       const isLeftAligned = messageType === MESSAGE_TYPE.INCOMING;
       const isRightAligned =
         messageType === MESSAGE_TYPE.OUTGOING ||
-        messageType === MESSAGE_TYPE.TEMPLATE;
+        messageType === MESSAGE_TYPE.TEMPLATE || this.isSentByBot;
       return {
         center: isCentered,
         left: isLeftAligned,
@@ -439,7 +439,7 @@ export default {
     bubbleClass() {
       return {
         bubble: this.isBubble,
-        'is-private': this.data.private,
+        'is-private': this.data.private && !this.sender.name.toLowerCase().includes("bot"),
         'is-unsupported': this.isUnsupported,
         'is-image': this.hasMediaAttachment('image'),
         'is-video': this.hasMediaAttachment('video'),
